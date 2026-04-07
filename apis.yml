@@ -10,9 +10,9 @@ type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
   - API Platform
-  - Utility APIs
-  - Document Conversion
   - Data Processing
+  - Document Conversion
+  - Utility APIs
 url: >-
   https://raw.githubusercontent.com/api-evangelist/apyhub/refs/heads/main/apis.yml
 created: '2025-01-08'
@@ -28,9 +28,9 @@ apis:
     humanURL: https://apyhub.com/
     baseURL: https://api.apyhub.com
     tags:
-      - Utility APIs
-      - Document Conversion
       - Data Processing
+      - Document Conversion
+      - Utility APIs
     properties:
       - type: Documentation
         url: https://apyhub.com/docs
