@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apyhub/main/json-structure/conversion-request-structure.json",
+  "title": "ConversionRequest",
+  "description": "A document or data conversion request to the ApyHub API",
+  "type": "record",
+  "fields": [
+    {
+      "name": "requestId",
+      "type": "string",
+      "description": "Unique conversion request identifier"
+    },
+    {
+      "name": "type",
+      "type": "string",
+      "description": "Conversion operation type"
+    },
+    {
+      "name": "inputUrl",
+      "type": "string",
+      "description": "Input file URL"
+    },
+    {
+      "name": "outputFormat",
+      "type": "string",
+      "description": "Desired output format"
+    },
+    {
+      "name": "status",
+      "type": "string",
+      "description": "Conversion status"
+    },
+    {
+      "name": "outputUrl",
+      "type": "string",
+      "description": "Output file URL"
+    },
+    {
+      "name": "createdAt",
+      "type": "string",
+      "description": "Creation timestamp"
+    }
+  ]
+}

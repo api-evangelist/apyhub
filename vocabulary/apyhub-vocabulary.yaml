@@ -1,0 +1,118 @@
+vocabulary: "1.0.0"
+
+info:
+  provider: ApyHub
+  description: >-
+    Vocabulary for the ApyHub utility API platform, covering document conversion,
+    PDF generation, data extraction, image processing, and currency exchange APIs
+    for developer productivity and application integration.
+  created: "2026-04-19"
+  modified: "2026-04-19"
+
+operational:
+  apis:
+    - name: ApyHub API
+      namespace: apyhub
+      version: "1.0.0"
+      baseUrl: "https://api.apyhub.com"
+      status: active
+
+  resources:
+    - name: convert
+      description: Document and data conversion operations
+      api: ApyHub API
+      actions:
+        - convert
+    - name: generate
+      description: Document generation from templates
+      api: ApyHub API
+      actions:
+        - generate
+    - name: extract
+      description: Data extraction from documents
+      api: ApyHub API
+      actions:
+        - extract
+    - name: currency
+      description: Currency conversion and exchange rates
+      api: ApyHub API
+      actions:
+        - convert
+
+  actions:
+    - name: convert
+      httpMethod: POST
+      pattern: write
+    - name: generate
+      httpMethod: POST
+      pattern: write
+    - name: extract
+      httpMethod: POST
+      pattern: write
+
+  schemas:
+    core:
+      - name: ConversionRequest
+        description: A document or data conversion request with status tracking
+      - name: ConversionResult
+        description: Result of a document conversion with output URL
+      - name: CurrencyConversionResult
+        description: Currency conversion result with exchange rate
+
+  parameters:
+    identifiers:
+      - name: requestId
+        description: Unique conversion request identifier
+    filters:
+      - name: source
+        description: Source currency or format
+      - name: target
+        description: Target currency or format
+
+  enums:
+    conversionTypes:
+      - html-to-pdf
+      - word-to-pdf
+      - image-resize
+      - extract-text
+      - currency
+    conversionStatuses:
+      - pending
+      - processing
+      - completed
+      - failed
+
+  authentication:
+    schemes:
+      - type: apikey
+        description: API key via apy-token request header
+
+capability:
+  workflows:
+    - name: Document Utilities
+      description: Convert, generate, and extract data from documents using ApyHub
+      resources:
+        - convert
+        - generate
+        - extract
+  personas:
+    - name: Developer
+      description: Integrates ApyHub document utilities into web and mobile applications
+    - name: Content Manager
+      description: Uses ApyHub to generate PDFs and process documents at scale
+  domains:
+    - name: Document Conversion
+      description: Converting documents between formats (HTML to PDF, Word to PDF)
+      resources:
+        - convert
+    - name: PDF Generation
+      description: Generating PDFs from HTML templates with dynamic data
+      resources:
+        - generate
+    - name: Data Extraction
+      description: Extracting structured data from documents like PDFs
+      resources:
+        - extract
+
+  namespaces: []
+  binds: []

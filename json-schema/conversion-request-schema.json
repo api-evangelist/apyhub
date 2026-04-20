@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apyhub/main/json-schema/conversion-request-schema.json",
+  "title": "ConversionRequest",
+  "description": "A document or data conversion request to the ApyHub API",
+  "type": "object",
+  "properties": {
+    "requestId": {
+      "type": "string",
+      "description": "Unique conversion request identifier"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "pdf",
+        "html-to-pdf",
+        "word-to-pdf",
+        "image-resize",
+        "currency",
+        "extract-text"
+      ],
+      "description": "Conversion operation type"
+    },
+    "inputUrl": {
+      "type": "string",
+      "description": "URL of the input file to convert"
+    },
+    "outputFormat": {
+      "type": "string",
+      "description": "Desired output format"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "processing",
+        "completed",
+        "failed"
+      ],
+      "description": "Conversion status"
+    },
+    "outputUrl": {
+      "type": "string",
+      "description": "URL of the converted output file"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Request creation timestamp"
+    }
+  },
+  "required": [
+    "requestId",
+    "type",
+    "status"
+  ]
+}

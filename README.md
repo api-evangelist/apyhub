@@ -1,52 +1,56 @@
 # ApyHub (apyhub)
-ApyHub is an API platform that provides a collection of utility APIs for common development tasks such as document conversion, data processing, image manipulation, currency exchange, and more. It simplifies API development by offering pre-built, ready-to-use API utilities that developers can integrate into their applications quickly.
+
+ApyHub is an API platform providing a collection of utility APIs for common development tasks including PDF generation, document conversion (HTML to PDF, Word to PDF), data extraction, image manipulation, currency exchange, and more. It simplifies API development by offering pre-built, ready-to-use utilities that developers can integrate into their applications without building custom infrastructure.
 
 **URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/apyhub/refs/heads/main/apis.yml)
 
-## Scope
+## Scope of Coverage
 
-- **Type:** Index 
-- **Position:** Consuming 
-- **Access:** 3rd-Party 
+| Item | Count |
+|------|-------|
+| APIs | 1 |
+| OpenAPI Specs | 1 |
+| JSON Schemas | 1 |
+| JSON Structures | 1 |
+| Examples | 1 |
+| JSON-LD Contexts | 1 |
+| Spectral Rulesets | 1 |
+| Naftiko Capabilities | 2 |
+| Vocabularies | 1 |
 
-## Tags:
+## APIs Covered
 
- - API Platform, Utility APIs, Document Conversion, Data Processing
+- **ApyHub API** — Utility API platform for document conversion, PDF generation, data extraction, and currency exchange.
 
-## Timestamps
+## Artifacts
 
-- **Created:** 2025-01-08 
-- **Modified:** 2026-03-16 
+### OpenAPI Specifications
+- [openapi/apyhub-openapi.yaml](openapi/apyhub-openapi.yaml)
 
-## APIs
+### JSON Schemas
+- [json-schema/conversion-request-schema.json](json-schema/conversion-request-schema.json)
 
-### ApyHub API
-The ApyHub API provides access to a wide range of utility functions including PDF generation, document conversion, data extraction, image processing, and currency conversion capabilities.
+### JSON Structures
+- [json-structure/conversion-request-structure.json](json-structure/conversion-request-structure.json)
 
-**Human URL:** [https://apyhub.com/](https://apyhub.com/)
+### Examples
+- [examples/conversion-request-example.json](examples/conversion-request-example.json)
 
+### JSON-LD
+- [json-ld/apyhub-context.jsonld](json-ld/apyhub-context.jsonld)
 
-#### Tags:
+### Spectral Rules
+- [rules/apyhub-spectral-rules.yml](rules/apyhub-spectral-rules.yml)
 
- - Utility APIs, Document Conversion, Data Processing
+### Naftiko Capabilities
+- [capabilities/shared/apyhub-api.yaml](capabilities/shared/apyhub-api.yaml)
+- [capabilities/document-utilities.yaml](capabilities/document-utilities.yaml)
 
-#### Properties
-
-- [Documentation](https://apyhub.com/docs)
-- [Getting Started](https://apyhub.com/docs/getting-started)
-- [Authentication](https://apyhub.com/docs/authentication)
-
-## Common Properties
-
-- [Website](https://apyhub.com/)
-- [Documentation](https://apyhub.com/docs)
-- [Blog](https://apyhub.com/blog)
-- [Sign Up](https://apyhub.com/register)
-- [Login](https://apyhub.com/login)
-- [GitHub Organization](https://github.com/apyhub)
+### Vocabulary
+- [vocabulary/apyhub-vocabulary.yaml](vocabulary/apyhub-vocabulary.yaml)
 
 ## Maintainers
 
-**FN:** Kin Lane
+**FN:** API Evangelist
 
-**Email:** kin@apievangelist.com
+**Email:** info@apievangelist.com

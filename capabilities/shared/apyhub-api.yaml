@@ -1,0 +1,161 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: ApyHub API
+  description: >-
+    API for the ApyHub utility API platform providing document conversion, PDF
+    generation, data extraction, image processing, and currency conversion tools.
+  tags:
+    - ApyHub
+    - Document Conversion
+    - PDF Generation
+    - Data Processing
+    - Utility APIs
+  created: "2026-04-19"
+  modified: "2026-04-19"
+
+binds:
+  - namespace: env
+    keys:
+      APYHUB_API_KEY: APYHUB_API_KEY
+
+capability:
+  consumes:
+    - type: http
+      namespace: apyhub
+      baseUri: "https://api.apyhub.com"
+      description: ApyHub utility API platform
+      authentication:
+        type: apikey
+        header: apy-token
+        key: "{{APYHUB_API_KEY}}"
+      resources:
+        - name: convert-html-pdf
+          path: /convert/html/pdf
+          description: HTML to PDF conversion
+          operations:
+            - name: convert-html-to-pdf
+              method: POST
+              description: Converts HTML to PDF
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+              body:
+                type: json
+                data:
+                  url: "{{tools.url}}"
+                  filename: "{{tools.filename}}"
+
+        - name: generate-pdf
+          path: /generate/pdf
+          description: PDF generation from templates
+          operations:
+            - name: generate-pdf
+              method: POST
+              description: Generates a PDF from a template
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+              body:
+                type: json
+                data:
+                  templateUrl: "{{tools.templateUrl}}"
+                  data: "{{tools.data}}"
+
+        - name: currency-convert
+          path: /data/currency/convert
+          description: Currency conversion
+          operations:
+            - name: convert-currency
+              method: POST
+              description: Converts currency amounts
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+              body:
+                type: json
+                data:
+                  amount: "{{tools.amount}}"
+                  source: "{{tools.source}}"
+                  target: "{{tools.target}}"
+
+        - name: extract-text
+          path: /extract/text/pdf
+          description: Text extraction from PDFs
+          operations:
+            - name: extract-text-from-pdf
+              method: POST
+              description: Extracts text from a PDF
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+              body:
+                type: json
+                data:
+                  url: "{{tools.url}}"
+
+  exposes:
+    - type: mcp
+      port: 9090
+      namespace: apyhub-mcp
+      transport: http
+      tools:
+        - name: convert-html-to-pdf
+          description: Converts an HTML page or URL to a PDF document using ApyHub
+          hints:
+            readOnly: false
+            destructive: false
+          call: "apyhub.convert-html-to-pdf"
+          with:
+            url: "tools.url"
+            filename: "tools.filename"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: generate-pdf-from-template
+          description: Generates a PDF from an HTML template with dynamic data using ApyHub
+          hints:
+            readOnly: false
+            destructive: false
+          call: "apyhub.generate-pdf"
+          with:
+            templateUrl: "tools.templateUrl"
+            data: "tools.data"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: convert-currency
+          description: Converts an amount from one currency to another using current exchange rates
+          hints:
+            readOnly: false
+            idempotent: true
+          call: "apyhub.convert-currency"
+          with:
+            amount: "tools.amount"
+            source: "tools.source"
+            target: "tools.target"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: extract-pdf-text
+          description: Extracts text content from a PDF document URL
+          hints:
+            readOnly: false
+            idempotent: true
+          call: "apyhub.extract-text-from-pdf"
+          with:
+            url: "tools.url"
+          outputParameters:
+            - type: object
+              mapping: "$."

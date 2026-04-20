@@ -1,0 +1,9 @@
+{
+  "requestId": "conv-abc123",
+  "type": "html-to-pdf",
+  "inputUrl": "https://example.com/document.html",
+  "outputFormat": "pdf",
+  "status": "completed",
+  "outputUrl": "https://cdn.apyhub.com/output/conv-abc123.pdf",
+  "createdAt": "2026-04-19T10:00:00Z"
+}

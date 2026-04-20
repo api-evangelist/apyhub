@@ -1,0 +1,85 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: ApyHub Document Utilities
+  description: >-
+    Workflow capability for document processing utilities using ApyHub. Supports
+    developers and content teams generating PDFs, converting documents, extracting
+    text, and processing data without building custom infrastructure.
+  tags:
+    - ApyHub
+    - Document Processing
+    - PDF Generation
+    - Data Extraction
+    - Developer Utilities
+  created: "2026-04-19"
+  modified: "2026-04-19"
+
+binds:
+  - namespace: env
+    keys:
+      APYHUB_API_KEY: APYHUB_API_KEY
+
+capability:
+  consumes:
+    - import: apyhub
+      location: ./shared/apyhub-api.yaml
+
+  exposes:
+    - type: mcp
+      port: 9090
+      namespace: document-utils-mcp
+      transport: http
+      description: MCP server for AI-assisted document processing with ApyHub utilities.
+      tools:
+        - name: generate-invoice-pdf
+          description: Generates a PDF invoice from an HTML template with dynamic order data
+          hints:
+            readOnly: false
+            destructive: false
+          call: "apyhub.generate-pdf"
+          with:
+            templateUrl: "tools.templateUrl"
+            data: "tools.data"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: convert-webpage-to-pdf
+          description: Converts a webpage or HTML document to PDF format
+          hints:
+            readOnly: false
+            destructive: false
+          call: "apyhub.convert-html-to-pdf"
+          with:
+            url: "tools.url"
+            filename: "tools.filename"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: extract-document-text
+          description: Extracts text content from a PDF document for processing
+          hints:
+            readOnly: false
+            idempotent: true
+          call: "apyhub.extract-text-from-pdf"
+          with:
+            url: "tools.url"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: get-exchange-rate
+          description: Gets the current exchange rate and converts a currency amount
+          hints:
+            readOnly: false
+            idempotent: true
+          call: "apyhub.convert-currency"
+          with:
+            amount: "tools.amount"
+            source: "tools.source"
+            target: "tools.target"
+          outputParameters:
+            - type: object
+              mapping: "$."

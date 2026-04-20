@@ -1,0 +1,19 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "apyhub": "https://apyhub.com/vocab#",
+    "requestId": "schema:identifier",
+    "type": "schema:category",
+    "inputUrl": "schema:url",
+    "outputFormat": "schema:encodingFormat",
+    "status": "apyhub:status",
+    "outputUrl": "schema:url",
+    "createdAt": "schema:dateCreated",
+    "amount": "schema:price",
+    "source": "schema:currency",
+    "target": "schema:currency",
+    "convertedAmount": "apyhub:convertedAmount",
+    "rate": "apyhub:exchangeRate"
+  }
+}
