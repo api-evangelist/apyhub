@@ -57,11 +57,11 @@ common:
   url: https://apyhub.com/docs
 - type: Blog
   url: https://apyhub.com/blog
-- type: Sign Up
+- type: SignUp
   url: https://apyhub.com/register
 - type: Login
   url: https://apyhub.com/login
-- type: GitHub Organization
+- type: GitHubOrganization
   url: https://github.com/apyhub
 maintainers:
 - FN: Kin Lane
