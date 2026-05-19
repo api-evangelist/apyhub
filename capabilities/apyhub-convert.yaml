@@ -1,0 +1,124 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: ApyHub API — Convert
+  description: 'ApyHub API — Convert. 2 operations. Lead operation: ApyHub - Convert HTML to PDF. Self-contained Naftiko capability
+    covering one Apyhub business surface.'
+  tags:
+  - Apyhub
+  - Convert
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    APYHUB_API_KEY: APYHUB_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: apyhub-convert
+    baseUri: https://api.apyhub.com
+    description: ApyHub API — Convert business capability. Self-contained, no shared references.
+    resources:
+    - name: convert-html-pdf
+      path: /convert/html/pdf
+      operations:
+      - name: converthtmltopdf
+        method: POST
+        description: ApyHub - Convert HTML to PDF
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: convert-word-pdf
+      path: /convert/word/pdf
+      operations:
+      - name: convertwordtopdf
+        method: POST
+        description: ApyHub - Convert Word to PDF
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: apikey
+      key: apy-token
+      value: '{{env.APYHUB_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: apyhub-convert-rest
+    port: 8080
+    description: REST adapter for ApyHub API — Convert. One Spectral-compliant resource per consumed operation, prefixed with
+      /v1.
+    resources:
+    - path: /v1/convert/html/pdf
+      name: convert-html-pdf
+      description: REST surface for convert-html-pdf.
+      operations:
+      - method: POST
+        name: converthtmltopdf
+        description: ApyHub - Convert HTML to PDF
+        call: apyhub-convert.converthtmltopdf
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/convert/word/pdf
+      name: convert-word-pdf
+      description: REST surface for convert-word-pdf.
+      operations:
+      - method: POST
+        name: convertwordtopdf
+        description: ApyHub - Convert Word to PDF
+        call: apyhub-convert.convertwordtopdf
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: apyhub-convert-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for ApyHub API — Convert. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: apyhub-convert-html-pdf
+      description: ApyHub - Convert HTML to PDF
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: apyhub-convert.converthtmltopdf
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: apyhub-convert-word-pdf
+      description: ApyHub - Convert Word to PDF
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: apyhub-convert.convertwordtopdf
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

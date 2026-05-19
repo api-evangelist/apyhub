@@ -1,0 +1,82 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: ApyHub API — Generate
+  description: 'ApyHub API — Generate. 1 operations. Lead operation: ApyHub - Generate PDF. Self-contained Naftiko capability
+    covering one Apyhub business surface.'
+  tags:
+  - Apyhub
+  - Generate
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    APYHUB_API_KEY: APYHUB_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: apyhub-generate
+    baseUri: https://api.apyhub.com
+    description: ApyHub API — Generate business capability. Self-contained, no shared references.
+    resources:
+    - name: generate-pdf
+      path: /generate/pdf
+      operations:
+      - name: generatepdf
+        method: POST
+        description: ApyHub - Generate PDF
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: apikey
+      key: apy-token
+      value: '{{env.APYHUB_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: apyhub-generate-rest
+    port: 8080
+    description: REST adapter for ApyHub API — Generate. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/generate/pdf
+      name: generate-pdf
+      description: REST surface for generate-pdf.
+      operations:
+      - method: POST
+        name: generatepdf
+        description: ApyHub - Generate PDF
+        call: apyhub-generate.generatepdf
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: apyhub-generate-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for ApyHub API — Generate. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: apyhub-generate-pdf
+      description: ApyHub - Generate PDF
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: apyhub-generate.generatepdf
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

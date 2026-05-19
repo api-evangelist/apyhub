@@ -51,6 +51,8 @@ apis:
     type: Vocabulary
   description: The ApyHub API provides utility APIs for document conversion, PDF generation, data extraction, image processing, and currency exchange that developers can integrate quickly into their applications.
 common:
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/apyhub
 - type: Website
   url: https://apyhub.com/
 - type: Documentation

@@ -1,0 +1,82 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: ApyHub API — Extract
+  description: 'ApyHub API — Extract. 1 operations. Lead operation: ApyHub - Extract Text from PDF. Self-contained Naftiko
+    capability covering one Apyhub business surface.'
+  tags:
+  - Apyhub
+  - Extract
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    APYHUB_API_KEY: APYHUB_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: apyhub-extract
+    baseUri: https://api.apyhub.com
+    description: ApyHub API — Extract business capability. Self-contained, no shared references.
+    resources:
+    - name: extract-text-pdf
+      path: /extract/text/pdf
+      operations:
+      - name: extracttextfrompdf
+        method: POST
+        description: ApyHub - Extract Text from PDF
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: apikey
+      key: apy-token
+      value: '{{env.APYHUB_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: apyhub-extract-rest
+    port: 8080
+    description: REST adapter for ApyHub API — Extract. One Spectral-compliant resource per consumed operation, prefixed with
+      /v1.
+    resources:
+    - path: /v1/extract/text/pdf
+      name: extract-text-pdf
+      description: REST surface for extract-text-pdf.
+      operations:
+      - method: POST
+        name: extracttextfrompdf
+        description: ApyHub - Extract Text from PDF
+        call: apyhub-extract.extracttextfrompdf
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: apyhub-extract-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for ApyHub API — Extract. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: apyhub-extract-text-pdf
+      description: ApyHub - Extract Text from PDF
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: apyhub-extract.extracttextfrompdf
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
