@@ -1,0 +1,15 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/apyhub-openapi.yaml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: apiKeyAuth
+  type: apiKey
+  in: header
+  parameter: apy-token
+  sources:
+  - openapi/apyhub-openapi.yaml
