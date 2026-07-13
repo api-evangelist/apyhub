@@ -1,5 +1,21 @@
+# apyhub — Spectral ruleset (strengthened)
+# Plain Spectral. Existing hand-authored rules preserved; measured rules added
+# from this provider's own OpenAPI conventions by strengthen_ruleset.py,
+# then self-validated against the spec.
+#
+# Provenance:
+#   - servers-https-only: 100% of servers already https (error)
+#   - servers-expected-domain: 1/1 servers on apyhub.com
+#   - operationid-casing: camel @ 100% (n=5)
+#   - schema-properties-casing: snake @ 67% (n=9)
+#   - security: global (root) — NOT emitting operation-security-required
+#   - operation-documents-400: 100% adherence
+#   - operation-documents-401: 100% adherence
+#   - merge: kept 16 existing, added 6 measured, upgraded 0
+#   - added: servers-expected-domain, operationid-casing, schema-properties-casing, security-schemes-defined, operation-documents-400, operation-documents-401
+extends:
+  - spectral:oas
 rules:
-
   info-title-required:
     description: API title must be present
     severity: error
@@ -7,7 +23,6 @@ rules:
     then:
       field: title
       function: truthy
-
   info-version-required:
     description: API version must be specified
     severity: error
@@ -15,7 +30,6 @@ rules:
     then:
       field: version
       function: truthy
-
   info-description-required:
     description: API description should be present
     severity: warn
@@ -25,7 +39,6 @@ rules:
       function: minLength
       functionOptions:
         min: 20
-
   servers-required:
     description: At least one server must be defined
     severity: error
@@ -33,7 +46,6 @@ rules:
     then:
       field: servers
       function: truthy
-
   servers-https:
     description: Server URLs must use HTTPS
     severity: warn
@@ -42,18 +54,16 @@ rules:
       field: url
       function: pattern
       functionOptions:
-        match: "^https://"
-
+        match: ^https://
   paths-kebab-case:
     description: Path segments must use kebab-case
     severity: warn
     given: $.paths
     then:
-      field: "@key"
+      field: '@key'
       function: pattern
       functionOptions:
-        match: "^(/[a-z0-9{}/_-]+)+$"
-
+        match: ^(/[a-z0-9{}/_-]+)+$
   operation-summary-required:
     description: Every operation must have a summary
     severity: error
@@ -61,7 +71,6 @@ rules:
     then:
       field: summary
       function: truthy
-
   operation-id-required:
     description: Every operation must have an operationId
     severity: error
@@ -69,7 +78,6 @@ rules:
     then:
       field: operationId
       function: truthy
-
   operation-description-required:
     description: Every operation must have a description
     severity: warn
@@ -77,7 +85,6 @@ rules:
     then:
       field: description
       function: truthy
-
   operation-tags-required:
     description: Every operation must have at least one tag
     severity: warn
@@ -85,7 +92,6 @@ rules:
     then:
       field: tags
       function: truthy
-
   parameter-description-required:
     description: Every parameter must have a description
     severity: warn
@@ -93,7 +99,6 @@ rules:
     then:
       field: description
       function: truthy
-
   operation-success-response-required:
     description: Every operation must have a 2xx response
     severity: error
@@ -103,10 +108,12 @@ rules:
       functionOptions:
         schema:
           anyOf:
-            - required: ['200']
-            - required: ['201']
-            - required: ['204']
-
+          - required:
+            - '200'
+          - required:
+            - '201'
+          - required:
+            - '204'
   response-description-required:
     description: Every response must have a description
     severity: error
@@ -114,7 +121,6 @@ rules:
     then:
       field: description
       function: truthy
-
   schema-title-required:
     description: Component schemas should have a title
     severity: warn
@@ -122,7 +128,6 @@ rules:
     then:
       field: title
       function: truthy
-
   http-get-no-request-body:
     description: GET operations must not have a request body
     severity: error
@@ -130,7 +135,6 @@ rules:
     then:
       field: requestBody
       function: falsy
-
   no-empty-descriptions:
     description: Descriptions must not be empty strings
     severity: warn
@@ -138,4 +142,50 @@ rules:
     then:
       function: pattern
       functionOptions:
-        match: ".+"
+        match: .+
+  servers-expected-domain:
+    description: Server URLs should be on the apyhub.com domain.
+    severity: warn
+    given: $.servers[*].url
+    then:
+      function: pattern
+      functionOptions:
+        match: apyhub\.com
+  operationid-casing:
+    description: Operation IDs should be camelCase (the dominant convention in this API).
+    severity: warn
+    given: $.paths[*][get,post,put,patch,delete].operationId
+    then:
+      function: casing
+      functionOptions:
+        type: camel
+  schema-properties-casing:
+    description: Schema properties should be snake_case (the dominant convention in this API).
+    severity: info
+    given: $.components.schemas[*].properties
+    then:
+      field: '@key'
+      function: casing
+      functionOptions:
+        type: snake
+  security-schemes-defined:
+    description: Security schemes should be defined in components.
+    severity: warn
+    given: $.components
+    then:
+      field: securitySchemes
+      function: truthy
+  operation-documents-400:
+    description: Operations should document a 400 response (documented on 100% of this API's operations).
+    severity: warn
+    given: $.paths[*][get,post,put,patch,delete].responses
+    then:
+      field: '400'
+      function: truthy
+  operation-documents-401:
+    description: Operations should document a 401 response (documented on 100% of this API's operations).
+    severity: warn
+    given: $.paths[*][get,post,put,patch,delete].responses
+    then:
+      field: '401'
+      function: truthy
