@@ -1,0 +1,89 @@
+openapi: 3.0.3
+info:
+  title: ApyHub Convert Generate API
+  description: The ApyHub API provides a collection of utility APIs for common development tasks including PDF generation, document conversion (HTML to PDF, Word to PDF), data extraction, image processing, currency exchange rates, and more. Developers can integrate these pre-built utilities into their applications quickly.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/docs
+  license:
+    name: Proprietary
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apiKeyAuth: []
+tags:
+- name: Generate
+  description: Document generation utilities
+paths:
+  /generate/pdf:
+    post:
+      operationId: generatePdf
+      summary: ApyHub - Generate PDF
+      description: Generates a PDF from a template with dynamic data
+      tags:
+      - Generate
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                templateUrl:
+                  type: string
+                  description: URL of the HTML template to use for PDF generation
+                data:
+                  type: object
+                  description: Dynamic data to inject into the template
+            examples:
+              GeneratePdfExample:
+                x-microcks-default: true
+                summary: Example PDF generation request
+                value:
+                  templateUrl: https://example.com/invoice-template.html
+                  data:
+                    invoiceNumber: INV-2026-001
+                    amount: 1500.0
+                    customerName: Acme Corp
+      responses:
+        '200':
+          description: PDF generated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConversionResult'
+        '400':
+          description: Invalid template or data
+        '401':
+          description: Unauthorized - invalid or missing API key
+components:
+  schemas:
+    ConversionResult:
+      title: ConversionResult
+      description: Result of a document conversion operation
+      type: object
+      properties:
+        requestId:
+          type: string
+          description: Unique request identifier
+        status:
+          type: string
+          enum:
+          - pending
+          - processing
+          - completed
+          - failed
+          description: Conversion status
+        outputUrl:
+          type: string
+          description: URL of the converted output file
+        error:
+          type: string
+          description: Error message if the conversion failed
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: apy-token

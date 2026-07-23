@@ -1,0 +1,132 @@
+openapi: 3.0.3
+info:
+  title: ApyHub Convert API
+  description: The ApyHub API provides a collection of utility APIs for common development tasks including PDF generation, document conversion (HTML to PDF, Word to PDF), data extraction, image processing, currency exchange rates, and more. Developers can integrate these pre-built utilities into their applications quickly.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/docs
+  license:
+    name: Proprietary
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apiKeyAuth: []
+tags:
+- name: Convert
+  description: Document conversion utilities
+paths:
+  /convert/html/pdf:
+    post:
+      operationId: convertHtmlToPdf
+      summary: ApyHub - Convert HTML to PDF
+      description: Converts an HTML file or URL to a PDF document
+      tags:
+      - Convert
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                url:
+                  type: string
+                  description: URL of the HTML page or file to convert to PDF
+                filename:
+                  type: string
+                  description: Output filename for the generated PDF
+            examples:
+              ConvertHtmlExample:
+                x-microcks-default: true
+                summary: Example HTML to PDF conversion request
+                value:
+                  url: https://example.com/report.html
+                  filename: report.pdf
+      responses:
+        '200':
+          description: PDF generated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConversionResult'
+              examples:
+                ConversionResultExample:
+                  x-microcks-default: true
+                  summary: Example conversion result
+                  value:
+                    requestId: conv-abc123
+                    status: completed
+                    outputUrl: https://cdn.apyhub.com/output/report.pdf
+        '400':
+          description: Invalid request body
+        '401':
+          description: Unauthorized - invalid or missing API key
+  /convert/word/pdf:
+    post:
+      operationId: convertWordToPdf
+      summary: ApyHub - Convert Word to PDF
+      description: Converts a Word document (.docx) to PDF format
+      tags:
+      - Convert
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  description: Word document file to convert
+                filename:
+                  type: string
+                  description: Output filename for the PDF
+            examples:
+              ConvertWordExample:
+                x-microcks-default: true
+                summary: Example Word to PDF conversion
+                value:
+                  filename: converted.pdf
+      responses:
+        '200':
+          description: PDF conversion successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConversionResult'
+        '400':
+          description: Invalid file or request
+        '401':
+          description: Unauthorized - invalid or missing API key
+components:
+  schemas:
+    ConversionResult:
+      title: ConversionResult
+      description: Result of a document conversion operation
+      type: object
+      properties:
+        requestId:
+          type: string
+          description: Unique request identifier
+        status:
+          type: string
+          enum:
+          - pending
+          - processing
+          - completed
+          - failed
+          description: Conversion status
+        outputUrl:
+          type: string
+          description: URL of the converted output file
+        error:
+          type: string
+          description: Error message if the conversion failed
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: apy-token

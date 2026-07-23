@@ -1,0 +1,73 @@
+openapi: 3.0.3
+info:
+  title: ApyHub Convert Extract API
+  description: The ApyHub API provides a collection of utility APIs for common development tasks including PDF generation, document conversion (HTML to PDF, Word to PDF), data extraction, image processing, currency exchange rates, and more. Developers can integrate these pre-built utilities into their applications quickly.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/docs
+  license:
+    name: Proprietary
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apiKeyAuth: []
+tags:
+- name: Extract
+  description: Data extraction utilities
+paths:
+  /extract/text/pdf:
+    post:
+      operationId: extractTextFromPdf
+      summary: ApyHub - Extract Text from PDF
+      description: Extracts text content from a PDF document
+      tags:
+      - Extract
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                url:
+                  type: string
+                  description: URL of the PDF file to extract text from
+            examples:
+              ExtractTextExample:
+                x-microcks-default: true
+                summary: Example text extraction request
+                value:
+                  url: https://example.com/document.pdf
+      responses:
+        '200':
+          description: Text extracted successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  text:
+                    type: string
+                    description: Extracted text content
+                  pages:
+                    type: integer
+                    description: Number of pages in the PDF
+              examples:
+                ExtractResultExample:
+                  x-microcks-default: true
+                  summary: Example text extraction result
+                  value:
+                    text: This is the extracted text from the PDF document...
+                    pages: 5
+        '400':
+          description: Invalid PDF URL or file
+        '401':
+          description: Unauthorized - invalid or missing API key
+components:
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: apy-token

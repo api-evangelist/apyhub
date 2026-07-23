@@ -1,0 +1,98 @@
+openapi: 3.0.3
+info:
+  title: ApyHub Convert Currency API
+  description: The ApyHub API provides a collection of utility APIs for common development tasks including PDF generation, document conversion (HTML to PDF, Word to PDF), data extraction, image processing, currency exchange rates, and more. Developers can integrate these pre-built utilities into their applications quickly.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/docs
+  license:
+    name: Proprietary
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apiKeyAuth: []
+tags:
+- name: Currency
+  description: Currency conversion utilities
+paths:
+  /data/currency/convert:
+    post:
+      operationId: convertCurrency
+      summary: ApyHub - Convert Currency
+      description: Converts an amount from one currency to another using current exchange rates
+      tags:
+      - Currency
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                amount:
+                  type: number
+                  description: Amount to convert
+                source:
+                  type: string
+                  description: Source currency code (e.g., USD)
+                target:
+                  type: string
+                  description: Target currency code (e.g., EUR)
+            examples:
+              CurrencyConvertExample:
+                x-microcks-default: true
+                summary: Example currency conversion request
+                value:
+                  amount: 100.0
+                  source: USD
+                  target: EUR
+      responses:
+        '200':
+          description: Currency conversion result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CurrencyConversionResult'
+              examples:
+                CurrencyResultExample:
+                  x-microcks-default: true
+                  summary: Example currency conversion result
+                  value:
+                    amount: 100.0
+                    source: USD
+                    target: EUR
+                    convertedAmount: 92.45
+                    rate: 0.9245
+        '400':
+          description: Invalid currency codes or amount
+        '401':
+          description: Unauthorized - invalid or missing API key
+components:
+  schemas:
+    CurrencyConversionResult:
+      title: CurrencyConversionResult
+      description: Result of a currency conversion operation
+      type: object
+      properties:
+        amount:
+          type: number
+          description: Original amount
+        source:
+          type: string
+          description: Source currency code
+        target:
+          type: string
+          description: Target currency code
+        convertedAmount:
+          type: number
+          description: Converted amount in target currency
+        rate:
+          type: number
+          description: Exchange rate used for the conversion
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: apy-token
