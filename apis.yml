@@ -7,7 +7,20 @@ description: >-
   offering pre-built, ready-to-use API utilities that developers can integrate
   into their applications quickly.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/apyhub.png
 tags:
   - API Platform
   - Data Processing
@@ -19,37 +32,114 @@ created: '2025-01-08'
 modified: '2026-04-19'
 specificationVersion: '0.19'
 apis:
-  - aid: apyhub:apyhub-api
-    name: ApyHub API
-    tags:
-    - Document Conversion
-    - PDF Generation
-    - Data Processing
-    - Utility APIs
-    - Currency
-    humanURL: https://apyhub.com/
-    properties:
-    - url: https://apyhub.com/docs
-      type: Documentation
-    - url: openapi/apyhub-openapi.yaml
-      type: OpenAPI
-    - url: json-schema/conversion-request-schema.json
-      type: JSONSchema
-    - url: json-structure/conversion-request-structure.json
-      type: JSONStructure
-    - url: examples/conversion-request-example.json
-      type: Examples
-    - url: json-ld/apyhub-context.jsonld
-      type: JSONLD
-    - url: rules/apyhub-spectral-rules.yml
-      type: SpectralRules
-    - url: capabilities/shared/apyhub-api.yaml
-      type: X-NaftikoCapability
-    - url: capabilities/document-utilities.yaml
-      type: X-NaftikoCapability
-    - url: vocabulary/apyhub-vocabulary.yaml
-      type: Vocabulary
-    description: The ApyHub API provides utility APIs for document conversion, PDF generation, data extraction, image processing, and currency exchange that developers can integrate quickly into their applications.
+- aid: apyhub:apyhub-convert-api
+  name: ApyHub Convert API
+  description: Document conversion utilities
+  humanURL: https://apyhub.com/
+  tags:
+  - Convert
+  properties:
+  - type: OpenAPI
+    url: openapi/apyhub-convert-api-openapi.yml
+  - type: Documentation
+    url: https://apyhub.com/docs
+  - type: JSONSchema
+    url: json-schema/conversion-request-schema.json
+  - type: JSONStructure
+    url: json-structure/conversion-request-structure.json
+  - type: Examples
+    url: examples/conversion-request-example.json
+  - type: JSONLD
+    url: json-ld/apyhub-context.jsonld
+  - type: SpectralRules
+    url: rules/apyhub-spectral-rules.yml
+  - type: X-NaftikoCapability
+    url: capabilities/shared/apyhub-api.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/document-utilities.yaml
+  - type: Vocabulary
+    url: vocabulary/apyhub-vocabulary.yaml
+- aid: apyhub:apyhub-currency-api
+  name: ApyHub Currency API
+  description: Currency conversion utilities
+  humanURL: https://apyhub.com/
+  tags:
+  - Currency
+  properties:
+  - type: OpenAPI
+    url: openapi/apyhub-currency-api-openapi.yml
+  - type: Documentation
+    url: https://apyhub.com/docs
+  - type: JSONSchema
+    url: json-schema/conversion-request-schema.json
+  - type: JSONStructure
+    url: json-structure/conversion-request-structure.json
+  - type: Examples
+    url: examples/conversion-request-example.json
+  - type: JSONLD
+    url: json-ld/apyhub-context.jsonld
+  - type: SpectralRules
+    url: rules/apyhub-spectral-rules.yml
+  - type: X-NaftikoCapability
+    url: capabilities/shared/apyhub-api.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/document-utilities.yaml
+  - type: Vocabulary
+    url: vocabulary/apyhub-vocabulary.yaml
+- aid: apyhub:apyhub-extract-api
+  name: ApyHub Extract API
+  description: Data extraction utilities
+  humanURL: https://apyhub.com/
+  tags:
+  - Extract
+  properties:
+  - type: OpenAPI
+    url: openapi/apyhub-extract-api-openapi.yml
+  - type: Documentation
+    url: https://apyhub.com/docs
+  - type: JSONSchema
+    url: json-schema/conversion-request-schema.json
+  - type: JSONStructure
+    url: json-structure/conversion-request-structure.json
+  - type: Examples
+    url: examples/conversion-request-example.json
+  - type: JSONLD
+    url: json-ld/apyhub-context.jsonld
+  - type: SpectralRules
+    url: rules/apyhub-spectral-rules.yml
+  - type: X-NaftikoCapability
+    url: capabilities/shared/apyhub-api.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/document-utilities.yaml
+  - type: Vocabulary
+    url: vocabulary/apyhub-vocabulary.yaml
+- aid: apyhub:apyhub-generate-api
+  name: ApyHub Generate API
+  description: Document generation utilities
+  humanURL: https://apyhub.com/
+  tags:
+  - Generate
+  properties:
+  - type: OpenAPI
+    url: openapi/apyhub-generate-api-openapi.yml
+  - type: Documentation
+    url: https://apyhub.com/docs
+  - type: JSONSchema
+    url: json-schema/conversion-request-schema.json
+  - type: JSONStructure
+    url: json-structure/conversion-request-structure.json
+  - type: Examples
+    url: examples/conversion-request-example.json
+  - type: JSONLD
+    url: json-ld/apyhub-context.jsonld
+  - type: SpectralRules
+    url: rules/apyhub-spectral-rules.yml
+  - type: X-NaftikoCapability
+    url: capabilities/shared/apyhub-api.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/document-utilities.yaml
+  - type: Vocabulary
+    url: vocabulary/apyhub-vocabulary.yaml
 common:
   - type: AgenticAccess
     url: agentic-access/apyhub-agentic-access.yml
