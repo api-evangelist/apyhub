@@ -1,0 +1,20 @@
+{
+  "provider": "apyhub",
+  "sources": [
+    "apyhub-convert-api-openapi.yml",
+    "apyhub-currency-api-openapi.yml",
+    "apyhub-extract-api-openapi.yml",
+    "apyhub-generate-api-openapi.yml"
+  ],
+  "outputs": [
+    "apyhub-convert-api-openapi.yml",
+    "apyhub-currency-api-openapi.yml",
+    "apyhub-extract-api-openapi.yml",
+    "apyhub-generate-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
