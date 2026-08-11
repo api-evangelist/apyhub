@@ -53,10 +53,6 @@ apis:
     url: json-ld/apyhub-context.jsonld
   - type: SpectralRules
     url: rules/apyhub-spectral-rules.yml
-  - type: X-NaftikoCapability
-    url: capabilities/shared/apyhub-api.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/document-utilities.yaml
   - type: Vocabulary
     url: vocabulary/apyhub-vocabulary.yaml
 - aid: apyhub:apyhub-currency-api
@@ -80,10 +76,6 @@ apis:
     url: json-ld/apyhub-context.jsonld
   - type: SpectralRules
     url: rules/apyhub-spectral-rules.yml
-  - type: X-NaftikoCapability
-    url: capabilities/shared/apyhub-api.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/document-utilities.yaml
   - type: Vocabulary
     url: vocabulary/apyhub-vocabulary.yaml
 - aid: apyhub:apyhub-extract-api
@@ -107,10 +99,6 @@ apis:
     url: json-ld/apyhub-context.jsonld
   - type: SpectralRules
     url: rules/apyhub-spectral-rules.yml
-  - type: X-NaftikoCapability
-    url: capabilities/shared/apyhub-api.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/document-utilities.yaml
   - type: Vocabulary
     url: vocabulary/apyhub-vocabulary.yaml
 - aid: apyhub:apyhub-generate-api
@@ -134,10 +122,6 @@ apis:
     url: json-ld/apyhub-context.jsonld
   - type: SpectralRules
     url: rules/apyhub-spectral-rules.yml
-  - type: X-NaftikoCapability
-    url: capabilities/shared/apyhub-api.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/document-utilities.yaml
   - type: Vocabulary
     url: vocabulary/apyhub-vocabulary.yaml
 common:
