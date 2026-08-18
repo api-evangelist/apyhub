@@ -1,0 +1,57 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/extract-text-from-word).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Extract Text from Word API
+  description: Extract plain text from .doc or .docx files by URL or upload. Returns a single text field
+    for indexing, search, and document workflows.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/extract-text-from-word
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Data Extraction
+- name: Developer Tools
+- name: File Conversion
+paths:
+  /extract/text/word-url:
+    post:
+      operationId: postExtractTextWordUrl
+      summary: Extract Text from Word API
+      description: Extracts text from a Word document located at a remote URL and returns the extracted
+        t
+      tags: &id001
+      - Data Extraction
+      - Developer Tools
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 60
+  /extract/text/word-file:
+    post:
+      operationId: postExtractTextWordFile
+      summary: Extract Text from Word API
+      description: Uploads a Word document and extracts its text content. The response returns the extrac
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 60
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

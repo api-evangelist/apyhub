@@ -1,0 +1,60 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/sharpapi/service/related-job-positions-generator).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Related Job Positions Generator API
+  description: Generate related job titles from a role name. Submit a position, poll for results, and
+    get weighted suggestions for recruiting or job search.
+  version: 1.0.0
+  contact:
+    name: SharpAPI
+    url: https://apyhub.com/sharpapi/service/related-job-positions-generator
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: HR
+- name: Smart Generation
+paths:
+  /sharpapi/api/v1/hr/related_job_positions:
+    post:
+      operationId: postSharpapiApiV1HrRelatedJobPositions
+      summary: Related Job Positions Generator API
+      description: Submits an asynchronous job to generate related job positions from a provided job role
+      tags: &id001
+      - HR
+      - Smart Generation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /sharpapi/api/v1/hr/related_job_positions/job/status/{job_id}:
+    get:
+      operationId: getSharpapiApiV1HrRelatedJobPositionsJobStatusJobId
+      summary: Related Job Positions Generator API
+      description: Checks the status of a previously submitted related job positions generation job using
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 1
+      parameters:
+      - name: job_id
+        in: path
+        required: true
+        schema:
+          type: string
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

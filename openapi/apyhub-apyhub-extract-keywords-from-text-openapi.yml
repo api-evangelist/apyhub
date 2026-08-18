@@ -1,0 +1,43 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/extract-keywords-from-text).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: AI Text Keyword Extraction API
+  description: Extract keywords from plain text for tagging, search, and content analysis. Supports ApyHub
+    or Azure results with optional language selection.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/extract-keywords-from-text
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Artificial Intelligence
+- name: SEO
+paths:
+  /ai/text/extract/keywords:
+    post:
+      operationId: postAiTextExtractKeywords
+      summary: AI Text Keyword Extraction API
+      description: Extract keywords from text Extracts keywords from the text you provide in the request
+        body. You can
+      tags:
+      - Artificial Intelligence
+      - SEO
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

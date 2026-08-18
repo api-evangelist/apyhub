@@ -1,0 +1,79 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/create-zip).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Generate Archives API
+  description: Bundle uploaded files or remote URLs into a ZIP. Get a streamed ZIP download or a signed
+    link, with optional output file naming.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/create-zip
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: File Conversion
+- name: File Manipulation
+paths:
+  /generate/archive/files/archive-file:
+    post:
+      operationId: postGenerateArchiveFilesArchiveFile
+      summary: Generate Archives API
+      description: Creates a ZIP archive from the uploaded files and streams the resulting download back
+      tags: &id001
+      - File Conversion
+      - File Manipulation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 150
+  /generate/archive/files/archive-url:
+    post:
+      operationId: postGenerateArchiveFilesArchiveUrl
+      summary: Generate Archives API
+      description: Creates a ZIP archive from the uploaded files and returns a signed link to the generat
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 150
+  /generate/archive/file-urls/archive-file:
+    post:
+      operationId: postGenerateArchiveFileUrlsArchiveFile
+      summary: Generate Archives API
+      description: Creates a ZIP archive from one or more remote file URLs and streams the archive back
+        i
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 150
+  /generate/archive/file-urls/archive-url:
+    post:
+      operationId: postGenerateArchiveFileUrlsArchiveUrl
+      summary: Generate Archives API
+      description: Creates a ZIP archive from one or more remote file URLs and returns a signed URL where
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 150
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

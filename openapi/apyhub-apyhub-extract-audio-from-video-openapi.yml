@@ -1,0 +1,81 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/extract-audio-from-video).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Audio Extractor from Video API
+  description: Extract audio from a video upload or URL as binary output or a signed download link. Choose
+    segment length, start time, and audio format.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/extract-audio-from-video
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Audio Processing
+- name: File Conversion
+- name: File Manipulation
+paths:
+  /extract/video/audio/file:
+    post:
+      operationId: postExtractVideoAudioFile
+      summary: Audio Extractor from Video API
+      description: Uploads a video file and returns the extracted audio as a binary file download. You
+        ca
+      tags: &id001
+      - Audio Processing
+      - File Conversion
+      - File Manipulation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 550
+  /extract/video/audio/file/url:
+    post:
+      operationId: postExtractVideoAudioFileUrl
+      summary: Audio Extractor from Video API
+      description: Extracts audio from an uploaded video and returns a JSON object containing a time-limi
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 550
+  /extract/video/audio/url/file:
+    post:
+      operationId: postExtractVideoAudioUrlFile
+      summary: Audio Extractor from Video API
+      description: Extracts audio from a video provided by URL and returns the resulting audio as a binar
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 550
+  /extract/video/audio/url:
+    post:
+      operationId: postExtractVideoAudioUrl
+      summary: Audio Extractor from Video API
+      description: Extracts the audio track from a video provided by URL and returns a time-limited signe
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 550
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

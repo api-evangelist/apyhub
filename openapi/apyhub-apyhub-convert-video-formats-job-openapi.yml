@@ -1,0 +1,73 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/convert-video-formats-job).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Convert Video Formats Job API
+  description: Convert uploaded videos or video URLs into mp4, mkv, avi, mov, flv, 3gp, or webm. Track
+    jobs with a job ID and status response.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/convert-video-formats-job
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: File Conversion
+- name: File Manipulation
+paths:
+  /job/convert/video/file:
+    post:
+      operationId: postJobConvertVideoFile
+      summary: Convert Video Formats Job API
+      description: Submits a video file for format conversion and starts an asynchronous job. The request
+      tags: &id001
+      - File Conversion
+      - File Manipulation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 400
+  /job/convert/video/url:
+    post:
+      operationId: postJobConvertVideoUrl
+      summary: Convert Video Formats Job API
+      description: Submits a video format conversion job using a source video URL and a target output
+        for
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 400
+  /job/convert/video/status/{job_id}:
+    get:
+      operationId: getJobConvertVideoStatusJobId
+      summary: Convert Video Formats Job API
+      description: Checks the status of a video format conversion job using its jobid. The response retur
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 5
+      parameters:
+      - name: job_id
+        in: path
+        required: true
+        schema:
+          type: string
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

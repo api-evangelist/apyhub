@@ -1,0 +1,81 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/convert-heic-heif-to-jpeg-or-png).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Convert HEIC to JPEG/PNG API
+  description: Convert HEIC and HEIF images to JPEG or PNG from a file upload or public URL. Get a binary
+    download or a signed URL for the converted image.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/convert-heic-heif-to-jpeg-or-png
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: File Conversion
+- name: File Manipulation
+paths:
+  /convert/image/heic/jpeg-png/file:
+    post:
+      operationId: postConvertImageHeicJpegPngFile
+      summary: Convert HEIC to JPEG/PNG API
+      description: Converts an uploaded HEIC/HEIF image to a downloadable JPEG or PNG file. The converted
+      tags: &id001
+      - File Conversion
+      - File Manipulation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 300
+  /convert/image/heic/jpeg-png/file/url:
+    post:
+      operationId: postConvertImageHeicJpegPngFileUrl
+      summary: Convert HEIC to JPEG/PNG API
+      description: Uploads a HEIC/HEIF image as multipart form data and returns a signed URL pointing
+        to
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 300
+  /convert/image/heic/jpeg-png/url/file:
+    post:
+      operationId: postConvertImageHeicJpegPngUrlFile
+      summary: Convert HEIC to JPEG/PNG API
+      description: Converts a HEIC/HEIF image fetched from a public URL into a downloadable JPEG or PNG
+        f
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 300
+  /convert/image/heic/jpeg-png/url:
+    post:
+      operationId: postConvertImageHeicJpegPngUrl
+      summary: Convert HEIC to JPEG/PNG API
+      description: Converts a HEIC/HEIF image fetched from a public URL into a JPEG or PNG and returns
+        a
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 300
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

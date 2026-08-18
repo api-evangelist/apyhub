@@ -1,0 +1,105 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/convert-pdf-to-powerpoint).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Convert PDF to PowerPoint API
+  description: Convert PDFs to PPTX from a file upload, public URL, or base64 input. Get a downloadable
+    presentation file or a download_url.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/convert-pdf-to-powerpoint
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: File Conversion
+- name: File Manipulation
+paths:
+  /convert/pdf/ppt/sync/base64/url:
+    post:
+      operationId: postConvertPdfPptSyncBase64Url
+      summary: Convert PDF to PowerPoint API
+      description: Converts a PDF provided as a base64-encoded string into a PowerPoint file and returns
+      tags: &id001
+      - File Conversion
+      - File Manipulation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 150
+  /convert/pdf/ppt/sync/file/download:
+    post:
+      operationId: postConvertPdfPptSyncFileDownload
+      summary: Convert PDF to PowerPoint API
+      description: Uploads a PDF file and returns the converted PowerPoint file as a binary download.
+        Req
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 150
+  /convert/pdf/ppt/sync/file/url:
+    post:
+      operationId: postConvertPdfPptSyncFileUrl
+      summary: Convert PDF to PowerPoint API
+      description: Converts an uploaded PDF file into a PowerPoint presentation and returns a download
+        UR
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 150
+  /convert/pdf/ppt/sync/url/download:
+    post:
+      operationId: postConvertPdfPptSyncUrlDownload
+      summary: Convert PDF to PowerPoint API
+      description: Converts a PDF available at a public URL into a PowerPoint file and returns the result
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 150
+  /convert/pdf/ppt/sync/url/url:
+    post:
+      operationId: postConvertPdfPptSyncUrlUrl
+      summary: Convert PDF to PowerPoint API
+      description: Converts a PDF available at a URL into a PowerPoint file and returns a JSON object
+        con
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 150
+  /convert/pdf/ppt/sync/base64/download:
+    post:
+      operationId: postConvertPdfPptSyncBase64Download
+      summary: Convert PDF to PowerPoint API
+      description: Converts a PDF provided as base64-encoded content into a downloadable PowerPoint file.
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 150
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

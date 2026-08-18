@@ -1,0 +1,56 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/validate-file-type).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Validate File Type API
+  description: Validate uploaded files or file URLs against their extension and MIME type. Get the detected
+    type, validity flag, and a clear mismatch message.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/validate-file-type
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Data Validation
+- name: Developer Tools
+- name: File Security
+paths:
+  /validate/file:
+    post:
+      operationId: postValidateFile
+      summary: Validate File Type API
+      description: Validates an uploaded file by comparing the detected file type against the file extens
+      tags: &id001
+      - Data Validation
+      - Developer Tools
+      - File Security
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 25
+  /validate/file/url:
+    post:
+      operationId: postValidateFileUrl
+      summary: Validate File Type API
+      description: Validates a file accessible from a URL by inspecting the downloaded file and comparing
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 25
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

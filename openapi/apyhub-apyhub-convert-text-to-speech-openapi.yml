@@ -1,0 +1,110 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/convert-text-to-speech).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Convert Text to Speech API
+  description: Convert text, file uploads, or document URLs into MP3 audio. Get a binary download or a
+    signed link with male or female voice selection.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/convert-text-to-speech
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Audio Processing
+- name: File Conversion
+- name: Smart Generation
+paths:
+  /tts/file:
+    post:
+      operationId: postTtsFile
+      summary: Convert Text to Speech API
+      description: Uploads a document file and a selected voice gender, then returns the generated MP3
+        au
+      tags: &id001
+      - Audio Processing
+      - File Conversion
+      - Smart Generation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 750
+  /tts/file/url:
+    post:
+      operationId: postTtsFileUrl
+      summary: Convert Text to Speech API
+      description: Converts the text content from an uploaded document into speech and returns a signed
+        M
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 750
+  /tts/text/file:
+    post:
+      operationId: postTtsTextFile
+      summary: Convert Text to Speech API
+      description: Converts the provided text into an MP3 file download. You send the text and a voice
+        ge
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 750
+  /tts/text/url:
+    post:
+      operationId: postTtsTextUrl
+      summary: Convert Text to Speech API
+      description: Converts the submitted JSON text into a speech audio file and returns a signed MP3
+        lin
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 750
+  /tts/url/file:
+    post:
+      operationId: postTtsUrlFile
+      summary: Convert Text to Speech API
+      description: Converts the text content of a document available at a URL into an MP3 audio file.
+        The
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 750
+  /tts/url:
+    post:
+      operationId: postTtsUrl
+      summary: Convert Text to Speech API
+      description: Extracts text from a document URL and returns a signed MP3 link. You send a document
+        u
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 750
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

@@ -1,0 +1,78 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/compress-video).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Compress Video File API
+  description: Compress videos from an upload or URL and return a file or signed download link. Set compression
+    percentage to shrink media for storage or delivery.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/compress-video
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: File Conversion
+- name: File Manipulation
+paths:
+  /compress/video/file:
+    post:
+      operationId: postCompressVideoFile
+      summary: Compress Video File API
+      description: Uploads a video file and returns the compressed video as a binary file in the response
+      tags: &id001
+      - File Conversion
+      - File Manipulation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 550
+  /compress/video/file/url:
+    post:
+      operationId: postCompressVideoFileUrl
+      summary: Compress Video File API
+      description: Uploads a video file and returns a time-limited signed URL for downloading the compres
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 550
+  /compress/video/url/file:
+    post:
+      operationId: postCompressVideoUrlFile
+      summary: Compress Video File API
+      description: Compresses a video from a provided URL and returns the compressed file as binary conte
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 550
+  /compress/video/url:
+    post:
+      operationId: postCompressVideoUrl
+      summary: Compress Video File API
+      description: Compresses a video from a provided URL and returns a time-limited signed download URL
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 550
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

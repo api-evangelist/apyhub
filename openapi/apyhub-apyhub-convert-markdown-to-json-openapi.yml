@@ -1,0 +1,147 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/convert-markdown-to-json).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Convert Markdown to JSON API
+  description: Convert raw Markdown, files, or URLs into JSON. Get inline output, a downloadable JSON
+    file, or a signed S3 URL for document pipelines.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/convert-markdown-to-json
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Data Extraction
+- name: Developer Tools
+- name: File Conversion
+paths:
+  /convert/md-file/json-raw:
+    post:
+      operationId: postConvertMdFileJsonRaw
+      summary: Convert Markdown to JSON API
+      description: Uploads a Markdown file and converts it to JSON, returning the result inline as an
+        arr
+      tags: &id001
+      - Data Extraction
+      - Developer Tools
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/md-raw/json-url:
+    post:
+      operationId: postConvertMdRawJsonUrl
+      summary: Convert Markdown to JSON API
+      description: Converts raw Markdown content into JSON and returns a signed S3 URL where the generate
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/md-url/json-file:
+    post:
+      operationId: postConvertMdUrlJsonFile
+      summary: Convert Markdown to JSON API
+      description: Converts a Markdown document fetched from a URL into a JSON file and returns it as
+        a d
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/md-url/json-url:
+    post:
+      operationId: postConvertMdUrlJsonUrl
+      summary: Convert Markdown to JSON API
+      description: Converts a Markdown file fetched from a remote URL into JSON and returns a signed S3
+        U
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/md-file/json-url:
+    post:
+      operationId: postConvertMdFileJsonUrl
+      summary: Convert Markdown to JSON API
+      description: Converts an uploaded Markdown file into JSON and returns a signed S3 URL where the
+        gen
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/md-raw/json-file:
+    post:
+      operationId: postConvertMdRawJsonFile
+      summary: Convert Markdown to JSON API
+      description: Converts raw Markdown content into a JSON file download. You send the Markdown text
+        in
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/md-raw/json-raw:
+    post:
+      operationId: postConvertMdRawJsonRaw
+      summary: Convert Markdown to JSON API
+      description: Converts raw Markdown text into JSON. The request body is a Markdown string, and the
+        r
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/md-url/json-raw:
+    post:
+      operationId: postConvertMdUrlJsonRaw
+      summary: Convert Markdown to JSON API
+      description: Converts a Markdown file accessible at a URL into a JSON response. The request sends
+        t
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/md-file/json-file:
+    post:
+      operationId: postConvertMdFileJsonFile
+      summary: Convert Markdown to JSON API
+      description: Converts an uploaded Markdown file into a downloadable JSON file containing the parsed
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

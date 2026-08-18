@@ -1,0 +1,42 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/list-all-currencies).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Currencies Dictionary API
+  description: Currency Directory gives you a complete list of currencies with their ISO 4217 code, English
+    name, emoji, and symbol. Send a GET request and receive a data array of currency objects. Each item
+    includes key for the currency code, value for the currency name, emoji, and symbol. The respo
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/list-all-currencies
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Uncategorized
+paths:
+  /data/dictionary/currency:
+    get:
+      operationId: getDataDictionaryCurrency
+      summary: Currencies Dictionary API
+      description: Returns a JSON object containing a data array of currency objects. Each item in the
+        ar
+      tags:
+      - Uncategorized
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 5
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

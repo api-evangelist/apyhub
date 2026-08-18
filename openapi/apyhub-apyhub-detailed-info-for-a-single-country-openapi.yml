@@ -1,0 +1,40 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/detailed-info-for-a-single-country).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Country Information API
+  description: Lookup a country by ISO 3166-1 alpha-2 code and get its name, alpha-3 code, currency, calling
+    codes, and subdivisions.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/detailed-info-for-a-single-country
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Standard Data
+paths:
+  /data/info/country:
+    get:
+      operationId: getDataInfoCountry
+      summary: Country Information API
+      description: Returns detailed information for a single country identified by its country code passe
+      tags:
+      - Standard Data
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 5
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

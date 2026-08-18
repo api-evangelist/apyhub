@@ -1,0 +1,42 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/namastesumalya/service/generate-newsletter-digest).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Extract and Generate Editorial Digest from Multiple Web Pages API
+  description: Summarize multiple URLs into one digest with sources, a summary, and key takeaways. Useful
+    for newsletter workflows, research briefs, and content review.
+  version: 1.0.0
+  contact:
+    name: Sumalya APIs
+    url: https://apyhub.com/namastesumalya/service/generate-newsletter-digest
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Marketing
+- name: Smart Generation
+paths:
+  /namastesumalya/api/digest:
+    post:
+      operationId: postNamastesumalyaApiDigest
+      summary: Extract and Generate Editorial Digest from Multiple Web Pages API
+      description: Generates a newsletter digest from multiple web pages you provide as URLs. The respons
+      tags:
+      - Marketing
+      - Smart Generation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 1000
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

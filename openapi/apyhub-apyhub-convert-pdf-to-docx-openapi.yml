@@ -1,0 +1,106 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/convert-pdf-to-docx).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Convert PDF to Word API
+  description: Convert PDFs to editable DOCX from a file, URL, or base64 content. Returns a DOCX download
+    or S3 download_url for document workflows.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/convert-pdf-to-docx
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: File Conversion
+- name: File Manipulation
+paths:
+  /convert/pdf/docx/sync/base64/download:
+    post:
+      operationId: postConvertPdfDocxSyncBase64Download
+      summary: Convert PDF to Word API
+      description: Converts a PDF provided as base64-encoded content into a downloadable DOCX file. The
+        r
+      tags: &id001
+      - File Conversion
+      - File Manipulation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 150
+  /convert/pdf/docx/sync/base64/url:
+    post:
+      operationId: postConvertPdfDocxSyncBase64Url
+      summary: Convert PDF to Word API
+      description: Converts a PDF provided as Base64-encoded content into a DOCX file and returns a downl
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 150
+  /convert/pdf/docx/sync/file/download:
+    post:
+      operationId: postConvertPdfDocxSyncFileDownload
+      summary: Convert PDF to Word API
+      description: Converts an uploaded PDF file into a DOCX file and returns the generated file as a
+        bin
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 150
+  /convert/pdf/docx/sync/file/url:
+    post:
+      operationId: postConvertPdfDocxSyncFileUrl
+      summary: Convert PDF to Word API
+      description: Converts an uploaded PDF file into a DOCX file and returns a download URL for the gene
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 150
+  /convert/pdf/docx/sync/url/download:
+    post:
+      operationId: postConvertPdfDocxSyncUrlDownload
+      summary: Convert PDF to Word API
+      description: Converts a publicly accessible PDF at the supplied URL into a DOCX file and returns
+        th
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 150
+  /convert/pdf/docx/sync/url/url:
+    post:
+      operationId: postConvertPdfDocxSyncUrlUrl
+      summary: Convert PDF to Word API
+      description: Converts a PDF available at a public URL into a DOCX file. The request sends the PDF
+        U
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 150
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

@@ -1,0 +1,42 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/chisleroff/service/security-headers-audit).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Security Headers Audit API
+  description: Audit a webpage URL for CSP, HSTS, X-Content-Type-Options, Referrer-Policy, and X-Frame-Options.
+    Get a score and header flags for quick security checks.
+  version: 1.0.0
+  contact:
+    name: Website Intelligence
+    url: https://apyhub.com/chisleroff/service/security-headers-audit
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Security & Privacy
+- name: SEO
+paths:
+  /chisleroff/intel/headers:
+    post:
+      operationId: postChisleroffIntelHeaders
+      summary: Security Headers Audit API
+      description: Audits the security headers present on the webpage at the given URL and returns a JSON
+      tags:
+      - Security & Privacy
+      - SEO
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

@@ -1,0 +1,61 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/sharpapi/service/detect-phone-numbers).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Detect Phones Numbers API
+  description: Detect phone numbers in free-form text and poll job status for parsed_number and detected_number
+    results. Useful for cleanup and validation workflows.
+  version: 1.0.0
+  contact:
+    name: SharpAPI
+    url: https://apyhub.com/sharpapi/service/detect-phone-numbers
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Data Validation
+- name: Developer Tools
+paths:
+  /sharpapi/api/v1/content/detect_phones:
+    post:
+      operationId: postSharpapiApiV1ContentDetectPhones
+      summary: Detect Phones Numbers API
+      description: Submits an asynchronous job to detect phone numbers from the provided content. The
+        res
+      tags: &id001
+      - Data Validation
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /sharpapi/api/v1/content/detect_phones/job/status/{job_id}:
+    get:
+      operationId: getSharpapiApiV1ContentDetectPhonesJobStatusJobId
+      summary: Detect Phones Numbers API
+      description: Returns the current status of a Detect Phone Numbers job identified by jobid. The resp
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 1
+      parameters:
+      - name: job_id
+        in: path
+        required: true
+        schema:
+          type: string
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

@@ -1,0 +1,53 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/generate-pie-chart).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Generate Pie Chart API
+  description: Generate pie chart images from labeled values, optional colors, and chart styling. Returns
+    a pre-signed URL or binary image for dashboards and reports.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/generate-pie-chart
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Smart Generation
+paths:
+  /generate/charts/pie/url:
+    post:
+      operationId: postGenerateChartsPieUrl
+      summary: Generate Pie Chart API
+      description: Generates a pie chart and returns a pre-signed URL for the rendered chart image. The
+        r
+      tags: &id001
+      - Smart Generation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 60
+  /generate/charts/pie/file:
+    post:
+      operationId: postGenerateChartsPieFile
+      summary: Generate Pie Chart API
+      description: Generates a pie chart image from the chart configuration in the request body and retur
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 60
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

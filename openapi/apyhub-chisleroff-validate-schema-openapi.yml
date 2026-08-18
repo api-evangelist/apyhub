@@ -1,0 +1,45 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/chisleroff/service/validate-schema).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Validate Schema API
+  description: Validate structured data on a URL and retrieve JSON-LD, microdata, meta tags, Open Graph,
+    Twitter cards, and a validation summary.
+  version: 1.0.0
+  contact:
+    name: Website Intelligence
+    url: https://apyhub.com/chisleroff/service/validate-schema
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Data Extraction
+- name: Data Validation
+- name: SEO
+paths:
+  /chisleroff/seo/structured-data:
+    post:
+      operationId: postChisleroffSeoStructuredData
+      summary: Validate Schema API
+      description: Validates structured data found on a webpage URL and returns the extracted metadata
+        an
+      tags:
+      - Data Extraction
+      - Data Validation
+      - SEO
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

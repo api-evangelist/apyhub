@@ -1,0 +1,79 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/mp3-to-wav-conversion).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Convert MP3 to WAV API
+  description: Convert MP3 files or public audio URLs to WAV. Get the result as a binary download or a
+    signed URL for audio workflows and processing.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/mp3-to-wav-conversion
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Audio Processing
+- name: File Conversion
+paths:
+  /convert/audio/mp3-file/wav-file:
+    post:
+      operationId: postConvertAudioMp3FileWavFile
+      summary: Convert MP3 to WAV API
+      description: Converts an uploaded MP3 file to WAV format and returns the converted file as a binary
+      tags: &id001
+      - Audio Processing
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+  /convert/audio/mp3-file/wav-url:
+    post:
+      operationId: postConvertAudioMp3FileWavUrl
+      summary: Convert MP3 to WAV API
+      description: Converts an uploaded MP3 audio file to WAV format using a multipart request. The respo
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+  /convert/audio/mp3-url/wav-file:
+    post:
+      operationId: postConvertAudioMp3UrlWavFile
+      summary: Convert MP3 to WAV API
+      description: Converts an audio file from a publicly accessible URL into WAV format and returns the
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+  /convert/audio/mp3-url/wav-url:
+    post:
+      operationId: postConvertAudioMp3UrlWavUrl
+      summary: Convert MP3 to WAV API
+      description: Converts an audio file available at a URL into a WAV file. You send the source file
+        UR
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

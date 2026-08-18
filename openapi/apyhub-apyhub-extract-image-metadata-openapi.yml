@@ -1,0 +1,55 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/extract-image-metadata).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Extract Image Metadata API
+  description: Extract ExifTool metadata from an uploaded image or image URL. Get format, size, dimensions,
+    MIME type, and other file details in JSON.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/extract-image-metadata
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Data Extraction
+- name: File Manipulation
+paths:
+  /processor/image/metadata/file:
+    post:
+      operationId: postProcessorImageMetadataFile
+      summary: Extract Image Metadata API
+      description: Uploads an image file and returns extracted ExifTool metadata as JSON. The request
+        bod
+      tags: &id001
+      - Data Extraction
+      - File Manipulation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 30
+  /processor/image/metadata/file-urls:
+    post:
+      operationId: postProcessorImageMetadataFileUrls
+      summary: Extract Image Metadata API
+      description: Downloads the image at the provided public URL and returns extracted ExifTool metadata
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 30
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

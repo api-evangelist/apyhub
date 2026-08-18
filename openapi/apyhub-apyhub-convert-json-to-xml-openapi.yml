@@ -1,0 +1,144 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/convert-json-to-xml).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Convert JSON to XML API
+  description: Convert raw JSON, uploaded files, or JSON URLs into XML. Get a raw XML string, downloadable
+    .xml file, or pre-signed S3 link.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/convert-json-to-xml
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Developer Tools
+- name: File Conversion
+paths:
+  /convert/json-file/xml-raw:
+    post:
+      operationId: postConvertJsonFileXmlRaw
+      summary: Convert JSON to XML API
+      description: Converts an uploaded JSON file into a raw XML string. The request uploads a JSON file,
+      tags: &id001
+      - Developer Tools
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/json-file/xml-url:
+    post:
+      operationId: postConvertJsonFileXmlUrl
+      summary: Convert JSON to XML API
+      description: Converts an uploaded JSON file into an XML file and returns a pre-signed S3 URL for
+        th
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/json-raw/xml-raw:
+    post:
+      operationId: postConvertJsonRawXmlRaw
+      summary: Convert JSON to XML API
+      description: Converts the raw JSON request body into a raw XML string. The endpoint accepts any
+        non
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/json-file/xml-file:
+    post:
+      operationId: postConvertJsonFileXmlFile
+      summary: Convert JSON to XML API
+      description: Converts an uploaded JSON file into a downloadable XML file. The request uploads the
+        J
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/json-raw/xml-file:
+    post:
+      operationId: postConvertJsonRawXmlFile
+      summary: Convert JSON to XML API
+      description: Converts the raw JSON object sent in the request body into an XML file and returns
+        the
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/json-raw/xml-url:
+    post:
+      operationId: postConvertJsonRawXmlUrl
+      summary: Convert JSON to XML API
+      description: Converts the raw JSON request body into an XML file and returns a pre-signed S3 URL
+        wh
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/json-url/xml-file:
+    post:
+      operationId: postConvertJsonUrlXmlFile
+      summary: Convert JSON to XML API
+      description: Converts a JSON resource available at a public URL into a downloadable .xml file. The
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/json-url/xml-raw:
+    post:
+      operationId: postConvertJsonUrlXmlRaw
+      summary: Convert JSON to XML API
+      description: Converts the JSON resource located at the provided URL into a raw XML string. The requ
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/json-url/xml-url:
+    post:
+      operationId: postConvertJsonUrlXmlUrl
+      summary: Convert JSON to XML API
+      description: Converts the JSON document available at a publicly accessible URL into an XML file
+        and
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

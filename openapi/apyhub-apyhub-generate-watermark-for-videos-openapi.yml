@@ -1,0 +1,81 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/generate-watermark-for-videos).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Generate Watermark For Videos API
+  description: Add text or image watermarks to uploaded videos or remote video URLs. Returns a processed
+    video download or a signed link for the result.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/generate-watermark-for-videos
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: File Conversion
+- name: File Manipulation
+paths:
+  /generate/video/watermark/url/file:
+    post:
+      operationId: postGenerateVideoWatermarkUrlFile
+      summary: Generate Watermark For Videos API
+      description: Applies a watermark to a video fetched from a remote URL, then streams the processed
+        v
+      tags: &id001
+      - File Conversion
+      - File Manipulation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 550
+  /generate/video/watermark/url:
+    post:
+      operationId: postGenerateVideoWatermarkUrl
+      summary: Generate Watermark For Videos API
+      description: Applies a watermark to a remote video URL and returns a signed URL for the processed
+        v
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 550
+  /generate/video/watermark/file:
+    post:
+      operationId: postGenerateVideoWatermarkFile
+      summary: Generate Watermark For Videos API
+      description: Applies a watermark to an uploaded video and returns the resulting video as a streamed
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 550
+  /generate/video/watermark/file/url:
+    post:
+      operationId: postGenerateVideoWatermarkFileUrl
+      summary: Generate Watermark For Videos API
+      description: Applies a watermark to an uploaded video and returns a signed URI for the processed
+        vi
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 550
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

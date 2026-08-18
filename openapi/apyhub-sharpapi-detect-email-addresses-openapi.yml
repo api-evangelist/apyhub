@@ -1,0 +1,63 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/sharpapi/service/detect-email-addresses).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Detect Email Address API
+  description: Extract email addresses from text with an async job flow. Submit content, then poll for
+    a result array of detected email strings.
+  version: 1.0.0
+  contact:
+    name: SharpAPI
+    url: https://apyhub.com/sharpapi/service/detect-email-addresses
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Data Extraction
+- name: Data Validation
+- name: Developer Tools
+paths:
+  /sharpapi/api/v1/content/detect_emails:
+    post:
+      operationId: postSharpapiApiV1ContentDetectEmails
+      summary: Detect Email Address API
+      description: Submits an asynchronous job to detect email addresses from the provided content. The
+        r
+      tags: &id001
+      - Data Extraction
+      - Data Validation
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /sharpapi/api/v1/content/detect_emails/job/status/{job_id}:
+    get:
+      operationId: getSharpapiApiV1ContentDetectEmailsJobStatusJobId
+      summary: Detect Email Address API
+      description: Retrieves the current status of a Detect Emails job by its job ID. The response return
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 1
+      parameters:
+      - name: job_id
+        in: path
+        required: true
+        schema:
+          type: string
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

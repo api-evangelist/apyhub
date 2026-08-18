@@ -1,0 +1,81 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/crop-image).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Crop Images API
+  description: Crop raster images by URL or file upload and get a binary file or signed download link.
+    Use box crops or margin insets for thumbnails and asset prep.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/crop-image
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: File Manipulation
+- name: Image Processing
+paths:
+  /processor/image/crop/file-urls:
+    post:
+      operationId: postProcessorImageCropFileUrls
+      summary: Crop Images API
+      description: Crops an image fetched from a URL and returns a signed URL for the cropped result.
+        Use
+      tags: &id001
+      - File Manipulation
+      - Image Processing
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 30
+  /processor/image/crop/file:
+    post:
+      operationId: postProcessorImageCropFile
+      summary: Crop Images API
+      description: Crops an uploaded image and returns the resulting file as binary data. You can crop
+        by
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 30
+  /processor/image/crop/file/url:
+    post:
+      operationId: postProcessorImageCropFileUrl
+      summary: Crop Images API
+      description: Crops an uploaded raster image and returns a time-limited pre-signed URL to the stored
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 30
+  /processor/image/crop/url/file:
+    post:
+      operationId: postProcessorImageCropUrlFile
+      summary: Crop Images API
+      description: Crops an image fetched from a URL and returns the resulting file as binary data. The
+        r
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 30
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

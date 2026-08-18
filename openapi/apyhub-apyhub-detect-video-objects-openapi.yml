@@ -1,0 +1,55 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/detect-video-objects).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: AI Video Object Detection API
+  description: Detect objects from a video file or URL using Azure or Google routes. Returns provider-specific
+    results under data for media review and indexing.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/detect-video-objects
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Artificial Intelligence
+- name: Image Processing
+paths:
+  /ai/video/detect/object/file:
+    post:
+      operationId: postAiVideoDetectObjectFile
+      summary: AI Video Object Detection API
+      description: Uploads a video file and runs object detection using either Azure or Google, based
+        on
+      tags: &id001
+      - Artificial Intelligence
+      - Image Processing
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+  /ai/video/detect/object/url:
+    post:
+      operationId: postAiVideoDetectObjectUrl
+      summary: AI Video Object Detection API
+      description: Detects objects in a video provided by URL and returns a JSON object with a data objec
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

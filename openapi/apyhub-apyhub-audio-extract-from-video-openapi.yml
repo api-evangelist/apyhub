@@ -1,0 +1,76 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/audio-extract-from-video).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Audio Extractor from Video Job API
+  description: Extract audio from a video URL or file into mp3, wav, aac, ogg, flac, wma, or ac3. Poll
+    a job_id to get the output URL when it finishes.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/audio-extract-from-video
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Audio Processing
+- name: File Conversion
+- name: File Manipulation
+paths:
+  /job/extract/video/audio/url:
+    post:
+      operationId: postJobExtractVideoAudioUrl
+      summary: Audio Extractor from Video Job API
+      description: Submits an async job to extract audio from a video at a source URL. It returns a job
+        i
+      tags: &id001
+      - Audio Processing
+      - File Conversion
+      - File Manipulation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 400
+  /job/extract/video/audio/file:
+    post:
+      operationId: postJobExtractVideoAudioFile
+      summary: Audio Extractor from Video Job API
+      description: Submits a multipart video file for audio extraction and starts an asynchronous job.
+        Th
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 400
+  /job/extract/video/audio/status/{job_id}:
+    get:
+      operationId: getJobExtractVideoAudioStatusJobId
+      summary: Audio Extractor from Video Job API
+      description: Checks the status of an audio extraction job submitted earlier and returns the current
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 5
+      parameters:
+      - name: job_id
+        in: path
+        required: true
+        schema:
+          type: string
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

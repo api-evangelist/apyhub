@@ -1,0 +1,42 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/validate-vat-number).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Validate EU VAT API
+  description: Validate a VAT number from the request body and get a boolean result in data. Useful for
+    checking customer or supplier tax IDs before billing or storage.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/validate-vat-number
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Data Validation
+- name: Finance
+paths:
+  /validate/vat:
+    post:
+      operationId: postValidateVat
+      summary: Validate EU VAT API
+      description: Validates a VAT number submitted in the request body and returns a boolean result indi
+      tags:
+      - Data Validation
+      - Finance
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

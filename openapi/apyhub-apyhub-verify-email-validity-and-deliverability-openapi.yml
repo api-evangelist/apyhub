@@ -1,0 +1,44 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/verify-email-validity-and-deliverability).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Validate Email DNS API (Including Disposable Emails)
+  description: Check whether an email address is valid and deliverable. Screen signups and lead lists
+    with an optional disposable-domain check.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/verify-email-validity-and-deliverability
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Communications
+- name: Data Validation
+- name: Marketing
+paths:
+  /validate/email/dns:
+    post:
+      operationId: postValidateEmailDns
+      summary: Validate Email DNS API (Including Disposable Emails)
+      description: Verifies whether an email address is valid and deliverable. The request sends an email
+      tags:
+      - Communications
+      - Data Validation
+      - Marketing
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 25
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

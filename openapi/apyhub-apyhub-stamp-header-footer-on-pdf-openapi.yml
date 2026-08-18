@@ -1,0 +1,77 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/stamp-header-footer-on-pdf).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Apply Watermark and Footers on PDF API
+  description: Add headers and footers to PDFs from a URL or file upload. Return a stamped PDF as a binary
+    file or signed URL, with text or PNG image support.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/stamp-header-footer-on-pdf
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: File Manipulation
+paths:
+  /stamp/pdf/watermark-footers/url:
+    post:
+      operationId: postStampPdfWatermarkFootersUrl
+      summary: Apply Watermark and Footers on PDF API
+      description: Fetches a PDF from a URL, stamps a header and/or footer onto it, and returns a signed
+      tags: &id001
+      - File Manipulation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 200
+  /stamp/pdf/watermark-footers/file:
+    post:
+      operationId: postStampPdfWatermarkFootersFile
+      summary: Apply Watermark and Footers on PDF API
+      description: Uploads a PDF file and returns the stamped PDF as a binary file download. You provide
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 200
+  /stamp/pdf/watermark-footers/file/url:
+    post:
+      operationId: postStampPdfWatermarkFootersFileUrl
+      summary: Apply Watermark and Footers on PDF API
+      description: Stamps a header and/or footer onto an uploaded PDF file and returns a JSON object cont
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 200
+  /stamp/pdf/watermark-footers/url/file:
+    post:
+      operationId: postStampPdfWatermarkFootersUrlFile
+      summary: Apply Watermark and Footers on PDF API
+      description: Stamps a PDF fetched from a URL with header and/or footer content, then streams the
+        pr
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 200
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

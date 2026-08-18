@@ -1,0 +1,40 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/convert-currency-pair-for-date).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Convert Currency API
+  description: Get the exchange rate for a source and target currency pair on a given date. Useful for
+    pricing, reporting, and historical FX checks.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/convert-currency-pair-for-date
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Finance
+paths:
+  /data/convert/currency:
+    post:
+      operationId: postDataConvertCurrency
+      summary: Convert Currency API
+      description: Converts a currency pair for a given date by taking a source currency, a target curren
+      tags:
+      - Finance
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 5
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

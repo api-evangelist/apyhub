@@ -1,0 +1,101 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/convert-html-to-pdf).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Convert HTML to PDF API
+  description: Convert HTML from a URL, base64 string, or file upload into PDF bytes or a signed link.
+    Useful for invoices, reports, and printable web pages.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/convert-html-to-pdf
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: File Conversion
+paths:
+  /convert/html-url/pdf-url:
+    post:
+      operationId: postConvertHtmlUrlPdfUrl
+      summary: Convert HTML to PDF API
+      description: Converts a remote HTML file at the given URL into a PDF and returns a signed PDF link.
+      tags: &id001
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+  /convert/html-base64/pdf-file:
+    post:
+      operationId: postConvertHtmlBase64PdfFile
+      summary: Convert HTML to PDF API
+      description: Converts a base64-encoded HTML file into a PDF and returns the PDF as a download. The
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+  /convert/html-base64/pdf-url:
+    post:
+      operationId: postConvertHtmlBase64PdfUrl
+      summary: Convert HTML to PDF API
+      description: Converts a base64-encoded HTML file into a PDF and returns a signed link to the genera
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+  /convert/html-file/pdf-file:
+    post:
+      operationId: postConvertHtmlFilePdfFile
+      summary: Convert HTML to PDF API
+      description: Uploads an HTML file and returns the generated PDF as a binary download. Query Paramet
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+  /convert/html-file/pdf-url:
+    post:
+      operationId: postConvertHtmlFilePdfUrl
+      summary: Convert HTML to PDF API
+      description: Converts an uploaded HTML file into a PDF and returns a signed link to the generated
+        P
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+  /convert/html-url/pdf-file:
+    post:
+      operationId: postConvertHtmlUrlPdfFile
+      summary: Convert HTML to PDF API
+      description: Converts a remote HTML file accessible by URL into a PDF download. The request accepts
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

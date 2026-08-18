@@ -1,0 +1,81 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/merge-files-to-pdf).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Merge Files to PDF API
+  description: Merge uploaded files or public file URLs into a single PDF. Returns a PDF download or an
+    S3 URL for documents, images, spreadsheets, and more.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/merge-files-to-pdf
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: File Conversion
+- name: File Manipulation
+paths:
+  /convert/files/pdf/url/download:
+    post:
+      operationId: postConvertFilesPdfUrlDownload
+      summary: Merge Files to PDF API
+      description: Converts the files referenced by the provided URLs into PDF format and merges them
+        int
+      tags: &id001
+      - File Conversion
+      - File Manipulation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 150
+  /convert/files/pdf/url/url:
+    post:
+      operationId: postConvertFilesPdfUrlUrl
+      summary: Merge Files to PDF API
+      description: Converts the files referenced by the provided URLs into PDF and merges them into a
+        sin
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 150
+  /convert/files/pdf/file/download:
+    post:
+      operationId: postConvertFilesPdfFileDownload
+      summary: Merge Files to PDF API
+      description: Converts one or more uploaded files to PDF and merges them into a single downloadable
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 150
+  /convert/files/pdf/file/url:
+    post:
+      operationId: postConvertFilesPdfFileUrl
+      summary: Merge Files to PDF API
+      description: Converts uploaded files into a single PDF and returns a URL to the generated file.
+        The
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 150
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

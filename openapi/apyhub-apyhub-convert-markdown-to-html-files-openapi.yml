@@ -1,0 +1,81 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/convert-markdown-to-html-files).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Convert Markdown to HTML files API
+  description: Convert Markdown files or Markdown URLs into HTML downloads or signed links. Useful for
+    docs, changelogs, and static publishing workflows.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/convert-markdown-to-html-files
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Developer Tools
+- name: File Conversion
+paths:
+  /convert/md-file/html-file:
+    post:
+      operationId: postConvertMdFileHtmlFile
+      summary: Convert Markdown to HTML files API
+      description: Converts an uploaded Markdown file to HTML and returns the generated file as a binary
+      tags: &id001
+      - Developer Tools
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/md-file/html-url:
+    post:
+      operationId: postConvertMdFileHtmlUrl
+      summary: Convert Markdown to HTML files API
+      description: Converts an uploaded Markdown file into an HTML file and returns a signed URL to the
+        g
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/md-url/html-file:
+    post:
+      operationId: postConvertMdUrlHtmlFile
+      summary: Convert Markdown to HTML files API
+      description: Converts a remote Markdown file fetched from a URL into an HTML file for download.
+        You
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/md-url/html-url:
+    post:
+      operationId: postConvertMdUrlHtmlUrl
+      summary: Convert Markdown to HTML files API
+      description: Converts a remote Markdown file, identified by its URL, into a signed HTML file URL.
+        T
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

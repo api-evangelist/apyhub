@@ -1,0 +1,57 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/detect-video-text).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: AI Video Text Detection API
+  description: Extract text from video URLs or uploads using Azure or Google. Returns provider-specific
+    results for OCR workflows, indexing, and review.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/detect-video-text
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Artificial Intelligence
+- name: Data Extraction
+- name: Image Processing
+paths:
+  /ai/video/detect/text/url:
+    post:
+      operationId: postAiVideoDetectTextUrl
+      summary: AI Video Text Detection API
+      description: Detects text in a video fetched from a URL. You send the video url and choose the OCR
+      tags: &id001
+      - Artificial Intelligence
+      - Data Extraction
+      - Image Processing
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+  /ai/video/detect/text/file:
+    post:
+      operationId: postAiVideoDetectTextFile
+      summary: AI Video Text Detection API
+      description: Uploads a video file and runs text detection using either Azure or Google, depending
+        o
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

@@ -1,0 +1,40 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/check-whether-an-email-belongs-to-an-aca).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Validate Academic Email API
+  description: Check whether an email belongs to an academic institution. Returns a boolean for education
+    access, sign-up gating, and affiliation checks.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/check-whether-an-email-belongs-to-an-aca
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Uncategorized
+paths:
+  /validate/email/academic:
+    post:
+      operationId: postValidateEmailAcademic
+      summary: Validate Academic Email API
+      description: Checks whether the submitted email address belongs to an academic institution and retu
+      tags:
+      - Uncategorized
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 15
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

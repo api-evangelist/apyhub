@@ -1,0 +1,72 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/generate-gif-from-video).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Generate GIF from Video Job API
+  description: Convert a video URL or file into a GIF job and poll for a download URL. Adjust size, speed,
+    duration, and start time for the clip you need.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/generate-gif-from-video
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: File Conversion
+- name: File Manipulation
+paths:
+  /job/generate/gif/url:
+    post:
+      operationId: postJobGenerateGifUrl
+      summary: Generate GIF from Video Job API
+      description: Submits a video-to-GIF conversion job using a source video URL and returns a job ident
+      tags: &id001
+      - File Conversion
+      - File Manipulation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 400
+  /job/generate/gif/file:
+    post:
+      operationId: postJobGenerateGifFile
+      summary: Generate GIF from Video Job API
+      description: Submits a video file to start an async job that generates a GIF from the uploaded vide
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 400
+  /job/generate/gif/status/{job_id}:
+    get:
+      operationId: getJobGenerateGifStatusJobId
+      summary: Generate GIF from Video Job API
+      description: Checks the status of a GIF conversion job by job ID and returns the job’s current stat
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 5
+      parameters:
+      - name: job_id
+        in: path
+        required: true
+        schema:
+          type: string
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

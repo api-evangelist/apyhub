@@ -1,0 +1,80 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/generate-video-thumbnail).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Generate Video Thumbnail API
+  description: Trim a short clip from an uploaded video or a remote video URL. Get binary output or a
+    signed link for previews, samples, and media workflows.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/generate-video-thumbnail
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: File Conversion
+- name: File Manipulation
+paths:
+  /generate/video-thumbnail/file:
+    post:
+      operationId: postGenerateVideoThumbnailFile
+      summary: Generate Video Thumbnail API
+      description: Trims a segment from an uploaded video file and streams the resulting download back
+        as
+      tags: &id001
+      - File Conversion
+      - File Manipulation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 550
+  /generate/video-thumbnail/file/url:
+    post:
+      operationId: postGenerateVideoThumbnailFileUrl
+      summary: Generate Video Thumbnail API
+      description: Trims a short clip from an uploaded video and returns a signed URL to the generated
+        fi
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 550
+  /generate/video-thumbnail/url/file:
+    post:
+      operationId: postGenerateVideoThumbnailUrlFile
+      summary: Generate Video Thumbnail API
+      description: Trims a video clip from a remote URL and streams the resulting file as a binary downlo
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 550
+  /generate/video-thumbnail/url:
+    post:
+      operationId: postGenerateVideoThumbnailUrl
+      summary: Generate Video Thumbnail API
+      description: Creates a trimmed video clip from a remote video URL and returns a signed URI for the
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 550
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

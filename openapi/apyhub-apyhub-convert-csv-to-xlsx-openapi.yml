@@ -1,0 +1,76 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/convert-csv-to-xlsx).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Convert CSV to Excel API
+  description: Convert uploaded CSV files or CSV URLs into XLSX. Get either a streamed download or a signed
+    link for spreadsheet workflows.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/convert-csv-to-xlsx
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: File Conversion
+paths:
+  /convert/csv-file/excel-file:
+    post:
+      operationId: postConvertCsvFileExcelFile
+      summary: Convert CSV to Excel API
+      description: Converts an uploaded CSV file into an XLSX file and streams the resulting spreadsheet
+      tags: &id001
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/csv-file/excel-url:
+    post:
+      operationId: postConvertCsvFileExcelUrl
+      summary: Convert CSV to Excel API
+      description: Converts an uploaded CSV file into an XLSX file and returns a signed link to the conve
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/csv-url/excel-file:
+    post:
+      operationId: postConvertCsvUrlExcelFile
+      summary: Convert CSV to Excel API
+      description: Converts a remote CSV file referenced by a URL into an XLSX file and returns the resul
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/csv-url/excel-url:
+    post:
+      operationId: postConvertCsvUrlExcelUrl
+      summary: Convert CSV to Excel API
+      description: Converts a CSV file available at a remote URL into an XLSX file, then returns a signed
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

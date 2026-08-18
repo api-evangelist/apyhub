@@ -1,0 +1,145 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/convert-xml-to-csv).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Convert XML to CSV API
+  description: Convert XML from a raw body, file upload, or URL into CSV text, a downloadable file, or
+    a signed URL. Useful for feeds and ETL pipelines.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/convert-xml-to-csv
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Data Extraction
+- name: Developer Tools
+- name: File Conversion
+paths:
+  /convert/xml-url/csv-raw:
+    post:
+      operationId: postConvertXmlUrlCsvRaw
+      summary: Convert XML to CSV API
+      description: Converts the XML file available at the provided URL into CSV and returns the result
+        as
+      tags: &id001
+      - Data Extraction
+      - Developer Tools
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/xml-url/csv-file:
+    post:
+      operationId: postConvertXmlUrlCsvFile
+      summary: Convert XML to CSV API
+      description: Converts an XML file available at a public URL into a downloadable CSV file. The reque
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/xml-file/csv-file:
+    post:
+      operationId: postConvertXmlFileCsvFile
+      summary: Convert XML to CSV API
+      description: Converts an uploaded XML file into a downloadable CSV file. The request sends the XML
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/xml-raw/csv-raw:
+    post:
+      operationId: postConvertXmlRawCsvRaw
+      summary: Convert XML to CSV API
+      description: Converts a raw XML request body into CSV text. The endpoint accepts XML as a string
+        in
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/xml-url/csv-url:
+    post:
+      operationId: postConvertXmlUrlCsvUrl
+      summary: Convert XML to CSV API
+      description: Converts an XML file available at a public URL into a CSV file and returns a pre-signe
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/xml-file/csv-raw:
+    post:
+      operationId: postConvertXmlFileCsvRaw
+      summary: Convert XML to CSV API
+      description: Converts an uploaded XML file into CSV text. The request body must include a binary
+        fi
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/xml-file/csv-url:
+    post:
+      operationId: postConvertXmlFileCsvUrl
+      summary: Convert XML to CSV API
+      description: Converts an uploaded XML file into a CSV file and returns a pre-signed S3 URL for the
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/xml-raw/csv-file:
+    post:
+      operationId: postConvertXmlRawCsvFile
+      summary: Convert XML to CSV API
+      description: Converts a raw XML request body into a downloadable CSV file. The XML is sent in the
+        r
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/xml-raw/csv-url:
+    post:
+      operationId: postConvertXmlRawCsvUrl
+      summary: Convert XML to CSV API
+      description: Converts a raw XML request body into a CSV file and returns a pre-signed S3 URL for
+        do
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

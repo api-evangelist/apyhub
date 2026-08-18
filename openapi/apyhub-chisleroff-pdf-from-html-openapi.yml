@@ -1,0 +1,45 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/chisleroff/service/pdf-from-html).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Convert and Format raw HTML to PDF API
+  description: Convert raw HTML into a PDF file with page size, margins, orientation, and background control.
+    Useful for invoices, reports, and document exports.
+  version: 1.0.0
+  contact:
+    name: Website Intelligence
+    url: https://apyhub.com/chisleroff/service/pdf-from-html
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: File Conversion
+- name: File Manipulation
+- name: Smart Generation
+paths:
+  /chisleroff/pdf/from-html:
+    post:
+      operationId: postChisleroffPdfFromHtml
+      summary: Convert and Format raw HTML to PDF API
+      description: Converts raw HTML into a PDF document. You send HTML plus optional page and margin
+        set
+      tags:
+      - File Conversion
+      - File Manipulation
+      - Smart Generation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

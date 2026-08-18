@@ -1,0 +1,57 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/extract-invoice-data).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: AI Document Invoice Data Extraction API
+  description: Extract structured invoice data from a file or URL. Returns ApyHub or Azure invoice parsing
+    output for accounts payable and ingestion workflows.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/extract-invoice-data
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Artificial Intelligence
+- name: Data Extraction
+- name: Finance
+paths:
+  /ai/document/extract/invoice/file:
+    post:
+      operationId: postAiDocumentExtractInvoiceFile
+      summary: AI Document Invoice Data Extraction API
+      description: Uploads an invoice file and returns parsed invoice data in a JSON object. The response
+      tags: &id001
+      - Artificial Intelligence
+      - Data Extraction
+      - Finance
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+  /ai/document/extract/invoice/url:
+    post:
+      operationId: postAiDocumentExtractInvoiceUrl
+      summary: AI Document Invoice Data Extraction API
+      description: Extracts invoice data from a document available at a URL and returns parsed results
+        in
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

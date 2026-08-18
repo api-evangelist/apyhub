@@ -1,0 +1,53 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/transcribe-speech-to-text).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Convert Speech to Text API
+  description: Transcribe WAV files or WAV URLs with an Azure locale. Returns plain text in `data` for
+    indexing, search, and voice-note workflows.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/transcribe-speech-to-text
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Audio Processing
+paths:
+  /stt/file:
+    post:
+      operationId: postSttFile
+      summary: Convert Speech to Text API
+      description: Uploads a WAV audio file and a language locale, then returns the transcription as a
+        st
+      tags: &id001
+      - Audio Processing
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 750
+  /stt/url:
+    post:
+      operationId: postSttUrl
+      summary: Convert Speech to Text API
+      description: Transcribes a WAV audio file from a URL into text. Send the source file URL and langua
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 750
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

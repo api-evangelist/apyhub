@@ -1,0 +1,42 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/namastesumalya/service/translate-article-content).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Extract and Translate Article Content from Web Page API
+  description: Translate a web article from its URL into a target language. Returns translated title,
+    author, publication name, and body.
+  version: 1.0.0
+  contact:
+    name: Sumalya APIs
+    url: https://apyhub.com/namastesumalya/service/translate-article-content
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: SEO
+- name: Smart Generation
+paths:
+  /namastesumalya/api/translate:
+    post:
+      operationId: postNamastesumalyaApiTranslate
+      summary: Extract and Translate Article Content from Web Page API
+      description: Translates the content of an article from a web page into a target language. The reque
+      tags:
+      - SEO
+      - Smart Generation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 1000
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

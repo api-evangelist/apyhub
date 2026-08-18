@@ -1,0 +1,106 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/apply-watermark).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Apply Watermark on Images API
+  description: Add text or image watermarks to images from Base64, multipart upload, or URL. Returns binary
+    output or a signed URL for branded assets and previews.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/apply-watermark
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: File Manipulation
+- name: Image Processing
+paths:
+  /processor/image/watermark/base64/file:
+    post:
+      operationId: postProcessorImageWatermarkBase64File
+      summary: Apply Watermark on Images API
+      description: Applies a watermark to a source image provided as Base64 and returns the processed
+        fil
+      tags: &id001
+      - File Manipulation
+      - Image Processing
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 60
+  /processor/image/watermark/base64/url:
+    post:
+      operationId: postProcessorImageWatermarkBase64Url
+      summary: Apply Watermark on Images API
+      description: Applies a watermark to a source image provided as Base64 and returns a JSON object
+        con
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 60
+  /processor/image/watermark/file:
+    post:
+      operationId: postProcessorImageWatermarkFile
+      summary: Apply Watermark on Images API
+      description: Applies a watermark to an uploaded image and returns the processed file as binary data
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 60
+  /processor/image/watermark/file/url:
+    post:
+      operationId: postProcessorImageWatermarkFileUrl
+      summary: Apply Watermark on Images API
+      description: Applies a watermark to the provided image and returns a JSON object containing a data
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 60
+  /processor/image/watermark/url/file:
+    post:
+      operationId: postProcessorImageWatermarkUrlFile
+      summary: Apply Watermark on Images API
+      description: Applies a watermark to an image fetched from a URL and returns the processed file as
+        b
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 60
+  /processor/image/watermark/file-urls:
+    post:
+      operationId: postProcessorImageWatermarkFileUrls
+      summary: Apply Watermark on Images API
+      description: Applies a watermark to an image fetched from a signed URL. The request body provides
+        t
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 60
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

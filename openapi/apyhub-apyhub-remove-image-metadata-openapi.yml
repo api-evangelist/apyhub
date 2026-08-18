@@ -1,0 +1,80 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/remove-image-metadata).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Remove Image Metadata API
+  description: Remove metadata from uploaded images or image URLs. Return a cleaned binary file or a signed
+    URI, with optional EXIF key and GPS cleanup.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/remove-image-metadata
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: File Security
+- name: Security & Privacy
+paths:
+  /processor/image/remove-metadata/file:
+    post:
+      operationId: postProcessorImageRemoveMetadataFile
+      summary: Remove Image Metadata API
+      description: Uploads an image as multipart form data, strips the specified metadata keys from it,
+        a
+      tags: &id001
+      - File Security
+      - Security & Privacy
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 30
+  /processor/image/remove-metadata/file/url:
+    post:
+      operationId: postProcessorImageRemoveMetadataFileUrl
+      summary: Remove Image Metadata API
+      description: Strips metadata from an image submitted to this endpoint and returns a URI in the data
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 30
+  /processor/image/remove-metadata/url/file:
+    post:
+      operationId: postProcessorImageRemoveMetadataUrlFile
+      summary: Remove Image Metadata API
+      description: Strips metadata from an image fetched from a URL and returns the processed file as
+        bin
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 30
+  /processor/image/remove-metadata/file-urls:
+    post:
+      operationId: postProcessorImageRemoveMetadataFileUrls
+      summary: Remove Image Metadata API
+      description: Removes metadata from an image fetched from a URL and returns the resulting file locat
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 30
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

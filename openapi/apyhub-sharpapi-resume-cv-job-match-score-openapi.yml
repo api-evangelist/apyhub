@@ -1,0 +1,62 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/sharpapi/service/resume-cv-job-match-score).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Resume/CV Job Match Score API
+  description: Compare a resume file against a plain-text job description. Get match scores, explanations,
+    and job status for recruiter screening and ATS workflows.
+  version: 1.0.0
+  contact:
+    name: SharpAPI
+    url: https://apyhub.com/sharpapi/service/resume-cv-job-match-score
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Artificial Intelligence
+- name: HR
+paths:
+  /sharpapi/api/v1/hr/resume_job_match_score:
+    post:
+      operationId: postSharpapiApiV1HrResumeJobMatchScore
+      summary: Resume/CV Job Match Score API
+      description: Submits a resume/CV and a job description for an asynchronous match-score job. The
+        end
+      tags: &id001
+      - Artificial Intelligence
+      - HR
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 1000
+  /sharpapi/api/v1/hr/resume_job_match_score/job/status/{job_id}:
+    get:
+      operationId: getSharpapiApiV1HrResumeJobMatchScoreJobStatusJobId
+      summary: Resume/CV Job Match Score API
+      description: Checks the status of a resume/CV job match scoring job by its jobid and returns the
+        jo
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 1
+      parameters:
+      - name: job_id
+        in: path
+        required: true
+        schema:
+          type: string
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

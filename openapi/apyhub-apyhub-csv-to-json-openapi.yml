@@ -1,0 +1,143 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/csv-to-json).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Convert CSV to JSON API
+  description: Convert raw CSV, uploaded files, or CSV URLs into JSON arrays, downloadable files, or pre-signed
+    S3 links for import and ETL workflows.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/csv-to-json
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Developer Tools
+- name: File Conversion
+paths:
+  /convert/csv-url/json-raw:
+    post:
+      operationId: postConvertCsvUrlJsonRaw
+      summary: Convert CSV to JSON API
+      description: Converts a CSV file accessible at a public URL into a JSON array. The endpoint fetches
+      tags: &id001
+      - Developer Tools
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/csv-url/json-url:
+    post:
+      operationId: postConvertCsvUrlJsonUrl
+      summary: Convert CSV to JSON API
+      description: Converts a CSV file from a public URL into JSON and returns a pre-signed S3 URL where
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/csv-file/json-file:
+    post:
+      operationId: postConvertCsvFileJsonFile
+      summary: Convert CSV to JSON API
+      description: Converts an uploaded CSV file into a downloadable JSON file. The request sends a binar
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/csv-raw/json-url:
+    post:
+      operationId: postConvertCsvRawJsonUrl
+      summary: Convert CSV to JSON API
+      description: Converts raw CSV content in the request body into a JSON file and returns a pre-signed
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/csv-url/json-file:
+    post:
+      operationId: postConvertCsvUrlJsonFile
+      summary: Convert CSV to JSON API
+      description: Converts the CSV file located at the provided URL into a downloadable JSON file. The
+        r
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/csv-file/json-raw:
+    post:
+      operationId: postConvertCsvFileJsonRaw
+      summary: Convert CSV to JSON API
+      description: Converts an uploaded CSV file into an inline JSON array. The request sends a binary
+        fi
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/csv-file/json-url:
+    post:
+      operationId: postConvertCsvFileJsonUrl
+      summary: Convert CSV to JSON API
+      description: Converts an uploaded CSV file into a JSON file and returns a pre-signed S3 URL for
+        the
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/csv-raw/json-raw:
+    post:
+      operationId: postConvertCsvRawJsonRaw
+      summary: Convert CSV to JSON API
+      description: Converts a raw CSV string in the request body into a JSON array. The response is an
+        ar
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/csv-raw/json-file:
+    post:
+      operationId: postConvertCsvRawJsonFile
+      summary: Convert CSV to JSON API
+      description: Converts raw CSV content sent in the request body into a downloadable JSON file. The
+        r
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

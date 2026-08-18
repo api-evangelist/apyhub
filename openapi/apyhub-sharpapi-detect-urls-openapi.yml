@@ -1,0 +1,64 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/sharpapi/service/detect-urls).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: URls Detector API
+  description: Extract URLs from a content string and poll for results. Returns each detected link with
+    its full URL and protocol.
+  version: 1.0.0
+  contact:
+    name: SharpAPI
+    url: https://apyhub.com/sharpapi/service/detect-urls
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Data Extraction
+- name: Developer Tools
+- name: SEO
+paths:
+  /sharpapi/api/v1/content/detect_urls:
+    post:
+      operationId: postSharpapiApiV1ContentDetectUrls
+      summary: URls Detector API
+      description: Submits content for asynchronous URL detection and returns identifiers you can use
+        to
+      tags: &id001
+      - Data Extraction
+      - Developer Tools
+      - SEO
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 1000
+  /sharpapi/api/v1/detect_urls/job/status/{job_id}:
+    get:
+      operationId: getSharpapiApiV1DetectUrlsJobStatusJobId
+      summary: URls Detector API
+      description: Checks the status of an asynchronous URL-detection job by job ID and returns the job
+        r
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 1
+      parameters:
+      - name: job_id
+        in: path
+        required: true
+        schema:
+          type: string
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

@@ -1,0 +1,52 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/namastesumalya/service/extract-article-content).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Extract Article Content from Web Page API
+  description: Extract article text and metadata from a URL or a batch of URLs. Returns title, author,
+    word count, reading time, and publication details when available.
+  version: 1.0.0
+  contact:
+    name: Sumalya APIs
+    url: https://apyhub.com/namastesumalya/service/extract-article-content
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Data Extraction
+paths:
+  /namastesumalya/api/parse:
+    get:
+      operationId: getNamastesumalyaApiParse
+      summary: Extract Article Content from Web Page API
+      description: Extracts article content from the web page at the given url and returns structured
+        art
+      tags: &id001
+      - Data Extraction
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 300
+    post:
+      operationId: postNamastesumalyaApiParse
+      summary: Extract Article Content from Web Page API
+      description: Extracts article content from multiple web page URLs sent in the request body and retu
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

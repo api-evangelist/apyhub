@@ -1,0 +1,82 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/generate-png-preview).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Generate File Preview API
+  description: Generate PNG previews from uploaded files or remote URLs. Stream the image or return a
+    signed link, with optional width control.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/generate-png-preview
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: File Conversion
+- name: File Manipulation
+- name: Image Processing
+paths:
+  /generate/preview/file:
+    post:
+      operationId: postGeneratePreviewFile
+      summary: Generate File Preview API
+      description: Generates a PNG preview from an uploaded file and returns the resulting image as a
+        bin
+      tags: &id001
+      - File Conversion
+      - File Manipulation
+      - Image Processing
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 300
+  /generate/preview/file/url:
+    post:
+      operationId: postGeneratePreviewFileUrl
+      summary: Generate File Preview API
+      description: Generates a PNG preview from an uploaded file and returns a signed link to the generat
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 300
+  /generate/preview/url/file:
+    post:
+      operationId: postGeneratePreviewUrlFile
+      summary: Generate File Preview API
+      description: Generates a PNG preview from a remote file URL and returns the result as a streamed
+        bi
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 300
+  /generate/preview/url:
+    post:
+      operationId: postGeneratePreviewUrl
+      summary: Generate File Preview API
+      description: Generates a PNG preview from a remote file URL and returns a signed link to the result
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 300
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

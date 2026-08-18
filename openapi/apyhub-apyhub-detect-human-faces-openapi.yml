@@ -1,0 +1,55 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/detect-human-faces).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: AI Image Face Detection API
+  description: Face Detection identifies human faces in an image you send as a file or by URL. Use it
+    when you need to flag portrait photos, pre-check user uploads, or build image workflows that depend
+    on knowing whether a face is present. Send a binary file to /file, or pass an image URL to /url. Bo
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/detect-human-faces
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Uncategorized
+paths:
+  /ai/image/detect/face/file:
+    post:
+      operationId: postAiImageDetectFaceFile
+      summary: AI Image Face Detection API
+      description: Uploads an image file and runs human face detection against the selected provider.
+        The
+      tags: &id001
+      - Uncategorized
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+  /ai/image/detect/face/url:
+    post:
+      operationId: postAiImageDetectFaceUrl
+      summary: AI Image Face Detection API
+      description: Detects human faces from an image URL. You send the image url and optionally choose
+        wh
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

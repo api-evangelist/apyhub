@@ -1,0 +1,42 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/validate-uk-postcode).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Validate UK Postcodes API
+  description: Validate a UK postcode from a request body and get a boolean result. Useful for screening
+    address data before storage, routing, or checkout.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/validate-uk-postcode
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Data Validation
+- name: Standard Data
+paths:
+  /validate/postcodes/uk:
+    post:
+      operationId: postValidatePostcodesUk
+      summary: Validate UK Postcodes API
+      description: Validates a UK postcode by accepting a postcode string in the request body and returni
+      tags:
+      - Data Validation
+      - Standard Data
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 10
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

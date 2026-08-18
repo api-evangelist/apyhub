@@ -1,0 +1,44 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/namastesumalya/service/compare-two-candidates-head-to-head).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Candidate Comparison API
+  description: Compare two resumes against a job title and get a winner, rationale, and skill-by-skill
+    matrix for hiring review and shortlist ranking.
+  version: 1.0.0
+  contact:
+    name: Sumalya APIs
+    url: https://apyhub.com/namastesumalya/service/compare-two-candidates-head-to-head
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Artificial Intelligence
+- name: HR
+- name: Smart Generation
+paths:
+  /namastesumalya/api/compare:
+    post:
+      operationId: postNamastesumalyaApiCompare
+      summary: Candidate Comparison API
+      description: Compares two candidate resumes against a job title and returns a winner, a rationale,
+      tags:
+      - Artificial Intelligence
+      - HR
+      - Smart Generation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 1000
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

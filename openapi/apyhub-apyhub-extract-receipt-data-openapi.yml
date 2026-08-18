@@ -1,0 +1,57 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/extract-receipt-data).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: AI Document Receipt Data Extraction API
+  description: Extract receipt data from uploads or URLs. Returns ApyHub or raw Azure parsing output for
+    expense tracking and receipt processing.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/extract-receipt-data
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Data Extraction
+- name: Finance
+- name: Image Processing
+paths:
+  /ai/document/extract/receipt/file:
+    post:
+      operationId: postAiDocumentExtractReceiptFile
+      summary: AI Document Receipt Data Extraction API
+      description: Uploads a receipt file for data extraction and returns parsed receipt data. You can
+        re
+      tags: &id001
+      - Data Extraction
+      - Finance
+      - Image Processing
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+  /ai/document/extract/receipt/url:
+    post:
+      operationId: postAiDocumentExtractReceiptUrl
+      summary: AI Document Receipt Data Extraction API
+      description: Extracts receipt data from a document URL and returns a JSON object with parsing resul
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

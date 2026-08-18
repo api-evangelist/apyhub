@@ -1,0 +1,104 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/convert-pdf-pages-to-images).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Convert PDF to Image API
+  description: Convert PDF pages into JPG or PNG images from a file, URL, or base64 input. Returns a ZIP
+    download or a download_url for the generated images.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/convert-pdf-pages-to-images
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: File Conversion
+- name: File Manipulation
+paths:
+  /convert/pdf/image/sync/file/download:
+    post:
+      operationId: postConvertPdfImageSyncFileDownload
+      summary: Convert PDF to Image API
+      description: Converts an uploaded PDF file into page images and returns the result as a downloadabl
+      tags: &id001
+      - File Conversion
+      - File Manipulation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 150
+  /convert/pdf/image/sync/file/url:
+    post:
+      operationId: postConvertPdfImageSyncFileUrl
+      summary: Convert PDF to Image API
+      description: Converts the pages of an uploaded PDF file into images and returns a download URL for
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 150
+  /convert/pdf/image/sync/url/download:
+    post:
+      operationId: postConvertPdfImageSyncUrlDownload
+      summary: Convert PDF to Image API
+      description: Converts the PDF at the given public URL into page images and returns the result as
+        a
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 150
+  /convert/pdf/image/sync/url/url:
+    post:
+      operationId: postConvertPdfImageSyncUrlUrl
+      summary: Convert PDF to Image API
+      description: Converts a PDF available at a URL into page images and returns a JSON object containin
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 150
+  /convert/pdf/image/sync/base64/download:
+    post:
+      operationId: postConvertPdfImageSyncBase64Download
+      summary: Convert PDF to Image API
+      description: Converts a PDF provided as base64-encoded content into image files for its pages, and
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 150
+  /convert/pdf/image/sync/base64/url:
+    post:
+      operationId: postConvertPdfImageSyncBase64Url
+      summary: Convert PDF to Image API
+      description: Converts a PDF provided as a base64 string into page images and returns a download
+        URL
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 150
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

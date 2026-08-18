@@ -1,0 +1,42 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/sharpapi/service/scrape-url).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Web Scraping API
+  description: Scrape a URL and get back page content, metadata, and links in a structured response. Useful
+    for indexing, SEO checks, and content monitoring.
+  version: 1.0.0
+  contact:
+    name: SharpAPI
+    url: https://apyhub.com/sharpapi/service/scrape-url
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Data Extraction
+- name: SEO
+paths:
+  /sharpapi/api/v1/utilities/scrape_url/:
+    get:
+      operationId: getSharpapiApiV1UtilitiesScrapeUrl
+      summary: Web Scraping API
+      description: Fetches and scrapes the URL provided in the url query parameter, then returns the orig
+      tags:
+      - Data Extraction
+      - SEO
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 1000
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

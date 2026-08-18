@@ -1,0 +1,41 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/sharpapi/service/list-job-positions).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Job Positions API
+  description: List job positions with ids, names, slugs, and pagination metadata. Optionally include
+    related roles with relevancy weights for HR and hiring tools.
+  version: 1.0.0
+  contact:
+    name: SharpAPI
+    url: https://apyhub.com/sharpapi/service/list-job-positions
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: HR
+paths:
+  /sharpapi/api/v1/utilities/job_positions_list:
+    get:
+      operationId: getSharpapiApiV1UtilitiesJobPositionsList
+      summary: Job Positions API
+      description: Returns a paginated list of job positions. You can filter the results by name, and
+        opt
+      tags:
+      - HR
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 1000
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

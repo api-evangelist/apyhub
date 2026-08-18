@@ -1,0 +1,79 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/generate-gif).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Generate GIF from Video API
+  description: Convert uploaded videos or remote video URLs into GIFs. Control size, speed, start time,
+    and duration, with binary download or signed link output.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/generate-gif
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: File Conversion
+- name: File Manipulation
+paths:
+  /generate/gif/file:
+    post:
+      operationId: postGenerateGifFile
+      summary: Generate GIF from Video API
+      description: Generates a GIF from an uploaded video file and returns the result as a streamed binar
+      tags: &id001
+      - File Conversion
+      - File Manipulation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 550
+  /generate/gif/file/url:
+    post:
+      operationId: postGenerateGifFileUrl
+      summary: Generate GIF from Video API
+      description: Creates a GIF from an uploaded video file and returns a time-limited signed URL to
+        dow
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 550
+  /generate/gif/url/file:
+    post:
+      operationId: postGenerateGifUrlFile
+      summary: Generate GIF from Video API
+      description: Generates a GIF from a remotely hosted video file and returns it as a streamed binary
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 550
+  /generate/gif/url:
+    post:
+      operationId: postGenerateGifUrl
+      summary: Generate GIF from Video API
+      description: Generates a GIF from a publicly accessible remote video URL and returns a signed downl
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 550
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

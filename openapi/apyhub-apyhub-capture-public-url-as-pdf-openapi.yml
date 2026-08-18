@@ -1,0 +1,52 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/capture-public-url-as-pdf).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Convert Webpage to PDF API
+  description: Capture a public URL as a PDF download or signed link. Useful for archiving pages, sharing
+    snapshots, and automating document workflows.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/capture-public-url-as-pdf
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: File Conversion
+paths:
+  /generate/webpage/pdf-file:
+    post:
+      operationId: postGenerateWebpagePdfFile
+      summary: Convert Webpage to PDF API
+      description: Captures the public web page at the given URL and returns the result as a PDF download
+      tags: &id001
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /generate/webpage/pdf-url:
+    post:
+      operationId: postGenerateWebpagePdfUrl
+      summary: Convert Webpage to PDF API
+      description: Captures the content from a public URL and returns a signed PDF link. The request body
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

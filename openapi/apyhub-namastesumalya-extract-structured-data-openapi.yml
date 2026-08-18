@@ -1,0 +1,43 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/namastesumalya/service/extract-structured-data).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Extract Structured Data API
+  description: Check a URL for schema markup and get structuredData, schemaCount, hasBreadcrumbs, and
+    hasOrganization back for SEO audits and automation.
+  version: 1.0.0
+  contact:
+    name: Sumalya APIs
+    url: https://apyhub.com/namastesumalya/service/extract-structured-data
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Data Extraction
+- name: SEO
+paths:
+  /namastesumalya/api/schema:
+    post:
+      operationId: postNamastesumalyaApiSchema
+      summary: Extract Structured Data API
+      description: Extracts structured data from the website at the given URL and returns a JSON object
+        s
+      tags:
+      - Data Extraction
+      - SEO
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

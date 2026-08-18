@@ -1,0 +1,42 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/chisleroff/service/extract-product-information).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Extract Product Information API
+  description: Extract sku, name, brand, price, images, rating, and more from a product page URL. Useful
+    for catalog enrichment, feed building, and price tracking.
+  version: 1.0.0
+  contact:
+    name: Website Intelligence
+    url: https://apyhub.com/chisleroff/service/extract-product-information
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Data Extraction
+- name: E-commerce Quick Tools
+paths:
+  /chisleroff/extract/product:
+    post:
+      operationId: postChisleroffExtractProduct
+      summary: Extract Product Information API
+      description: Extracts product details from a product page URL and returns the parsed product inform
+      tags:
+      - Data Extraction
+      - E-commerce Quick Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

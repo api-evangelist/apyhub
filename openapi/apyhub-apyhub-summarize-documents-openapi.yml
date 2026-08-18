@@ -1,0 +1,56 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/summarize-documents).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: AI Summarize Documents API
+  description: Summarize PDF, DOCX, DOC, or ODT files from an upload or URL. Returns a plain-text summary
+    with short, medium, or long length options.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/summarize-documents
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Artificial Intelligence
+- name: Smart Generation
+paths:
+  /ai/summarize-documents/file:
+    post:
+      operationId: postAiSummarizeDocumentsFile
+      summary: AI Summarize Documents API
+      description: Uploads a document and returns a generated text summary for that file. The request
+        bod
+      tags: &id001
+      - Artificial Intelligence
+      - Smart Generation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 2600
+  /ai/summarize-documents/url:
+    post:
+      operationId: postAiSummarizeDocumentsUrl
+      summary: AI Summarize Documents API
+      description: Summarizes a document fetched from a direct URL and returns the generated summary in
+        t
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 2600
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

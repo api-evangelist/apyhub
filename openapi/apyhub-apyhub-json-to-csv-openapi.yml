@@ -1,0 +1,144 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/json-to-csv).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Convert JSON to CSV API
+  description: Convert JSON objects, arrays, files, or URLs into CSV. Get inline text, a downloadable
+    file, or a pre-signed S3 URL for exports.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/json-to-csv
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Developer Tools
+- name: File Conversion
+paths:
+  /convert/json-url/csv-raw:
+    post:
+      operationId: postConvertJsonUrlCsvRaw
+      summary: Convert JSON to CSV API
+      description: Converts the JSON document available at the supplied URL into CSV and returns the conv
+      tags: &id001
+      - Developer Tools
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/json-url/csv-file:
+    post:
+      operationId: postConvertJsonUrlCsvFile
+      summary: Convert JSON to CSV API
+      description: Converts JSON fetched from a public URL into a downloadable CSV file. Query Parameter(
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/json-url/csv-url:
+    post:
+      operationId: postConvertJsonUrlCsvUrl
+      summary: Convert JSON to CSV API
+      description: Converts JSON content from a publicly accessible URL into a CSV file and returns a
+        pre
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/json-file/csv-file:
+    post:
+      operationId: postConvertJsonFileCsvFile
+      summary: Convert JSON to CSV API
+      description: Converts an uploaded JSON file into a downloadable CSV file. You send the JSON file
+        in
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/json-raw/csv-raw:
+    post:
+      operationId: postConvertJsonRawCsvRaw
+      summary: Convert JSON to CSV API
+      description: Converts a raw JSON object or a non-empty array of JSON objects in the request body
+        in
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/json-file/csv-raw:
+    post:
+      operationId: postConvertJsonFileCsvRaw
+      summary: Convert JSON to CSV API
+      description: Converts an uploaded JSON file into CSV and returns the converted content inline in
+        th
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/json-file/csv-url:
+    post:
+      operationId: postConvertJsonFileCsvUrl
+      summary: Convert JSON to CSV API
+      description: Converts an uploaded JSON file into a CSV file and returns a pre-signed S3 URL for
+        the
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/json-raw/csv-file:
+    post:
+      operationId: postConvertJsonRawCsvFile
+      summary: Convert JSON to CSV API
+      description: Converts a raw JSON payload into a downloadable CSV file. The request body must be
+        eit
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/json-raw/csv-url:
+    post:
+      operationId: postConvertJsonRawCsvUrl
+      summary: Convert JSON to CSV API
+      description: Converts a raw JSON payload into a CSV file and returns a pre-signed S3 URL where the
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

@@ -1,0 +1,56 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/score-readability).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Readability Scores Documents API
+  description: Analyze documents or web pages for readability scores, text stats, and grade-level classification.
+    Useful for content review and plain-language checks.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/score-readability
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Artificial Intelligence
+- name: SEO
+paths:
+  /extract/document/readability-score/file:
+    post:
+      operationId: postExtractDocumentReadabilityScoreFile
+      summary: Readability Scores Documents API
+      description: Uploads a document file and returns readability metrics for the extracted text. The
+        re
+      tags: &id001
+      - Artificial Intelligence
+      - SEO
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 250
+  /extract/document/readability-score/url:
+    post:
+      operationId: postExtractDocumentReadabilityScoreUrl
+      summary: Readability Scores Documents API
+      description: Scores the readability of a publicly accessible web page fetched from the provided
+        fil
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 250
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

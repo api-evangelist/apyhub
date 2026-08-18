@@ -1,0 +1,55 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/detect-logos-and-brands).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: AI Image Brand/Logo Detection API
+  description: Detect logos and brand marks from an image file or URL. Returns provider-specific results
+    from Azure, Google, or ApyHub vision models.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/detect-logos-and-brands
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Artificial Intelligence
+- name: Image Processing
+paths:
+  /ai/image/detect/brand/file:
+    post:
+      operationId: postAiImageDetectBrandFile
+      summary: AI Image Brand/Logo Detection API
+      description: Uploads a file and runs logo/brand detection against the selected service. The respons
+      tags: &id001
+      - Artificial Intelligence
+      - Image Processing
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+  /ai/image/detect/brand/url:
+    post:
+      operationId: postAiImageDetectBrandUrl
+      summary: AI Image Brand/Logo Detection API
+      description: Detects logos and brands from an image URL. The request sends the image url and, if
+        ne
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

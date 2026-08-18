@@ -1,0 +1,43 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/convert-pes-to-zip).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Convert PES to ZIP API
+  description: Convert a .pes embroidery file into a downloadable ZIP archive. Useful for packaging embroidery
+    assets for transport or downstream file workflows.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/convert-pes-to-zip
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: File Conversion
+- name: File Manipulation
+paths:
+  /convert/pes-file/zip-file:
+    post:
+      operationId: postConvertPesFileZipFile
+      summary: Convert PES to ZIP API
+      description: Converts an uploaded PES embroidery file into a ZIP archive and returns the archive
+        as
+      tags:
+      - File Conversion
+      - File Manipulation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

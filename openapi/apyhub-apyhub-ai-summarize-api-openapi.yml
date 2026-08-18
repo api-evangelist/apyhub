@@ -1,0 +1,55 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/ai-summarize-api).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: AI Summarize API
+  description: Summarize text or a web page URL with summary_length and output_language. Useful for article
+    digests, research notes, and content previews.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/ai-summarize-api
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Artificial Intelligence
+- name: Smart Generation
+paths:
+  /ai/summarize-text:
+    post:
+      operationId: postAiSummarizeText
+      summary: AI Summarize API
+      description: Summarizes the text you send in the request body. The endpoint accepts a text input
+        pl
+      tags: &id001
+      - Artificial Intelligence
+      - Smart Generation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 2600
+  /ai/summarize-url:
+    post:
+      operationId: postAiSummarizeUrl
+      summary: AI Summarize API
+      description: Submits a URL for summarization and sends back a successful acknowledgement. The reque
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 2600
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

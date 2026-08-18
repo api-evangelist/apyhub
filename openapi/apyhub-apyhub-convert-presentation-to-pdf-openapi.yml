@@ -1,0 +1,105 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/convert-presentation-to-pdf).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Convert Presentations to PDF API
+  description: Convert .ppt, .pptx, or .odp files to PDF from uploads, base64, or URLs. Get a binary PDF
+    or a signed link for review and sharing.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/convert-presentation-to-pdf
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: File Conversion
+paths:
+  /convert/presentation-base64/pdf-file:
+    post:
+      operationId: postConvertPresentationBase64PdfFile
+      summary: Convert Presentations to PDF API
+      description: Converts a base64-encoded presentation file into a PDF for download. You send the pres
+      tags: &id001
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+  /convert/presentation-base64/pdf-url:
+    post:
+      operationId: postConvertPresentationBase64PdfUrl
+      summary: Convert Presentations to PDF API
+      description: Converts a base64-encoded presentation file into a PDF and returns a signed link to
+        th
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+  /convert/presentation-file/pdf-file:
+    post:
+      operationId: postConvertPresentationFilePdfFile
+      summary: Convert Presentations to PDF API
+      description: Converts an uploaded presentation file into a PDF and returns the resulting PDF as
+        a b
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+  /convert/presentation-file/pdf-url:
+    post:
+      operationId: postConvertPresentationFilePdfUrl
+      summary: Convert Presentations to PDF API
+      description: Converts an uploaded presentation file into a PDF and returns a signed link to the
+        gen
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+  /convert/presentation-url/pdf-file:
+    post:
+      operationId: postConvertPresentationUrlPdfFile
+      summary: Convert Presentations to PDF API
+      description: Converts a remote presentation file from the URL you provide into a PDF and returns
+        th
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+  /convert/presentation-url/pdf-url:
+    post:
+      operationId: postConvertPresentationUrlPdfUrl
+      summary: Convert Presentations to PDF API
+      description: Converts a remote presentation file at a URL into a PDF and returns a signed link to
+        t
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

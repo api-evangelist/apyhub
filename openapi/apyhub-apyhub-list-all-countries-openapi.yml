@@ -1,0 +1,43 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/list-all-countries).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Countries Dictionary API
+  description: Get a structured list of countries with ISO codes, currency details, emojis, and calling
+    codes for forms, routing, and localization.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/list-all-countries
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Geolocation
+- name: Standard Data
+paths:
+  /data/dictionary/country:
+    get:
+      operationId: getDataDictionaryCountry
+      summary: Countries Dictionary API
+      description: Returns a JSON object containing a data array of country records. Response Returns
+        a J
+      tags:
+      - Geolocation
+      - Standard Data
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 5
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

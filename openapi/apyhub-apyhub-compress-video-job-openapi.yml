@@ -1,0 +1,73 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/compress-video-job).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Compress Video Job API
+  description: Compress videos from a file upload or URL and poll for a job URL. Returns job status, with
+    a downloadable output when processing succeeds.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/compress-video-job
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: File Conversion
+- name: File Manipulation
+paths:
+  /job/compress/video/file:
+    post:
+      operationId: postJobCompressVideoFile
+      summary: Compress Video Job API
+      description: Submits a video file for compression as an asynchronous job and returns a job identifi
+      tags: &id001
+      - File Conversion
+      - File Manipulation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 400
+  /job/compress/video/status/{job_id}:
+    get:
+      operationId: getJobCompressVideoStatusJobId
+      summary: Compress Video Job API
+      description: Checks the status of a video compression job by job ID and returns the job record in
+        a
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 5
+      parameters:
+      - name: job_id
+        in: path
+        required: true
+        schema:
+          type: string
+  /job/compress/video/url:
+    post:
+      operationId: postJobCompressVideoUrl
+      summary: Compress Video Job API
+      description: Submits a video compression job using a source video URL and returns a job identifier
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 400
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

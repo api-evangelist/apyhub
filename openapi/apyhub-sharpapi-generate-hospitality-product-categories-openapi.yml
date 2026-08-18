@@ -1,0 +1,64 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/sharpapi/service/generate-hospitality-product-categories).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Generate Hospitality Product Categories API
+  description: Generate ranked hospitality category names from travel content. Returns job status plus
+    category names and weights for taxonomy workflows.
+  version: 1.0.0
+  contact:
+    name: SharpAPI
+    url: https://apyhub.com/sharpapi/service/generate-hospitality-product-categories
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Artificial Intelligence
+- name: Smart Generation
+- name: Travel
+paths:
+  /sharpapi/api/v1/tth/hospitality_product_categories:
+    post:
+      operationId: postSharpapiApiV1TthHospitalityProductCategories
+      summary: Generate Hospitality Product Categories API
+      description: Submits a job to generate hospitality product categories from the provided content.
+        Th
+      tags: &id001
+      - Artificial Intelligence
+      - Smart Generation
+      - Travel
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /sharpapi/api/v1/tth/hospitality_product_categories/job/status/{job_id}:
+    get:
+      operationId: getSharpapiApiV1TthHospitalityProductCategoriesJobStatusJobId
+      summary: Generate Hospitality Product Categories API
+      description: Checks the status of a previously submitted hospitality product category generation
+        jo
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 1
+      parameters:
+      - name: job_id
+        in: path
+        required: true
+        schema:
+          type: string
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

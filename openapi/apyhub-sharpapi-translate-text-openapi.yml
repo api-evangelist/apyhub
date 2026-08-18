@@ -1,0 +1,63 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/sharpapi/service/translate-text).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Translate Text API
+  description: Submit text with optional context, source language, and voice tone. Track the job and get
+    translated content with from/to language metadata.
+  version: 1.0.0
+  contact:
+    name: SharpAPI
+    url: https://apyhub.com/sharpapi/service/translate-text
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Artificial Intelligence
+- name: Smart Generation
+- name: Standard Data
+paths:
+  /sharpapi/api/v1/content/translate:
+    post:
+      operationId: postSharpapiApiV1ContentTranslate
+      summary: Translate Text API
+      description: Submits a text translation job using the supplied content and optional translation
+        gui
+      tags: &id001
+      - Artificial Intelligence
+      - Smart Generation
+      - Standard Data
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /sharpapi/api/v1/content/translate/job/status/{job_id}:
+    get:
+      operationId: getSharpapiApiV1ContentTranslateJobStatusJobId
+      summary: Translate Text API
+      description: Checks the status of a previously submitted text-translation job identified by jobid.
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 1
+      parameters:
+      - name: job_id
+        in: path
+        required: true
+        schema:
+          type: string
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

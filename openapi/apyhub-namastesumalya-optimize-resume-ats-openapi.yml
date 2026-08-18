@@ -1,0 +1,45 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/namastesumalya/service/optimize-resume-ats).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Resume Optimizer (ATS) API
+  description: Rewrite a resume for a target job title and get before/after ATS scores, an improved version,
+    and added keywords.
+  version: 1.0.0
+  contact:
+    name: Sumalya APIs
+    url: https://apyhub.com/namastesumalya/service/optimize-resume-ats
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: HR
+- name: SEO
+- name: Smart Generation
+paths:
+  /namastesumalya/api/improve-resume:
+    post:
+      operationId: postNamastesumalyaApiImproveResume
+      summary: Resume Optimizer (ATS) API
+      description: Optimizes the submitted resume content for ATS based on the provided job title, and
+        re
+      tags:
+      - HR
+      - SEO
+      - Smart Generation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 250
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

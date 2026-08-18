@@ -1,0 +1,43 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/sharpapi/service/skills-database).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Skills Database API
+  description: Look up skills by name and page through a skills list. Returns skill IDs, names, slugs,
+    related skills, and pagination metadata.
+  version: 1.0.0
+  contact:
+    name: SharpAPI
+    url: https://apyhub.com/sharpapi/service/skills-database
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Developer Tools
+- name: HR
+paths:
+  /sharpapi/api/v1/utilities/skills_list:
+    get:
+      operationId: getSharpapiApiV1UtilitiesSkillsList
+      summary: Skills Database API
+      description: Retrieves a paginated skills database result set, optionally filtered by skill name
+        an
+      tags:
+      - Developer Tools
+      - HR
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 1000
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

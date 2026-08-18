@@ -1,0 +1,78 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/generate-thumbnail-from-video).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Generate Thumbnail from Video API
+  description: Extract a PNG frame from a video file or URL at a chosen timestamp, with binary download
+    or signed link output for previews and galleries.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/generate-thumbnail-from-video
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: File Conversion
+- name: File Manipulation
+paths:
+  /generate/image-thumbnail/file:
+    post:
+      operationId: postGenerateImageThumbnailFile
+      summary: Generate Thumbnail from Video API
+      description: Extracts a single PNG frame from an uploaded video and streams the generated file back
+      tags: &id001
+      - File Conversion
+      - File Manipulation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 550
+  /generate/image-thumbnail/file/url:
+    post:
+      operationId: postGenerateImageThumbnailFileUrl
+      summary: Generate Thumbnail from Video API
+      description: Uploads a video file and returns a signed link to a generated PNG frame extracted from
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 550
+  /generate/image-thumbnail/url/file:
+    post:
+      operationId: postGenerateImageThumbnailUrlFile
+      summary: Generate Thumbnail from Video API
+      description: Extracts a PNG frame from a remote video URL and returns it as a streamed binary respo
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 550
+  /generate/image-thumbnail/url:
+    post:
+      operationId: postGenerateImageThumbnailUrl
+      summary: Generate Thumbnail from Video API
+      description: Extracts a PNG frame from a remote video URL and returns a signed link to the generate
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 550
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

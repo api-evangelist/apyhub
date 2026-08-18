@@ -1,0 +1,41 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/content-classification).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: AI Text Content Classification API
+  description: Classify text with a Google-backed response. Send text plus requested_service and get structured
+    classification data for moderation and routing.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/content-classification
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Artificial Intelligence
+paths:
+  /ai/text/content/classification:
+    post:
+      operationId: postAiTextContentClassification
+      summary: AI Text Content Classification API
+      description: Classifies the supplied text using the requested service and returns a JSON object
+        con
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

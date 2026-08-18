@@ -1,0 +1,40 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/recognize-entities-in-text).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: AI Text Entity Recognition API
+  description: Extract names, organizations, and places from text using Azure, Google, or ApyHub. Useful
+    for enrichment, indexing, and document analysis.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/recognize-entities-in-text
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Artificial Intelligence
+paths:
+  /ai/text/entity/recognition:
+    post:
+      operationId: postAiTextEntityRecognition
+      summary: AI Text Entity Recognition API
+      description: Recognizes entities in a text string and returns a JSON object containing provider-spe
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

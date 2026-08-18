@@ -1,0 +1,43 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/chisleroff/service/dynamic-og-image-generation).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Dynamic OG Image API
+  description: Generate Open Graph images from title and styling fields. Returns a binary image for blog
+    posts, product pages, and social sharing cards.
+  version: 1.0.0
+  contact:
+    name: Website Intelligence
+    url: https://apyhub.com/chisleroff/service/dynamic-og-image-generation
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Marketing
+- name: Smart Generation
+paths:
+  /chisleroff/tools/og-image:
+    post:
+      operationId: postChisleroffToolsOgImage
+      summary: Dynamic OG Image API
+      description: Generates a dynamic Open Graph image from the provided body fields and returns the
+        ima
+      tags:
+      - Marketing
+      - Smart Generation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

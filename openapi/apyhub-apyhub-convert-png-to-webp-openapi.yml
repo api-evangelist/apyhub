@@ -1,0 +1,79 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/convert-png-to-webp).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Convert PNG to WebP API
+  description: Convert PNG images to WebP from an upload or a URL. Get a binary file or a signed result
+    link for web delivery and asset pipelines.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/convert-png-to-webp
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: File Conversion
+paths:
+  /convert/image/png/webp/file:
+    post:
+      operationId: postConvertImagePngWebpFile
+      summary: Convert PNG to WebP API
+      description: Converts an uploaded PNG image to WebP and returns the converted file as a binary resp
+      tags: &id001
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 30
+  /convert/image/png/webp/file/url:
+    post:
+      operationId: postConvertImagePngWebpFileUrl
+      summary: Convert PNG to WebP API
+      description: Converts an uploaded PNG image to WebP using a multipart request and returns a JSON
+        ob
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 30
+  /convert/image/png/webp/url/file:
+    post:
+      operationId: postConvertImagePngWebpUrlFile
+      summary: Convert PNG to WebP API
+      description: Converts a PNG image from a publicly accessible URL into a WebP file and returns the
+        c
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 30
+  /convert/image/png/webp/url:
+    post:
+      operationId: postConvertImagePngWebpUrl
+      summary: Convert PNG to WebP API
+      description: Converts a PNG image from a publicly accessible URL into WebP format. The response
+        ret
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 30
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

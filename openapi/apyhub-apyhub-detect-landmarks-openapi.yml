@@ -1,0 +1,56 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/detect-landmarks).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: AI Image Landmark Detection API
+  description: Identify landmarks from image uploads or image URLs. Returns detector responses from ApyHub,
+    Azure, or Google for vision workflows.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/detect-landmarks
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Artificial Intelligence
+- name: Geolocation
+- name: Image Processing
+paths:
+  /ai/image/detect/landmark/file:
+    post:
+      operationId: postAiImageDetectLandmarkFile
+      summary: AI Image Landmark Detection API
+      description: Uploads a file and runs landmark detection against the selected service. The response
+      tags: &id001
+      - Artificial Intelligence
+      - Geolocation
+      - Image Processing
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+  /ai/image/detect/landmark/url:
+    post:
+      operationId: postAiImageDetectLandmarkUrl
+      summary: AI Image Landmark Detection API
+      description: Detects landmarks from an image URL. The request body must include a url, and you can
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

@@ -1,0 +1,42 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/syntax-analysis).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: AI Text Syntax Analysis API
+  description: Analyze text with a Google-backed syntax service. Send text, encoding, and requested_service;
+    get a structured data.google result back.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/syntax-analysis
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Artificial Intelligence
+- name: Developer Tools
+paths:
+  /ai/text/syntax/analysis:
+    post:
+      operationId: postAiTextSyntaxAnalysis
+      summary: AI Text Syntax Analysis API
+      description: Analyzes submitted text using the requested syntax-analysis service and returns a JSON
+      tags:
+      - Artificial Intelligence
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

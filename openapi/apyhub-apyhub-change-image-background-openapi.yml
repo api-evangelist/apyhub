@@ -1,0 +1,78 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/change-image-background).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Change Background of Images API
+  description: Compose a subject image onto a new background using files or URLs. Returns PNG downloads
+    or signed links for product shots and social assets.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/change-image-background
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: File Manipulation
+paths:
+  /processor/image/change-background/file:
+    post:
+      operationId: postProcessorImageChangeBackgroundFile
+      summary: Change Background of Images API
+      description: Uploads a subject image and a background image, then returns the generated result as
+        a
+      tags: &id001
+      - File Manipulation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 2000
+  /processor/image/change-background/file/url:
+    post:
+      operationId: postProcessorImageChangeBackgroundFileUrl
+      summary: Change Background of Images API
+      description: Uploads a subject image and optional background settings as multipart form data, then
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 2000
+  /processor/image/change-background/url/file:
+    post:
+      operationId: postProcessorImageChangeBackgroundUrlFile
+      summary: Change Background of Images API
+      description: Fetches a foreground image from a URL, removes its background, and composites it onto
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 2000
+  /processor/image/change-background/url:
+    post:
+      operationId: postProcessorImageChangeBackgroundUrl
+      summary: Change Background of Images API
+      description: Fetches a foreground image from imageurl, removes its background, and composites it
+        on
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 2000
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

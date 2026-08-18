@@ -1,0 +1,42 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/extract-links-from-webpage).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Extract Links from Webpage API
+  description: Extract absolute URLs from a webpage, with optional headers and URL safety checks. Useful
+    for crawling, audits, and sitemap collection.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/extract-links-from-webpage
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Data Extraction
+- name: SEO
+paths:
+  /extract/links/url:
+    post:
+      operationId: postExtractLinksUrl
+      summary: Extract Links from Webpage API
+      description: Extracts all hyperlinks from the web page at the given URL and returns them as absolut
+      tags:
+      - Data Extraction
+      - SEO
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

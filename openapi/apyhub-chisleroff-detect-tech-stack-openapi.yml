@@ -1,0 +1,44 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/chisleroff/service/detect-tech-stack).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Detect Tech Stack API
+  description: Detect the technologies used by a webpage from its URL. Returns the source URL and a list
+    of detected technologies for audits and enrichment.
+  version: 1.0.0
+  contact:
+    name: Website Intelligence
+    url: https://apyhub.com/chisleroff/service/detect-tech-stack
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Data Extraction
+- name: Developer Tools
+- name: SEO
+paths:
+  /chisleroff/intel/techstack:
+    post:
+      operationId: postChisleroffIntelTechstack
+      summary: Detect Tech Stack API
+      description: Detects the technology stack used by a webpage from the URL you provide. The response
+      tags:
+      - Data Extraction
+      - Developer Tools
+      - SEO
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

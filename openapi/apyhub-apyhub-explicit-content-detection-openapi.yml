@@ -1,0 +1,53 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/explicit-content-detection).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: AI Video Explicit Content Detection API
+  description: Detect explicit material in video files or URLs using Azure or Google routes. Returns provider-specific
+    results for content moderation workflows.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/explicit-content-detection
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Artificial Intelligence
+paths:
+  /ai/video/detect/explicit/content/file:
+    post:
+      operationId: postAiVideoDetectExplicitContentFile
+      summary: AI Video Explicit Content Detection API
+      description: Uploads a file for explicit-content detection and routes the request to either the
+        Azu
+      tags: &id001
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+  /ai/video/detect/explicit/content/url:
+    post:
+      operationId: postAiVideoDetectExplicitContentUrl
+      summary: AI Video Explicit Content Detection API
+      description: Detects explicit content for a media file provided by URL. The request sends the media
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

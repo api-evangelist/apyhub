@@ -1,0 +1,54 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/detect-language-video).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: AI Video Language Detection API
+  description: Detect the spoken language in a video file or video URL. Returns Azure language code and
+    confidence for routing transcription and review.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/detect-language-video
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Artificial Intelligence
+paths:
+  /ai/video/detect/language/file:
+    post:
+      operationId: postAiVideoDetectLanguageFile
+      summary: AI Video Language Detection API
+      description: Uploads a video file and returns detected language information in the response. The
+        re
+      tags: &id001
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+  /ai/video/detect/language/url:
+    post:
+      operationId: postAiVideoDetectLanguageUrl
+      summary: AI Video Language Detection API
+      description: Detects the spoken language from a video available at a URL and returns the detected
+        l
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

@@ -1,0 +1,42 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/chisleroff/service/pdf-from-url).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Advanced Webpage to PDF API
+  description: Convert an http or https page URL into a PDF binary. Use layout options like page size,
+    margins, headers, footers, and background printing.
+  version: 1.0.0
+  contact:
+    name: Website Intelligence
+    url: https://apyhub.com/chisleroff/service/pdf-from-url
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: File Conversion
+- name: Smart Generation
+paths:
+  /chisleroff/pdf/from-url:
+    post:
+      operationId: postChisleroffPdfFromUrl
+      summary: Advanced Webpage to PDF API
+      description: Converts a web page at a given URL into a PDF file. The request body lets you control
+      tags:
+      - File Conversion
+      - Smart Generation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

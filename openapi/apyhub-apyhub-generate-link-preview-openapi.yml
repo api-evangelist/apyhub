@@ -1,0 +1,41 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/generate-link-preview).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Generate Link Preview API
+  description: Link Preview fetches a URL and returns the metadata you need to build a rich preview card.
+    Send a URL, and Link Preview returns the page title, description, images, videos, favicons, site name,
+    media type, and content type when available. Use it when you need to render previews for sha
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/generate-link-preview
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Uncategorized
+paths:
+  /extract/url/preview:
+    post:
+      operationId: postExtractUrlPreview
+      summary: Generate Link Preview API
+      description: Generates a preview for a URL by fetching the page metadata and returning it in a JSON
+      tags:
+      - Uncategorized
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

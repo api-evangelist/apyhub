@@ -1,0 +1,144 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/convert-json-to-mongoose-schema).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Convert JSON to Mongoose Schema API
+  description: Generate Mongoose schema code from JSON bodies, files, or URLs. Returns JS or TS output
+    plus inference metadata for review.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/convert-json-to-mongoose-schema
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Developer Tools
+- name: Smart Generation
+paths:
+  /convert/json-url/mongoose-url:
+    post:
+      operationId: postConvertJsonUrlMongooseUrl
+      summary: Convert JSON to Mongoose Schema API
+      description: Converts JSON fetched from a publicly accessible URL into a Mongoose schema file and
+        r
+      tags: &id001
+      - Developer Tools
+      - Smart Generation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/json-file/mongoose-raw:
+    post:
+      operationId: postConvertJsonFileMongooseRaw
+      summary: Convert JSON to Mongoose Schema API
+      description: Converts an uploaded JSON file into a generated Mongoose schema and returns the result
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/json-file/mongoose-url:
+    post:
+      operationId: postConvertJsonFileMongooseUrl
+      summary: Convert JSON to Mongoose Schema API
+      description: Uploads a JSON file and converts its contents into a Mongoose schema, then returns
+        a p
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/json-raw/mongoose-raw:
+    post:
+      operationId: postConvertJsonRawMongooseRaw
+      summary: Convert JSON to Mongoose Schema API
+      description: Converts the provided JSON input into a generated Mongoose schema source string. It
+        re
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/json-raw/mongoose-url:
+    post:
+      operationId: postConvertJsonRawMongooseUrl
+      summary: Convert JSON to Mongoose Schema API
+      description: Converts the provided raw JSON data into a Mongoose schema and returns a pre-signed
+        S3
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/json-url/mongoose-raw:
+    post:
+      operationId: postConvertJsonUrlMongooseRaw
+      summary: Convert JSON to Mongoose Schema API
+      description: Converts the JSON document found at a public URL into a generated Mongoose schema.
+        It
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/json-file/mongoose-file:
+    post:
+      operationId: postConvertJsonFileMongooseFile
+      summary: Convert JSON to Mongoose Schema API
+      description: Uploads a JSON file and converts it into a downloadable Mongoose schema file. The resp
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/json-raw/mongoose-file:
+    post:
+      operationId: postConvertJsonRawMongooseFile
+      summary: Convert JSON to Mongoose Schema API
+      description: Converts the provided JSON input into a Mongoose schema file and returns it as a downl
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/json-url/mongoose-file:
+    post:
+      operationId: postConvertJsonUrlMongooseFile
+      summary: Convert JSON to Mongoose Schema API
+      description: Converts a JSON document fetched from a publicly accessible URL into a downloadable
+        Mo
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

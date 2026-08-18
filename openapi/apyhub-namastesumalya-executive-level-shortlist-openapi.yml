@@ -1,0 +1,43 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/namastesumalya/service/executive-level-shortlist).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Advanced Shortlist API
+  description: Rank resume summaries against a job title and return topCandidates plus an executiveReport.
+    Useful for fast HR screening and shortlist review.
+  version: 1.0.0
+  contact:
+    name: Sumalya APIs
+    url: https://apyhub.com/namastesumalya/service/executive-level-shortlist
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Artificial Intelligence
+- name: HR
+paths:
+  /namastesumalya/api/shortlist:
+    post:
+      operationId: postNamastesumalyaApiShortlist
+      summary: Advanced Shortlist API
+      description: Generates an executive-level shortlist from the submitted resumes and job title. The
+        r
+      tags:
+      - Artificial Intelligence
+      - HR
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

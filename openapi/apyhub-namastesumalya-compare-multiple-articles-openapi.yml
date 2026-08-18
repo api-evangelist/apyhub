@@ -1,0 +1,44 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/namastesumalya/service/compare-multiple-articles).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Extract and Compare Multiple Articles from Web Pages API
+  description: Compare multiple article URLs and get shared themes, topic overlap, style differences,
+    structural contrast, and perspective analysis.
+  version: 1.0.0
+  contact:
+    name: Sumalya APIs
+    url: https://apyhub.com/namastesumalya/service/compare-multiple-articles
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Artificial Intelligence
+- name: Data Extraction
+- name: Smart Generation
+paths:
+  /namastesumalya/api/compare-contents:
+    post:
+      operationId: postNamastesumalyaApiCompareContents
+      summary: Extract and Compare Multiple Articles from Web Pages API
+      description: Compares multiple web articles from the URLs you submit and returns a JSON object with
+      tags:
+      - Artificial Intelligence
+      - Data Extraction
+      - Smart Generation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 1000
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

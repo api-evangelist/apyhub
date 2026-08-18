@@ -1,0 +1,42 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/validate-iban).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Validate IBAN API
+  description: Validate an IBAN from a request body and get back validity plus parsed fields like country
+    code, BBAN, and printable format.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/validate-iban
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Data Validation
+- name: Finance
+paths:
+  /validate/iban:
+    post:
+      operationId: postValidateIban
+      summary: Validate IBAN API
+      description: Validates an IBAN submitted in the request body and returns a JSON object under data.
+      tags:
+      - Data Validation
+      - Finance
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 5
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

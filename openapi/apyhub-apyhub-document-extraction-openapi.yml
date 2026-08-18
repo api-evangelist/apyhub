@@ -1,0 +1,56 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/document-extraction).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: AI Document Data Extraction API
+  description: Send a file or document URL and get extracted results in a structured response. Route through
+    Azure or ApyHub for document parsing workflows.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/document-extraction
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Artificial Intelligence
+- name: Data Extraction
+- name: Image Processing
+paths:
+  /ai/document/extract/document/file:
+    post:
+      operationId: postAiDocumentExtractDocumentFile
+      summary: AI Document Data Extraction API
+      description: Uploads a document file and runs document extraction using the requested service. The
+      tags: &id001
+      - Artificial Intelligence
+      - Data Extraction
+      - Image Processing
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 550
+  /ai/document/extract/document/url:
+    post:
+      operationId: postAiDocumentExtractDocumentUrl
+      summary: AI Document Data Extraction API
+      description: Submits a document URL for extraction and routes the request to the selected service.
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 550
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

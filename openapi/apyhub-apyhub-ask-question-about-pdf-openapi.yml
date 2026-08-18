@@ -1,0 +1,58 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/ask-question-about-pdf).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Talk to PDF API
+  description: Ask natural-language questions about an uploaded PDF or a PDF URL. Returns an answer string
+    for document search, review, and support workflows.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/ask-question-about-pdf
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Artificial Intelligence
+- name: Data Extraction
+- name: Smart Generation
+paths:
+  /extract/qna/ask/file:
+    post:
+      operationId: postExtractQnaAskFile
+      summary: Talk to PDF API
+      description: Uploads a PDF and a natural-language question about that document, then returns the
+        mo
+      tags: &id001
+      - Artificial Intelligence
+      - Data Extraction
+      - Smart Generation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 200
+  /extract/qna/ask/url:
+    post:
+      operationId: postExtractQnaAskUrl
+      summary: Talk to PDF API
+      description: Submits a public PDF URL and a natural-language question, then returns a text answer
+        b
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 200
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

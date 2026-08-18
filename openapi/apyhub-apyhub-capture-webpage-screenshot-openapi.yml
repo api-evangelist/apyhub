@@ -1,0 +1,57 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/capture-webpage-screenshot).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Generate Webpage Screenshot API
+  description: Capture a webpage from a URL and get a PNG download or signed link. Useful for QA, visual
+    regression, and archiving page states.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/capture-webpage-screenshot
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Data Extraction
+- name: File Manipulation
+- name: Image Processing
+paths:
+  /generate/screenshot/webpage/image-file:
+    get:
+      operationId: getGenerateScreenshotWebpageImageFile
+      summary: Generate Webpage Screenshot API
+      description: Captures a screenshot of the webpage at the provided URL and returns it as a streamed
+      tags: &id001
+      - Data Extraction
+      - File Manipulation
+      - Image Processing
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 75
+  /generate/screenshot/webpage/image-url:
+    get:
+      operationId: getGenerateScreenshotWebpageImageUrl
+      summary: Generate Webpage Screenshot API
+      description: Generates a screenshot of the webpage at the given URL and returns a signed upload
+        lin
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 75
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

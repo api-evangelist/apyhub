@@ -1,0 +1,80 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/convert-markdown-to-pdf).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Convert Markdown to PDF API
+  description: Convert raw Markdown, uploaded files, or Markdown URLs into PDF. Get a downloadable file
+    or a signed S3 URL back.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/convert-markdown-to-pdf
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: File Conversion
+- name: Smart Generation
+paths:
+  /convert/md-url/pdf-url:
+    post:
+      operationId: postConvertMdUrlPdfUrl
+      summary: Convert Markdown to PDF API
+      description: Converts a Markdown file available at a URL into a PDF and returns a signed S3 URL
+        for
+      tags: &id001
+      - File Conversion
+      - Smart Generation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/md-file/pdf-file:
+    post:
+      operationId: postConvertMdFilePdfFile
+      summary: Convert Markdown to PDF API
+      description: Uploads a Markdown file and returns a downloadable PDF file rendered from that input.
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/md-file/pdf-url:
+    post:
+      operationId: postConvertMdFilePdfUrl
+      summary: Convert Markdown to PDF API
+      description: Converts an uploaded Markdown file into a PDF and returns a signed S3 URL to the gener
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/md-url/pdf-file:
+    post:
+      operationId: postConvertMdUrlPdfFile
+      summary: Convert Markdown to PDF API
+      description: Converts a Markdown file available at a URL into a PDF and returns the generated PDF
+        a
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

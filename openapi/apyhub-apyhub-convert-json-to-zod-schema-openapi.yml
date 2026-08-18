@@ -1,0 +1,143 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/convert-json-to-zod-schema).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Convert JSON to Zod Schema API
+  description: Generate Zod schemas from JSON bodies, files, or URLs. Returns raw schema text, explain
+    output, or downloadable files for typed validation.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/convert-json-to-zod-schema
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Developer Tools
+- name: Smart Generation
+paths:
+  /convert/json-url/zod-raw:
+    post:
+      operationId: postConvertJsonUrlZodRaw
+      summary: Convert JSON to Zod Schema API
+      description: Converts the JSON document available at a public URL into a Zod schema. The request
+        ta
+      tags: &id001
+      - Developer Tools
+      - Smart Generation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/json-file/zod-raw:
+    post:
+      operationId: postConvertJsonFileZodRaw
+      summary: Convert JSON to Zod Schema API
+      description: Converts an uploaded JSON file into a Zod schema. The request uploads a JSON file and
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/json-raw/zod-url:
+    post:
+      operationId: postConvertJsonRawZodUrl
+      summary: Convert JSON to Zod Schema API
+      description: Converts a non-empty raw JSON request body into a Zod schema and returns a pre-signed
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/json-url/zod-file:
+    post:
+      operationId: postConvertJsonUrlZodFile
+      summary: Convert JSON to Zod Schema API
+      description: Converts JSON fetched from a publicly accessible URL into a Zod schema and returns
+        it
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/json-url/zod-url:
+    post:
+      operationId: postConvertJsonUrlZodUrl
+      summary: Convert JSON to Zod Schema API
+      description: Converts JSON fetched from a publicly accessible URL into a Zod schema file and return
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/json-file/zod-file:
+    post:
+      operationId: postConvertJsonFileZodFile
+      summary: Convert JSON to Zod Schema API
+      description: Converts an uploaded JSON file into a downloadable Zod schema file. Depending on the
+        m
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/json-file/zod-url:
+    post:
+      operationId: postConvertJsonFileZodUrl
+      summary: Convert JSON to Zod Schema API
+      description: Converts an uploaded JSON file into a Zod schema and returns a pre-signed S3 URL for
+        d
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/json-raw/zod-raw:
+    post:
+      operationId: postConvertJsonRawZodRaw
+      summary: Convert JSON to Zod Schema API
+      description: Converts a raw JSON request body into a Zod schema representation. The request accepts
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/json-raw/zod-file:
+    post:
+      operationId: postConvertJsonRawZodFile
+      summary: Convert JSON to Zod Schema API
+      description: Converts a non-empty raw JSON request body into a Zod schema. Depending on the mode
+        qu
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

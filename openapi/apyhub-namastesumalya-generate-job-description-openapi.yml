@@ -1,0 +1,42 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/namastesumalya/service/generate-job-description).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Job Description Generator API
+  description: Generate a full job description from a role title and requirements. Returns ATS, LinkedIn,
+    and interview scorecard versions for hiring teams.
+  version: 1.0.0
+  contact:
+    name: Sumalya APIs
+    url: https://apyhub.com/namastesumalya/service/generate-job-description
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: HR
+- name: Smart Generation
+paths:
+  /namastesumalya/api/generate-jd:
+    post:
+      operationId: postNamastesumalyaApiGenerateJd
+      summary: Job Description Generator API
+      description: Generates a complete job-description package from the supplied role details. The reque
+      tags:
+      - HR
+      - Smart Generation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 300
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

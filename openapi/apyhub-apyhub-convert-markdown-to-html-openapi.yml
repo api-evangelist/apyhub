@@ -1,0 +1,54 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/convert-markdown-to-html).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Convert Markdown to HTML content API
+  description: Convert Markdown from a JSON body or raw text/plain input into HTML. Use it for rendered
+    content in docs, CMS, and publishing flows.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/convert-markdown-to-html
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Developer Tools
+- name: File Conversion
+paths:
+  /convert/md/html/json:
+    post:
+      operationId: postConvertMdHtmlJson
+      summary: Convert Markdown to HTML content API
+      description: Converts the Markdown string you send in the request body into a raw HTML stream. The
+      tags: &id001
+      - Developer Tools
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/md/html/raw:
+    post:
+      operationId: postConvertMdHtmlRaw
+      summary: Convert Markdown to HTML content API
+      description: Converts a raw Markdown string sent in the request body into HTML and returns the conv
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

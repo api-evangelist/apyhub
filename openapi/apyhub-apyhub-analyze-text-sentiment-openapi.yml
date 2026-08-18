@@ -1,0 +1,41 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/analyze-text-sentiment).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: AI Text Sentiment Analysis API
+  description: 'Text Sentiment Analyzer lets you send a text string and get sentiment analysis back from
+    one of three providers: ApyHub, Azure, or Google. Use it when you need to classify customer feedback,
+    scan reviews, or triage support messages by tone. The request body requires body.text. You can'
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/analyze-text-sentiment
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Uncategorized
+paths:
+  /ai/text/sentiment/analysis:
+    post:
+      operationId: postAiTextSentimentAnalysis
+      summary: AI Text Sentiment Analysis API
+      description: Analyzes the sentiment of the submitted text. The request body must include text, and
+      tags:
+      - Uncategorized
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

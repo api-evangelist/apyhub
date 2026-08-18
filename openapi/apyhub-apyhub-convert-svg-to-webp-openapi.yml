@@ -1,0 +1,81 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/convert-svg-to-webp).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Convert SVG to WebP API
+  description: Convert SVG files or URLs to WebP. Get binary downloads or signed URLs for image pipelines,
+    CMS imports, and asset standardization.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/convert-svg-to-webp
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: File Conversion
+- name: File Manipulation
+paths:
+  /convert/image/svg/webp/file:
+    post:
+      operationId: postConvertImageSvgWebpFile
+      summary: Convert SVG to WebP API
+      description: Converts an uploaded SVG image to WebP and returns the generated file as binary downlo
+      tags: &id001
+      - File Conversion
+      - File Manipulation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 30
+  /convert/image/svg/webp/file/url:
+    post:
+      operationId: postConvertImageSvgWebpFileUrl
+      summary: Convert SVG to WebP API
+      description: Converts an uploaded SVG image to WebP and returns a JSON object containing a data
+        URI
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 30
+  /convert/image/svg/webp/url/file:
+    post:
+      operationId: postConvertImageSvgWebpUrlFile
+      summary: Convert SVG to WebP API
+      description: Converts an SVG image fetched from a publicly accessible URL into WebP and returns
+        the
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 30
+  /convert/image/svg/webp/url:
+    post:
+      operationId: postConvertImageSvgWebpUrl
+      summary: Convert SVG to WebP API
+      description: Converts an SVG image from a publicly accessible URL into a WebP image. The request
+        se
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 30
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

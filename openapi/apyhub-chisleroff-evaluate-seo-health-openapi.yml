@@ -1,0 +1,42 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/chisleroff/service/evaluate-seo-health).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Evaluate SEO Health API
+  description: Audit a webpage URL and get a score, grade, structured-data breakdown, and top fixes. Useful
+    for checking metadata and rich-result readiness.
+  version: 1.0.0
+  contact:
+    name: Website Intelligence
+    url: https://apyhub.com/chisleroff/service/evaluate-seo-health
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Marketing
+- name: SEO
+paths:
+  /chisleroff/seo/health-score:
+    post:
+      operationId: postChisleroffSeoHealthScore
+      summary: Evaluate SEO Health API
+      description: Evaluates the SEO health of a webpage given its url and returns an SEO report for that
+      tags:
+      - Marketing
+      - SEO
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

@@ -1,0 +1,41 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/entity-sentiment-analysis).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: AI Text Entity Sentiment Analysis API
+  description: Analyze sentiment around entities mentioned in text. Send text with requested_service=google
+    and receive a data.google result for NLP workflows.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/entity-sentiment-analysis
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Artificial Intelligence
+paths:
+  /ai/text/entity/sentiment/analysis:
+    post:
+      operationId: postAiTextEntitySentimentAnalysis
+      summary: AI Text Entity Sentiment Analysis API
+      description: Analyzes the sentiment of entities in the submitted text and returns a JSON object
+        con
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

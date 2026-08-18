@@ -1,0 +1,41 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/namastesumalya/service/analyze-content-keywords).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Content and Keyword Analysis API
+  description: Analyze a webpage URL for keywords, sentiment, readability, language, and word count. Useful
+    for SEO audits and content review workflows.
+  version: 1.0.0
+  contact:
+    name: Sumalya APIs
+    url: https://apyhub.com/namastesumalya/service/analyze-content-keywords
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: SEO
+paths:
+  /namastesumalya/api/content:
+    post:
+      operationId: postNamastesumalyaApiContent
+      summary: Content and Keyword Analysis API
+      description: Analyzes the content at a given URL and returns keyword, sentiment, readability, and
+        t
+      tags:
+      - SEO
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 2000
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

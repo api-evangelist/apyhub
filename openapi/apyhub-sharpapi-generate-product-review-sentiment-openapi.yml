@@ -1,0 +1,61 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/sharpapi/service/generate-product-review-sentiment).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Generate Product Review Sentiment API
+  description: Analyze product review text asynchronously and get back a score and opinion. Useful for
+    moderation, feedback triage, and sentiment dashboards.
+  version: 1.0.0
+  contact:
+    name: SharpAPI
+    url: https://apyhub.com/sharpapi/service/generate-product-review-sentiment
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Artificial Intelligence
+- name: Smart Generation
+paths:
+  /sharpapi/api/v1/ecommerce/review_sentiment:
+    post:
+      operationId: postSharpapiApiV1EcommerceReviewSentiment
+      summary: Generate Product Review Sentiment API
+      description: Submits an asynchronous job to analyze the sentiment of product review text provided
+        i
+      tags: &id001
+      - Artificial Intelligence
+      - Smart Generation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /sharpapi/api/v1/ecommerce/review_sentiment/job/status/{job_id}:
+    get:
+      operationId: getSharpapiApiV1EcommerceReviewSentimentJobStatusJobId
+      summary: Generate Product Review Sentiment API
+      description: Retrieves the current status of a Generate Product Review Sentiment job by its jobid.
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 1
+      parameters:
+      - name: job_id
+        in: path
+        required: true
+        schema:
+          type: string
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

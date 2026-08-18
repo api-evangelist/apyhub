@@ -1,0 +1,53 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/detect-video-labels).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: AI Video Label Detection API
+  description: Analyze a video from a file or URL with Azure or Google. Returns provider-specific label
+    results for search, moderation, and media workflows.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/detect-video-labels
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Artificial Intelligence
+paths:
+  /ai/video/detect/label/file:
+    post:
+      operationId: postAiVideoDetectLabelFile
+      summary: AI Video Label Detection API
+      description: Uploads a file for label detection and routes the request to either Azure or Google
+        ba
+      tags: &id001
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+  /ai/video/detect/label/url:
+    post:
+      operationId: postAiVideoDetectLabelUrl
+      summary: AI Video Label Detection API
+      description: Detects labels in a video fetched from a URL. You send the video URL and choose which
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

@@ -1,0 +1,56 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/extract-text-from-pdf).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Extract Text from PDF API
+  description: Extract text from a PDF by URL or file upload. Supports page ranges and region bounds,
+    returning plain text in a single data field.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/extract-text-from-pdf
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Data Extraction
+- name: File Manipulation
+paths:
+  /extract/text/pdf-url:
+    post:
+      operationId: postExtractTextPdfUrl
+      summary: Extract Text from PDF API
+      description: Extracts text from a PDF located at a remote URL and returns the extracted content
+        as
+      tags: &id001
+      - Data Extraction
+      - File Manipulation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /extract/text/pdf-file:
+    post:
+      operationId: postExtractTextPdfFile
+      summary: Extract Text from PDF API
+      description: Uploads a PDF file and extracts text from it. You can optionally limit extraction to
+        a
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

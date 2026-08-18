@@ -1,0 +1,43 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/anonymize-text).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: AI Text Anonymization API
+  description: Anonymize free-form text and return an azure or apyhub response object. Useful for redacting
+    names and phone numbers before storage or sharing.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/anonymize-text
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Security & Privacy
+- name: Smart Generation
+paths:
+  /ai/text/anonymize:
+    post:
+      operationId: postAiTextAnonymize
+      summary: AI Text Anonymization API
+      description: Anonymizes text content by sending a text string in the request body and returning
+        a J
+      tags:
+      - Security & Privacy
+      - Smart Generation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

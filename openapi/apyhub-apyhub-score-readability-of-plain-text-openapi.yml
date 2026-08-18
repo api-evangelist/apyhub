@@ -1,0 +1,43 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/score-readability-of-plain-text).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Readability Scores API
+  description: Analyze plain text with readability metrics, word and sentence stats, and English or German
+    scoring. Useful for checking copy before publication.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/score-readability-of-plain-text
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Artificial Intelligence
+- name: SEO
+paths:
+  /extract/text/readability-score:
+    post:
+      operationId: postExtractTextReadabilityScore
+      summary: Readability Scores API
+      description: Scores raw plain text for readability and returns text statistics plus a readability
+        r
+      tags:
+      - Artificial Intelligence
+      - SEO
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 250
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

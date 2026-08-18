@@ -1,0 +1,60 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/sharpapi/service/proofread-text-grammar-check).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Proofread Text + Grammar Check API
+  description: Submit text in content, get a job_id and status_url, then poll for a proofread result.
+    Useful for cleaning drafts and user-generated copy.
+  version: 1.0.0
+  contact:
+    name: SharpAPI
+    url: https://apyhub.com/sharpapi/service/proofread-text-grammar-check
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Artificial Intelligence
+- name: Smart Generation
+paths:
+  /sharpapi/api/v1/content/proofread:
+    post:
+      operationId: postSharpapiApiV1ContentProofread
+      summary: Proofread Text + Grammar Check API
+      description: Submits text for proofreading and grammar checking as an asynchronous job. It accepts
+      tags: &id001
+      - Artificial Intelligence
+      - Smart Generation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /sharpapi/api/v1/content/proofread/job/status/{job_id}:
+    get:
+      operationId: getSharpapiApiV1ContentProofreadJobStatusJobId
+      summary: Proofread Text + Grammar Check API
+      description: Checks the status of a previously submitted proofread/grammar-check job using its job
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 1
+      parameters:
+      - name: job_id
+        in: path
+        required: true
+        schema:
+          type: string
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

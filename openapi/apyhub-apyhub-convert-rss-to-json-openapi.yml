@@ -1,0 +1,56 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/convert-rss-to-json).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Convert RSS to JSON API
+  description: Parse RSS or Atom feeds from a file or URL into JSON. Useful for ingesting blog, news,
+    or podcast feeds into apps and pipelines.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/convert-rss-to-json
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Data Extraction
+- name: Developer Tools
+paths:
+  /convert/rss-file/json:
+    post:
+      operationId: postConvertRssFileJson
+      summary: Convert RSS to JSON API
+      description: Parses an uploaded RSS or Atom XML file and converts it to JSON. The request sends
+        a b
+      tags: &id001
+      - Data Extraction
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 150
+  /convert/rss-url/json:
+    post:
+      operationId: postConvertRssUrlJson
+      summary: Convert RSS to JSON API
+      description: Parses a remote RSS or Atom feed from a URL and returns the feed data as JSON. The
+        req
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 150
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

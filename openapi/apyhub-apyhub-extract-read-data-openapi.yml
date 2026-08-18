@@ -1,0 +1,55 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/extract-read-data).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: OCR Document Data Extraction API
+  description: Extract reading data from a file upload or URL. Returns ApyHub or Azure parsing output
+    for document workflows and indexing.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/extract-read-data
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Artificial Intelligence
+- name: Data Extraction
+paths:
+  /ai/document/extract/read/file:
+    post:
+      operationId: postAiDocumentExtractReadFile
+      summary: OCR Document Data Extraction API
+      description: Uploads a file and returns extracted read-data parsing output. You can choose whether
+      tags: &id001
+      - Artificial Intelligence
+      - Data Extraction
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+  /ai/document/extract/read/url:
+    post:
+      operationId: postAiDocumentExtractReadUrl
+      summary: OCR Document Data Extraction API
+      description: Extracts read data from a document at the provided URL and returns parsing output in
+        a
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

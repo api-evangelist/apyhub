@@ -1,0 +1,61 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/sharpapi/service/paraphrase-text).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Paraphrase Text API
+  description: Rewrite content with optional context, language, length, and tone controls. Returns a job
+    ID, status URL, and the paraphrased text when complete.
+  version: 1.0.0
+  contact:
+    name: SharpAPI
+    url: https://apyhub.com/sharpapi/service/paraphrase-text
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Artificial Intelligence
+- name: Smart Generation
+paths:
+  /sharpapi/api/v1/content/paraphrase:
+    post:
+      operationId: postSharpapiApiV1ContentParaphrase
+      summary: Paraphrase Text API
+      description: Submits a paraphrasing job for the provided text content. The request body includes
+        th
+      tags: &id001
+      - Artificial Intelligence
+      - Smart Generation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /sharpapi/api/v1/content/paraphrase/job/status/{job_id}:
+    get:
+      operationId: getSharpapiApiV1ContentParaphraseJobStatusJobId
+      summary: Paraphrase Text API
+      description: Checks the status of a previously submitted paraphrase job using its job ID. When the
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 1
+      parameters:
+      - name: job_id
+        in: path
+        required: true
+        schema:
+          type: string
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

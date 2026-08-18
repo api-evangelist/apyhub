@@ -1,0 +1,145 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/convert-json-to-graphql-sdl).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Convert JSON to GraphQL Schema API
+  description: Convert raw JSON, uploaded files, or JSON URLs into GraphQL SDL. Get inline text, a .graphql
+    download, or a pre-signed S3 URL.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/convert-json-to-graphql-sdl
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Developer Tools
+- name: File Conversion
+- name: Smart Generation
+paths:
+  /convert/json-file/graphql-url:
+    post:
+      operationId: postConvertJsonFileGraphqlUrl
+      summary: Convert JSON to GraphQL Schema API
+      description: Converts an uploaded JSON file into GraphQL SDL and returns a pre-signed S3 URL for
+        th
+      tags: &id001
+      - Developer Tools
+      - File Conversion
+      - Smart Generation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/json-raw/graphql-raw:
+    post:
+      operationId: postConvertJsonRawGraphqlRaw
+      summary: Convert JSON to GraphQL Schema API
+      description: Converts a raw JSON object in the request body into GraphQL SDL and returns the SDL
+        as
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/json-raw/graphql-url:
+    post:
+      operationId: postConvertJsonRawGraphqlUrl
+      summary: Convert JSON to GraphQL Schema API
+      description: Converts a raw JSON object sent in the request body into GraphQL SDL, then returns
+        a p
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/json-url/graphql-file:
+    post:
+      operationId: postConvertJsonUrlGraphqlFile
+      summary: Convert JSON to GraphQL Schema API
+      description: Converts the JSON document available at a public URL into a GraphQL SDL file for downl
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/json-raw/graphql-file:
+    post:
+      operationId: postConvertJsonRawGraphqlFile
+      summary: Convert JSON to GraphQL Schema API
+      description: Converts a raw JSON object in the request body into a downloadable GraphQL SDL file.
+        T
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/json-url/graphql-raw:
+    post:
+      operationId: postConvertJsonUrlGraphqlRaw
+      summary: Convert JSON to GraphQL Schema API
+      description: Converts the JSON document available at a public URL into GraphQL SDL and returns the
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/json-url/graphql-url:
+    post:
+      operationId: postConvertJsonUrlGraphqlUrl
+      summary: Convert JSON to GraphQL Schema API
+      description: Converts the JSON file available at the provided URL into GraphQL SDL, then returns
+        a
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/json-file/graphql-raw:
+    post:
+      operationId: postConvertJsonFileGraphqlRaw
+      summary: Convert JSON to GraphQL Schema API
+      description: Uploads a JSON file and returns GraphQL SDL as the response. The input must be a JSON
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/json-file/graphql-file:
+    post:
+      operationId: postConvertJsonFileGraphqlFile
+      summary: Convert JSON to GraphQL Schema API
+      description: Converts an uploaded JSON file into a downloadable GraphQL SDL file. The request uploa
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

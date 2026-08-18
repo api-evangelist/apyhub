@@ -1,0 +1,54 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/generate-barcode).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Generate Barcode API
+  description: Generate Code128 barcodes from a text string and download them or get a pre-signed cloud
+    URL. Useful for labels, inventory, and ticketing.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/generate-barcode
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Smart Generation
+paths:
+  /generate/barcode/file:
+    post:
+      operationId: postGenerateBarcodeFile
+      summary: Generate Barcode API
+      description: Generates a Code128 barcode from the provided text content and returns the result as
+        a
+      tags: &id001
+      - Smart Generation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 30
+  /generate/barcode/url:
+    post:
+      operationId: postGenerateBarcodeUrl
+      summary: Generate Barcode API
+      description: Generates a Code128 barcode from the provided content and returns a pre-signed cloud
+        s
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 30
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

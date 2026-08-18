@@ -1,0 +1,43 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/fuzzy-search).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Fuzzy Text Search API
+  description: Compare a source string against a space-separated target and get matching words back. Useful
+    for autocomplete, filtering, and text normalization.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/fuzzy-search
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Developer Tools
+- name: SEO
+paths:
+  /search/text/fuzzy:
+    post:
+      operationId: postSearchTextFuzzy
+      summary: Fuzzy Text Search API
+      description: Performs a fuzzy search by comparing a source term against a space-separated target
+        st
+      tags:
+      - Developer Tools
+      - SEO
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 25
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

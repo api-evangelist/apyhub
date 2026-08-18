@@ -1,0 +1,57 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/extract-table-data).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: AI Document Table Data Extraction API
+  description: Extract table data from a file or URL. Returns Azure or ApyHub parsing output for invoice,
+    report, and document table capture.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/extract-table-data
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Artificial Intelligence
+- name: Data Extraction
+- name: Image Processing
+paths:
+  /ai/document/extract/table/file:
+    post:
+      operationId: postAiDocumentExtractTableFile
+      summary: AI Document Table Data Extraction API
+      description: Extracts table data from a document at the provided URL and returns parsed results
+        in
+      tags: &id001
+      - Artificial Intelligence
+      - Data Extraction
+      - Image Processing
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+  /ai/document/extract/table/url:
+    post:
+      operationId: postAiDocumentExtractTableUrl
+      summary: AI Document Table Data Extraction API
+      description: Extracts table data from a document or webpage referenced by a URL and returns parsed
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

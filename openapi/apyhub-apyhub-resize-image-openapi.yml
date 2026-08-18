@@ -1,0 +1,80 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/resize-image).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Resize Images API
+  description: Resize uploaded images or images from a URL to exact width and height. Get a binary file
+    or a signed download link, with optional format preservation.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/resize-image
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: File Manipulation
+- name: Image Processing
+paths:
+  /processor/image/resize/file:
+    post:
+      operationId: postProcessorImageResizeFile
+      summary: Resize Images API
+      description: Resizes an uploaded image using multipart form data and returns the resized file as
+        bi
+      tags: &id001
+      - File Manipulation
+      - Image Processing
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 30
+  /processor/image/resize/file/urls:
+    post:
+      operationId: postProcessorImageResizeFileUrls
+      summary: Resize Images API
+      description: Resizes an uploaded image and returns a signed URL for the generated result. The reque
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 30
+  /processor/image/resize/url/file:
+    post:
+      operationId: postProcessorImageResizeUrlFile
+      summary: Resize Images API
+      description: Resizes an image fetched from a source URL and returns the resized file as binary data
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 30
+  /processor/image/resize/file-urls:
+    post:
+      operationId: postProcessorImageResizeFileUrls
+      summary: Resize Images API
+      description: Resizes an image fetched from a URL or signed URL and returns the resized image as
+        a U
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 30
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

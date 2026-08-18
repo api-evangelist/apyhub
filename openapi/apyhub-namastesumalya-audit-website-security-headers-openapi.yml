@@ -1,0 +1,43 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/namastesumalya/service/audit-website-security-headers).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Security Header Full Audit API
+  description: Audit a URL’s security headers and get a score, header status, and recommendations. Useful
+    for checking CSP, HSTS, and other browser protections.
+  version: 1.0.0
+  contact:
+    name: Sumalya APIs
+    url: https://apyhub.com/namastesumalya/service/audit-website-security-headers
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Security & Privacy
+- name: SEO
+paths:
+  /namastesumalya/api/security:
+    post:
+      operationId: postNamastesumalyaApiSecurity
+      summary: Security Header Full Audit API
+      description: Audits the security headers for a website URL and returns the URL, an overall score,
+        r
+      tags:
+      - Security & Privacy
+      - SEO
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

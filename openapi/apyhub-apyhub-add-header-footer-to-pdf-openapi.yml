@@ -1,0 +1,78 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/add-header-footer-to-pdf).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Apply Footers on PDF API
+  description: Add text or PNG headers and footers to a PDF from a file or URL. Returns a modified PDF
+    or an S3 URL for invoices, reports, and branded documents.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/add-header-footer-to-pdf
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: File Manipulation
+paths:
+  /stamp/pdf/footers/file:
+    post:
+      operationId: postStampPdfFootersFile
+      summary: Apply Footers on PDF API
+      description: Uploads a PDF file and returns a modified PDF with a header and/or footer added. You
+        c
+      tags: &id001
+      - File Manipulation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+  /stamp/pdf/footers/file/url:
+    post:
+      operationId: postStampPdfFootersFileUrl
+      summary: Apply Footers on PDF API
+      description: Uploads a PDF file and returns a URL to the processed PDF with a header and/or footer
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+  /stamp/pdf/footers/url/file:
+    post:
+      operationId: postStampPdfFootersUrlFile
+      summary: Apply Footers on PDF API
+      description: Adds a header and/or footer to a PDF fetched from a public URL, then returns the modif
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+  /stamp/pdf/footers/url:
+    post:
+      operationId: postStampPdfFootersUrl
+      summary: Apply Footers on PDF API
+      description: Adds a header and/or footer to a PDF referenced by URL, then returns a JSON object
+        con
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

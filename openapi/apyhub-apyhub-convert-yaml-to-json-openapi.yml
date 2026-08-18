@@ -1,0 +1,143 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/convert-yaml-to-json).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Convert YAML to JSON API
+  description: Convert raw YAML, uploaded files, or YAML at a URL into inline JSON, a downloadable file,
+    or a signed S3 URL.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/convert-yaml-to-json
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Developer Tools
+- name: File Conversion
+paths:
+  /convert/yaml-url/json-url:
+    post:
+      operationId: postConvertYamlUrlJsonUrl
+      summary: Convert YAML to JSON API
+      description: Converts a YAML file fetched from a publicly accessible URL into JSON and returns a
+        pr
+      tags: &id001
+      - Developer Tools
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/yaml-raw/json-file:
+    post:
+      operationId: postConvertYamlRawJsonFile
+      summary: Convert YAML to JSON API
+      description: Converts a raw YAML string into a downloadable JSON file. The request sends the YAML
+        c
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/yaml-raw/json-raw:
+    post:
+      operationId: postConvertYamlRawJsonRaw
+      summary: Convert YAML to JSON API
+      description: Converts a raw YAML string in the request body into JSON. The response is either a
+        JSO
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/yaml-raw/json-url:
+    post:
+      operationId: postConvertYamlRawJsonUrl
+      summary: Convert YAML to JSON API
+      description: Converts a raw YAML string in the request body into JSON and returns a pre-signed S3
+        U
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/yaml-file/json-file:
+    post:
+      operationId: postConvertYamlFileJsonFile
+      summary: Convert YAML to JSON API
+      description: Converts an uploaded YAML file into a downloadable JSON file. The request uploads the
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/yaml-file/json-raw:
+    post:
+      operationId: postConvertYamlFileJsonRaw
+      summary: Convert YAML to JSON API
+      description: Converts an uploaded YAML file into JSON and returns the converted content inline in
+        t
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/yaml-file/json-url:
+    post:
+      operationId: postConvertYamlFileJsonUrl
+      summary: Convert YAML to JSON API
+      description: Converts an uploaded YAML file into JSON and returns a pre-signed S3 URL for the gener
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/yaml-url/json-file:
+    post:
+      operationId: postConvertYamlUrlJsonFile
+      summary: Convert YAML to JSON API
+      description: Converts a YAML file fetched from a public URL into a downloadable JSON file. You send
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /convert/yaml-url/json-raw:
+    post:
+      operationId: postConvertYamlUrlJsonRaw
+      summary: Convert YAML to JSON API
+      description: Converts a YAML file fetched from a publicly accessible URL into inline JSON. The resp
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

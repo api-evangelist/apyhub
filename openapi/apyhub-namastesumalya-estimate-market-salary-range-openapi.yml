@@ -1,0 +1,42 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/namastesumalya/service/estimate-market-salary-range).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Global Salary Benchmark API
+  description: Estimate a candidate’s market salary range from job title, location, and resume content.
+    Returns market context plus min, max, and currency.
+  version: 1.0.0
+  contact:
+    name: Sumalya APIs
+    url: https://apyhub.com/namastesumalya/service/estimate-market-salary-range
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Artificial Intelligence
+- name: HR
+paths:
+  /namastesumalya/api/salary-estimate:
+    post:
+      operationId: postNamastesumalyaApiSalaryEstimate
+      summary: Global Salary Benchmark API
+      description: Estimates a market salary range for a candidate from the provided job title, location,
+      tags:
+      - Artificial Intelligence
+      - HR
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 750
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

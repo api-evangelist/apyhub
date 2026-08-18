@@ -1,0 +1,61 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/sharpapi/service/job-description-generator).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Job Description Generator API
+  description: Generate structured job descriptions from a title and hiring context. Returns requirements,
+    responsibilities, and a short summary for HR workflows.
+  version: 1.0.0
+  contact:
+    name: SharpAPI
+    url: https://apyhub.com/sharpapi/service/job-description-generator
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: HR
+- name: Smart Generation
+paths:
+  /sharpapi/api/v1/hr/job_description:
+    post:
+      operationId: postSharpapiApiV1HrJobDescription
+      summary: Job Description Generator API
+      description: Submits a job-description generation request and starts an async job. The request body
+      tags: &id001
+      - HR
+      - Smart Generation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+  /sharpapi/api/v1/hr/job_description/job/status/{job_id}:
+    get:
+      operationId: getSharpapiApiV1HrJobDescriptionJobStatusJobId
+      summary: Job Description Generator API
+      description: Checks the status of a previously submitted job description generation job by job ID
+        a
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 1
+      parameters:
+      - name: job_id
+        in: path
+        required: true
+        schema:
+          type: string
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

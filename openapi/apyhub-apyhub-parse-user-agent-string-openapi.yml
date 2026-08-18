@@ -1,0 +1,43 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/parse-user-agent-string).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Extract User Agent API
+  description: Parse a raw User-Agent string into browser, platform, device, and engine data. Useful for
+    analytics, request logging, and bot detection.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/parse-user-agent-string
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Developer Tools
+- name: Security & Privacy
+paths:
+  /extract/user-agent:
+    post:
+      operationId: postExtractUserAgent
+      summary: Extract User Agent API
+      description: Parses a raw HTTP User-Agent string from the request body and returns a structured
+        bre
+      tags:
+      - Developer Tools
+      - Security & Privacy
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 20
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

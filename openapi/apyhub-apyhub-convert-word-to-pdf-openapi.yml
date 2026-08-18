@@ -1,0 +1,103 @@
+# Derived by API Evangelist from ApyHub's own published service documentation
+# (https://apyhub.com/llms.txt -> https://apyhub.com/apyhub/service/convert-word-to-pdf).
+# Paths verified callable against https://api.apyhub.com (401 = exists + gated).
+# Request/response schemas are NOT published by ApyHub and are deliberately omitted.
+openapi: 3.1.0
+info:
+  title: Convert Word to PDF API
+  description: Convert Word files, base64 documents, or remote URLs to PDF. Get a binary download or a
+    signed link for `.doc`, `.docx`, `.odt`, and `.rtf` inputs.
+  version: 1.0.0
+  contact:
+    name: ApyHub
+    url: https://apyhub.com/apyhub/service/convert-word-to-pdf
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: File Conversion
+paths:
+  /convert/word-base64/pdf-url:
+    post:
+      operationId: postConvertWordBase64PdfUrl
+      summary: Convert Word to PDF API
+      description: Converts a base64-encoded Word document into a PDF and returns a signed link to the
+        ge
+      tags: &id001
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+  /convert/word-file/pdf-file:
+    post:
+      operationId: postConvertWordFilePdfFile
+      summary: Convert Word to PDF API
+      description: Converts an uploaded Word document to a PDF and returns the generated PDF as a binary
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+  /convert/word-file/pdf-url:
+    post:
+      operationId: postConvertWordFilePdfUrl
+      summary: Convert Word to PDF API
+      description: Converts an uploaded Word document to a PDF and returns a signed link to the generated
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+  /convert/word-url/pdf-file:
+    post:
+      operationId: postConvertWordUrlPdfFile
+      summary: Convert Word to PDF API
+      description: Converts a remote Word document at the provided URL into a PDF and returns the PDF
+        as
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+  /convert/word-url/pdf-url:
+    post:
+      operationId: postConvertWordUrlPdfUrl
+      summary: Convert Word to PDF API
+      description: Converts a remote Word document available at a URL into a PDF and returns a signed
+        PDF
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+  /convert/word-base64/pdf-file:
+    post:
+      operationId: postConvertWordBase64PdfFile
+      summary: Convert Word to PDF API
+      description: Converts a base64-encoded Word document to a PDF and returns the PDF as a binary downl
+      tags: *id001
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token
