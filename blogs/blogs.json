@@ -2,11 +2,14 @@
   "repo": "apyhub",
   "feeds": [
     {
-      "source": "https://apyhub.com/docs",
-      "error": "HTTPError"
+      "source": "https://apyhub.com/privacy",
+      "feed_url": "https://apyhub.com/privacy",
+      "title": "",
+      "saved": 0,
+      "method": "none"
     }
   ],
   "post_count": 12,
-  "fetched": "2026-08-15T12:22:01Z",
+  "fetched": "2026-08-22T20:20:02Z",
   "agent_pulled": "2026-06-27"
 }
