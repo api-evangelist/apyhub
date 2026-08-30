@@ -1,0 +1,265 @@
+openapi: 3.2.0
+info:
+  title: Apyhub Uncategorized API
+  version: 1.0.0
+  description: 'Operations tagged Uncategorized across 9 of this provider''s published API definitions: apyhub-apyhub-analyze-text-sentiment-openapi.yml, apyhub-apyhub-check-whether-an-email-belongs-to-an-aca-openapi.yml, apyhub-apyhub-convert-jpeg-to-webp-openapi.yml, apyhub-apyhub-detect-human-faces-openapi.yml, apyhub-apyhub-extract-id-data-openapi.yml, apyhub-apyhub-generate-link-preview-openapi.yml, apyhub-apyhub-list-all-currencies-openapi.yml, apyhub-apyhub-validate-indian-postcode-openapi.yml, apyhub-boomlify-temporary-and-disposable-emails-api-openapi.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Uncategorized
+paths:
+  /ai/text/sentiment/analysis:
+    post:
+      operationId: postAiTextSentimentAnalysis
+      summary: AI Text Sentiment Analysis API
+      description: Analyzes the sentiment of the submitted text. The request body must include text, and
+      tags:
+      - Uncategorized
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /validate/email/academic:
+    post:
+      operationId: postValidateEmailAcademic
+      summary: Validate Academic Email API
+      description: Checks whether the submitted email address belongs to an academic institution and retu
+      tags:
+      - Uncategorized
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 15
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/image/jpeg/webp/url:
+    post:
+      operationId: postConvertImageJpegWebpUrl
+      summary: Convert JPEG to WebP API
+      description: Converts a publicly accessible JPEG image URL into a WebP image and returns the result
+      tags:
+      - Uncategorized
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 30
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/image/jpeg/webp/file:
+    post:
+      operationId: postConvertImageJpegWebpFile
+      summary: Convert JPEG to WebP API
+      description: Converts an uploaded JPEG/JPG image to WebP and returns the resulting file as a binary
+      tags:
+      - Uncategorized
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 30
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /ai/image/detect/face/file:
+    post:
+      operationId: postAiImageDetectFaceFile
+      summary: AI Image Face Detection API
+      description: Uploads an image file and runs human face detection against the selected provider. The
+      tags:
+      - Uncategorized
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /ai/image/detect/face/url:
+    post:
+      operationId: postAiImageDetectFaceUrl
+      summary: AI Image Face Detection API
+      description: Detects human faces from an image URL. You send the image url and optionally choose wh
+      tags:
+      - Uncategorized
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /ai/document/extract/id/file:
+    post:
+      operationId: postAiDocumentExtractIdFile
+      summary: AI Document ID Extraction API
+      description: Uploads an ID document file and returns parsed extraction results. The response is a J
+      tags:
+      - Uncategorized
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /ai/document/extract/id/url:
+    post:
+      operationId: postAiDocumentExtractIdUrl
+      summary: AI Document ID Extraction API
+      description: 'Extract id data (URL input) Extract id data (URL input) Analyze id at the provided URL. Note: The o'
+      tags:
+      - Uncategorized
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /extract/url/preview:
+    post:
+      operationId: postExtractUrlPreview
+      summary: Generate Link Preview API
+      description: Generates a preview for a URL by fetching the page metadata and returning it in a JSON
+      tags:
+      - Uncategorized
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /data/dictionary/currency:
+    get:
+      operationId: getDataDictionaryCurrency
+      summary: Currencies Dictionary API
+      description: Returns a JSON object containing a data array of currency objects. Each item in the ar
+      tags:
+      - Uncategorized
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 5
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /validate/postcodes/in:
+    post:
+      operationId: postValidatePostcodesIn
+      summary: Validate Indian Postcodes API
+      description: Validates an Indian PIN code by sending a postcode string in the request body and retu
+      tags:
+      - Uncategorized
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 10
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /boomlify/emails/create:
+    post:
+      operationId: postBoomlifyEmailsCreate
+      summary: Temporary and Disposable Emails API
+      description: Creates a temporary email address. You can control the email lifetime with the time qu
+      tags:
+      - Uncategorized
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 25
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /boomlify/emails/messages/{id}:
+    get:
+      operationId: getBoomlifyEmailsMessagesId
+      summary: Temporary and Disposable Emails API
+      description: Retrieves email messages for the email address identified by the path id. The response
+      tags:
+      - Uncategorized
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 25
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /boomlify/emails/{id}:
+    delete:
+      operationId: deleteBoomlifyEmailsId
+      summary: Temporary and Disposable Emails API
+      description: Deletes a temporary email identified by its UUID path parameter. The response returns
+      tags:
+      - Uncategorized
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 25
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token
+x-refined-from:
+- apyhub-apyhub-analyze-text-sentiment-openapi.yml
+- apyhub-apyhub-check-whether-an-email-belongs-to-an-aca-openapi.yml
+- apyhub-apyhub-convert-jpeg-to-webp-openapi.yml
+- apyhub-apyhub-detect-human-faces-openapi.yml
+- apyhub-apyhub-extract-id-data-openapi.yml
+- apyhub-apyhub-generate-link-preview-openapi.yml
+- apyhub-apyhub-list-all-currencies-openapi.yml
+- apyhub-apyhub-validate-indian-postcode-openapi.yml
+- apyhub-boomlify-temporary-and-disposable-emails-api-openapi.yml

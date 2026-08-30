@@ -1,0 +1,670 @@
+openapi: 3.2.0
+info:
+  title: Apyhub File Manipulation API
+  version: 1.0.0
+  description: 'Operations tagged File Manipulation across 10 of this provider''s published API definitions: apyhub-apyhub-add-header-footer-to-pdf-openapi.yml, apyhub-apyhub-apply-watermark-on-pdf-openapi.yml, apyhub-apyhub-apply-watermark-openapi.yml, apyhub-apyhub-change-image-background-openapi.yml, apyhub-apyhub-create-password-protected-zip-openapi.yml, apyhub-apyhub-crop-image-openapi.yml, apyhub-apyhub-extract-password-protected-archive-openapi.yml, apyhub-apyhub-generate-thumbnail-openapi.yml, apyhub-apyhub-resize-image-openapi.yml, apyhub-apyhub-stamp-header-footer-on-pdf-openapi.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: File Manipulation
+paths:
+  /stamp/pdf/footers/file:
+    post:
+      operationId: postStampPdfFootersFile
+      summary: Apply Footers on PDF API
+      description: Uploads a PDF file and returns a modified PDF with a header and/or footer added. You c
+      tags:
+      - File Manipulation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /stamp/pdf/footers/file/url:
+    post:
+      operationId: postStampPdfFootersFileUrl
+      summary: Apply Footers on PDF API
+      description: Uploads a PDF file and returns a URL to the processed PDF with a header and/or footer
+      tags:
+      - File Manipulation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /stamp/pdf/footers/url/file:
+    post:
+      operationId: postStampPdfFootersUrlFile
+      summary: Apply Footers on PDF API
+      description: Adds a header and/or footer to a PDF fetched from a public URL, then returns the modif
+      tags:
+      - File Manipulation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /stamp/pdf/footers/url:
+    post:
+      operationId: postStampPdfFootersUrl
+      summary: Apply Footers on PDF API
+      description: Adds a header and/or footer to a PDF referenced by URL, then returns a JSON object con
+      tags:
+      - File Manipulation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /stamp/pdf/watermark/file:
+    post:
+      operationId: postStampPdfWatermarkFile
+      summary: Apply Watermark on PDF API
+      description: Uploads a PDF file, applies a watermark to it, and returns the watermarked PDF as a do
+      tags:
+      - File Manipulation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /stamp/pdf/watermark/file/url:
+    post:
+      operationId: postStampPdfWatermarkFileUrl
+      summary: Apply Watermark on PDF API
+      description: Uploads a PDF file and returns a URL for the watermarked PDF output. The request can i
+      tags:
+      - File Manipulation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /stamp/pdf/watermark/url/file:
+    post:
+      operationId: postStampPdfWatermarkUrlFile
+      summary: Apply Watermark on PDF API
+      description: Takes a publicly accessible PDF URL and applies a watermark to it, then returns the ge
+      tags:
+      - File Manipulation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /stamp/pdf/watermark/url:
+    post:
+      operationId: postStampPdfWatermarkUrl
+      summary: Apply Watermark on PDF API
+      description: Adds a watermark to a PDF fetched from a URL and returns the URL of the generated wate
+      tags:
+      - File Manipulation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /processor/image/watermark/base64/file:
+    post:
+      operationId: postProcessorImageWatermarkBase64File
+      summary: Apply Watermark on Images API
+      description: Applies a watermark to a source image provided as Base64 and returns the processed fil
+      tags:
+      - File Manipulation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 60
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /processor/image/watermark/base64/url:
+    post:
+      operationId: postProcessorImageWatermarkBase64Url
+      summary: Apply Watermark on Images API
+      description: Applies a watermark to a source image provided as Base64 and returns a JSON object con
+      tags:
+      - File Manipulation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 60
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /processor/image/watermark/file:
+    post:
+      operationId: postProcessorImageWatermarkFile
+      summary: Apply Watermark on Images API
+      description: Applies a watermark to an uploaded image and returns the processed file as binary data
+      tags:
+      - File Manipulation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 60
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /processor/image/watermark/file/url:
+    post:
+      operationId: postProcessorImageWatermarkFileUrl
+      summary: Apply Watermark on Images API
+      description: Applies a watermark to the provided image and returns a JSON object containing a data
+      tags:
+      - File Manipulation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 60
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /processor/image/watermark/url/file:
+    post:
+      operationId: postProcessorImageWatermarkUrlFile
+      summary: Apply Watermark on Images API
+      description: Applies a watermark to an image fetched from a URL and returns the processed file as b
+      tags:
+      - File Manipulation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 60
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /processor/image/watermark/file-urls:
+    post:
+      operationId: postProcessorImageWatermarkFileUrls
+      summary: Apply Watermark on Images API
+      description: Applies a watermark to an image fetched from a signed URL. The request body provides t
+      tags:
+      - File Manipulation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 60
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /processor/image/change-background/file:
+    post:
+      operationId: postProcessorImageChangeBackgroundFile
+      summary: Change Background of Images API
+      description: Uploads a subject image and a background image, then returns the generated result as a
+      tags:
+      - File Manipulation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 2000
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /processor/image/change-background/file/url:
+    post:
+      operationId: postProcessorImageChangeBackgroundFileUrl
+      summary: Change Background of Images API
+      description: Uploads a subject image and optional background settings as multipart form data, then
+      tags:
+      - File Manipulation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 2000
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /processor/image/change-background/url/file:
+    post:
+      operationId: postProcessorImageChangeBackgroundUrlFile
+      summary: Change Background of Images API
+      description: Fetches a foreground image from a URL, removes its background, and composites it onto
+      tags:
+      - File Manipulation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 2000
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /processor/image/change-background/url:
+    post:
+      operationId: postProcessorImageChangeBackgroundUrl
+      summary: Change Background of Images API
+      description: Fetches a foreground image from imageurl, removes its background, and composites it on
+      tags:
+      - File Manipulation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 2000
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /generate/secure-archive/file-urls/archive-file:
+    post:
+      operationId: postGenerateSecureArchiveFileUrlsArchiveFile
+      summary: Generate Secure Archives API
+      description: Creates a password-protected ZIP archive from one or more remote file URLs and streams
+      tags:
+      - File Manipulation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 200
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /generate/secure-archive/file-urls/archive-url:
+    post:
+      operationId: postGenerateSecureArchiveFileUrlsArchiveUrl
+      summary: Generate Secure Archives API
+      description: Creates a password-protected ZIP archive from one or more remote file URLs and returns
+      tags:
+      - File Manipulation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 200
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /generate/secure-archive/files/archive-file:
+    post:
+      operationId: postGenerateSecureArchiveFilesArchiveFile
+      summary: Generate Secure Archives API
+      description: Creates a password-protected ZIP archive from the uploaded files and streams the resul
+      tags:
+      - File Manipulation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 200
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /generate/secure-archive/files/archive-url:
+    post:
+      operationId: postGenerateSecureArchiveFilesArchiveUrl
+      summary: Generate Secure Archives API
+      description: Creates a password-protected ZIP archive from uploaded files and returns a signed URI
+      tags:
+      - File Manipulation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 200
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /processor/image/crop/file-urls:
+    post:
+      operationId: postProcessorImageCropFileUrls
+      summary: Crop Images API
+      description: Crops an image fetched from a URL and returns a signed URL for the cropped result. Use
+      tags:
+      - File Manipulation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 30
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /processor/image/crop/file:
+    post:
+      operationId: postProcessorImageCropFile
+      summary: Crop Images API
+      description: Crops an uploaded image and returns the resulting file as binary data. You can crop by
+      tags:
+      - File Manipulation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 30
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /processor/image/crop/file/url:
+    post:
+      operationId: postProcessorImageCropFileUrl
+      summary: Crop Images API
+      description: Crops an uploaded raster image and returns a time-limited pre-signed URL to the stored
+      tags:
+      - File Manipulation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 30
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /processor/image/crop/url/file:
+    post:
+      operationId: postProcessorImageCropUrlFile
+      summary: Crop Images API
+      description: Crops an image fetched from a URL and returns the resulting file as binary data. The r
+      tags:
+      - File Manipulation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 30
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /extract/secure-archive/file/file-urls:
+    post:
+      operationId: postExtractSecureArchiveFileFileUrls
+      summary: Unarchive Secured Files API
+      description: Extracts a password-protected uploaded archive and returns signed URLs for the files i
+      tags:
+      - File Manipulation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 300
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /extract/secure-archive/url/file-urls:
+    post:
+      operationId: postExtractSecureArchiveUrlFileUrls
+      summary: Unarchive Secured Files API
+      description: Extracts a password-protected remote archive from a URL using the provided password an
+      tags:
+      - File Manipulation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 300
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /generate/image/thumbnail/file/url:
+    post:
+      operationId: postGenerateImageThumbnailFileUrl
+      summary: Generate Image Thumbnails API
+      description: Generates a thumbnail from an uploaded image file and returns a JSON object containing
+      tags:
+      - File Manipulation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 30
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /generate/image/thumbnail/url/file:
+    post:
+      operationId: postGenerateImageThumbnailUrlFile
+      summary: Generate Image Thumbnails API
+      description: Downloads an image from a URL and generates a thumbnail using the width and height que
+      tags:
+      - File Manipulation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 30
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /generate/image/thumbnail/file-urls:
+    post:
+      operationId: postGenerateImageThumbnailFileUrls
+      summary: Generate Image Thumbnails API
+      description: Generates a thumbnail from a source image URL. The request sends the image URL in the
+      tags:
+      - File Manipulation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 30
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /generate/image/thumbnail/file:
+    post:
+      operationId: postGenerateImageThumbnailFile
+      summary: Generate Image Thumbnails API
+      description: Generates a thumbnail from an uploaded image and returns the resulting file as binary
+      tags:
+      - File Manipulation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 30
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /processor/image/resize/file:
+    post:
+      operationId: postProcessorImageResizeFile
+      summary: Resize Images API
+      description: Resizes an uploaded image using multipart form data and returns the resized file as bi
+      tags:
+      - File Manipulation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 30
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /processor/image/resize/file/urls:
+    post:
+      operationId: postProcessorImageResizeFileUrls
+      summary: Resize Images API
+      description: Resizes an uploaded image and returns a signed URL for the generated result. The reque
+      tags:
+      - File Manipulation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 30
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /processor/image/resize/url/file:
+    post:
+      operationId: postProcessorImageResizeUrlFile
+      summary: Resize Images API
+      description: Resizes an image fetched from a source URL and returns the resized file as binary data
+      tags:
+      - File Manipulation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 30
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /processor/image/resize/file-urls:
+    post:
+      operationId: postProcessorImageResizeFileUrls
+      summary: Resize Images API
+      description: Resizes an image fetched from a URL or signed URL and returns the resized image as a U
+      tags:
+      - File Manipulation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 30
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /stamp/pdf/watermark-footers/url:
+    post:
+      operationId: postStampPdfWatermarkFootersUrl
+      summary: Apply Watermark and Footers on PDF API
+      description: Fetches a PDF from a URL, stamps a header and/or footer onto it, and returns a signed
+      tags:
+      - File Manipulation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 200
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /stamp/pdf/watermark-footers/file:
+    post:
+      operationId: postStampPdfWatermarkFootersFile
+      summary: Apply Watermark and Footers on PDF API
+      description: Uploads a PDF file and returns the stamped PDF as a binary file download. You provide
+      tags:
+      - File Manipulation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 200
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /stamp/pdf/watermark-footers/file/url:
+    post:
+      operationId: postStampPdfWatermarkFootersFileUrl
+      summary: Apply Watermark and Footers on PDF API
+      description: Stamps a header and/or footer onto an uploaded PDF file and returns a JSON object cont
+      tags:
+      - File Manipulation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 200
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /stamp/pdf/watermark-footers/url/file:
+    post:
+      operationId: postStampPdfWatermarkFootersUrlFile
+      summary: Apply Watermark and Footers on PDF API
+      description: Stamps a PDF fetched from a URL with header and/or footer content, then streams the pr
+      tags:
+      - File Manipulation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 200
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token
+x-refined-from:
+- apyhub-apyhub-add-header-footer-to-pdf-openapi.yml
+- apyhub-apyhub-apply-watermark-on-pdf-openapi.yml
+- apyhub-apyhub-apply-watermark-openapi.yml
+- apyhub-apyhub-change-image-background-openapi.yml
+- apyhub-apyhub-create-password-protected-zip-openapi.yml
+- apyhub-apyhub-crop-image-openapi.yml
+- apyhub-apyhub-extract-password-protected-archive-openapi.yml
+- apyhub-apyhub-generate-thumbnail-openapi.yml
+- apyhub-apyhub-resize-image-openapi.yml
+- apyhub-apyhub-stamp-header-footer-on-pdf-openapi.yml

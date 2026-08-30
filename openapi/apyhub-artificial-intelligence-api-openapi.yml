@@ -1,0 +1,1738 @@
+openapi: 3.2.0
+info:
+  title: Apyhub Artificial Intelligence API
+  version: 1.0.0
+  description: 'Operations tagged Artificial Intelligence across 60 of this provider''s published API definitions: apyhub-apyhub-ai-detect-audio-language-openapi.yml, apyhub-apyhub-ai-detect-language-openapi.yml, apyhub-apyhub-ai-summarize-api-openapi.yml, apyhub-apyhub-ask-question-about-pdf-openapi.yml, apyhub-apyhub-content-classification-openapi.yml, apyhub-apyhub-detect-common-visual-objects-openapi.yml, apyhub-apyhub-detect-explicit-or-sensitive-content-openapi.yml, apyhub-apyhub-detect-landmarks-openapi.yml, apyhub-apyhub-detect-language-openapi.yml, apyhub-apyhub-detect-language-video-openapi.yml, apyhub-apyhub-detect-logos-and-brands-openapi.yml, apyhub-apyhub-detect-persons-openapi.yml, apyhub-apyhub-detect-shot-changes-openapi.yml, apyhub-apyhub-detect-video-brands-openapi.yml, apyhub-apyhub-detect-video-labels-openapi.yml, apyhub-apyhub-detect-video-objects-openapi.yml, apyhub-apyhub-detect-video-text-openapi.yml, apyhub-apyhub-document-extraction-openapi.yml, apyhub-apyhub-entity-sentiment-analysis-openapi.yml, apyhub-apyhub-explicit-content-detection-openapi.yml, apyhub-apyhub-extract-and-group-keywords-from-article-openapi.yml, apyhub-apyhub-extract-invoice-data-openapi.yml, apyhub-apyhub-extract-keywords-from-text-openapi.yml, apyhub-apyhub-extract-read-data-openapi.yml, apyhub-apyhub-extract-table-data-openapi.yml, apyhub-apyhub-extract-text-from-image-openapi.yml, apyhub-apyhub-face-detection-openapi.yml, apyhub-apyhub-recognize-entities-in-text-openapi.yml, apyhub-apyhub-score-readability-of-plain-text-openapi.yml, apyhub-apyhub-score-readability-openapi.yml, apyhub-apyhub-speech-transcription-openapi.yml, apyhub-apyhub-summarize-documents-openapi.yml, apyhub-apyhub-syntax-analysis-openapi.yml, apyhub-apyhub-text-moderation-openapi.yml, apyhub-namastesumalya-analyze-an-article-openapi.yml, apyhub-namastesumalya-analyze-candidate-career-trajectory-openapi.yml, apyhub-namastesumalya-analyze-website-similarity-openapi.yml, apyhub-namastesumalya-compare-multiple-articles-openapi.yml, apyhub-namastesumalya-compare-two-candidates-head-to-head-openapi.yml, apyhub-namastesumalya-estimate-market-salary-range-openapi.yml, apyhub-namastesumalya-executive-level-shortlist-openapi.yml, apyhub-namastesumalya-extract-skills-openapi.yml, apyhub-namastesumalya-forecast-market-trends-openapi.yml, apyhub-namastesumalya-identify-competitors-openapi.yml, apyhub-namastesumalya-resume-screening-api-openapi.yml, apyhub-namastesumalya-scan-bias-and-inclusion-openapi.yml, apyhub-namastesumalya-summarize-multiple-article-insights-api-openapi.yml, apyhub-sharpapi-detect-spam-openapi.yml, apyhub-sharpapi-generate-hospitality-product-categories-openapi.yml, apyhub-sharpapi-generate-keywords-tags-openapi.yml, apyhub-sharpapi-generate-product-categories-openapi.yml, apyhub-sharpapi-generate-product-introduction-openapi.yml, apyhub-sharpapi-generate-product-review-sentiment-openapi.yml, apyhub-sharpapi-generate-travel-review-sentiment-openapi.yml, apyhub-sharpapi-paraphrase-text-openapi.yml, apyhub-sharpapi-parse-resume-openapi.yml, apyhub-sharpapi-proofread-text-grammar-check-openapi.yml, apyhub-sharpapi-resume-cv-job-match-score-openapi.yml, apyhub-sharpapi-summarize-text-openapi.yml, apyhub-sharpapi-translate-text-openapi.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Artificial Intelligence
+paths:
+  /ai/audio/detect/language/file:
+    post:
+      operationId: postAiAudioDetectLanguageFile
+      summary: AI Audio Language Detection API
+      description: Detects the language of an uploaded audio file. The request sends an audio file binary
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /ai/audio/detect/language/url:
+    post:
+      operationId: postAiAudioDetectLanguageUrl
+      summary: AI Audio Language Detection API
+      description: Detects the language of an audio file provided as a publicly accessible URL and return
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /ai/text/detect/language:
+    post:
+      operationId: postAiTextDetectLanguage
+      summary: AI Text Language Detection API
+      description: Detects the language of the provided text and returns a JSON object containing a data
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /ai/summarize-text:
+    post:
+      operationId: postAiSummarizeText
+      summary: AI Summarize API
+      description: Summarizes the text you send in the request body. The endpoint accepts a text input pl
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 2600
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /ai/summarize-url:
+    post:
+      operationId: postAiSummarizeUrl
+      summary: AI Summarize API
+      description: Submits a URL for summarization and sends back a successful acknowledgement. The reque
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 2600
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /extract/qna/ask/file:
+    post:
+      operationId: postExtractQnaAskFile
+      summary: Talk to PDF API
+      description: Uploads a PDF and a natural-language question about that document, then returns the mo
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 200
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /extract/qna/ask/url:
+    post:
+      operationId: postExtractQnaAskUrl
+      summary: Talk to PDF API
+      description: Submits a public PDF URL and a natural-language question, then returns a text answer b
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 200
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /ai/text/content/classification:
+    post:
+      operationId: postAiTextContentClassification
+      summary: AI Text Content Classification API
+      description: Classifies the supplied text using the requested service and returns a JSON object con
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /ai/image/detect/object/file:
+    post:
+      operationId: postAiImageDetectObjectFile
+      summary: AI Image Objects Detection API
+      description: Detect common visual objects (file upload) Uploads a file and runs common object detection against
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /ai/image/detect/object/url:
+    post:
+      operationId: postAiImageDetectObjectUrl
+      summary: AI Image Objects Detection API
+      description: Detects common visual objects in an image referenced by URL. You provide the image URL
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /ai/image/detect/explicit-content/file:
+    post:
+      operationId: postAiImageDetectExplicitContentFile
+      summary: AI Image Explicit Content Detection API
+      description: Uploads a file to detect explicit or sensitive content and returns provider-specific r
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /ai/image/detect/explicit-content/url:
+    post:
+      operationId: postAiImageDetectExplicitContentUrl
+      summary: AI Image Explicit Content Detection API
+      description: Detects explicit or sensitive content from a URL. You send a url in the request body a
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /ai/image/detect/landmark/file:
+    post:
+      operationId: postAiImageDetectLandmarkFile
+      summary: AI Image Landmark Detection API
+      description: Uploads a file and runs landmark detection against the selected service. The response
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /ai/image/detect/landmark/url:
+    post:
+      operationId: postAiImageDetectLandmarkUrl
+      summary: AI Image Landmark Detection API
+      description: Detects landmarks from an image URL. The request body must include a url, and you can
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /detect/language:
+    post:
+      operationId: postDetectLanguage
+      summary: Language Detection API
+      description: Detects the language of the text you send in the request body. It returns a JSON objec
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /ai/video/detect/language/file:
+    post:
+      operationId: postAiVideoDetectLanguageFile
+      summary: AI Video Language Detection API
+      description: Uploads a video file and returns detected language information in the response. The re
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /ai/video/detect/language/url:
+    post:
+      operationId: postAiVideoDetectLanguageUrl
+      summary: AI Video Language Detection API
+      description: Detects the spoken language from a video available at a URL and returns the detected l
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /ai/image/detect/brand/file:
+    post:
+      operationId: postAiImageDetectBrandFile
+      summary: AI Image Brand/Logo Detection API
+      description: Uploads a file and runs logo/brand detection against the selected service. The respons
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /ai/image/detect/brand/url:
+    post:
+      operationId: postAiImageDetectBrandUrl
+      summary: AI Image Brand/Logo Detection API
+      description: Detects logos and brands from an image URL. The request sends the image url and, if ne
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /ai/video/detect/person/url:
+    post:
+      operationId: postAiVideoDetectPersonUrl
+      summary: AI Video Person Detection API
+      description: Detects persons in a media file provided by URL and returns a JSON object with a data
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /ai/video/detect/person/file:
+    post:
+      operationId: postAiVideoDetectPersonFile
+      summary: AI Video Person Detection API
+      description: Uploads a file to run person detection using either the Azure or Google route, based o
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /ai/video/detect/shot/change/file:
+    post:
+      operationId: postAiVideoDetectShotChangeFile
+      summary: AI Video Shot Change Detection API
+      description: Uploads a video file and runs shot change detection using the requested service provid
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /ai/video/detect/shot/change/url:
+    post:
+      operationId: postAiVideoDetectShotChangeUrl
+      summary: AI Video Shot Change Detection API
+      description: Detects shot changes for a video file provided by URL and returns a JSON object with t
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /ai/video/detect/brand/url:
+    post:
+      operationId: postAiVideoDetectBrandUrl
+      summary: AI Video Brand/Logo Detection API
+      description: Submits a video URL for brand detection and routes the request to either the Azure or
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /ai/video/detect/brand/file:
+    post:
+      operationId: postAiVideoDetectBrandFile
+      summary: AI Video Brand/Logo Detection API
+      description: Uploads a video file and runs brand detection using the selected service provider. The
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /ai/video/detect/label/file:
+    post:
+      operationId: postAiVideoDetectLabelFile
+      summary: AI Video Label Detection API
+      description: Uploads a file for label detection and routes the request to either Azure or Google ba
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /ai/video/detect/label/url:
+    post:
+      operationId: postAiVideoDetectLabelUrl
+      summary: AI Video Label Detection API
+      description: Detects labels in a video fetched from a URL. You send the video URL and choose which
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /ai/video/detect/object/file:
+    post:
+      operationId: postAiVideoDetectObjectFile
+      summary: AI Video Object Detection API
+      description: Uploads a video file and runs object detection using either Azure or Google, based on
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /ai/video/detect/object/url:
+    post:
+      operationId: postAiVideoDetectObjectUrl
+      summary: AI Video Object Detection API
+      description: Detects objects in a video provided by URL and returns a JSON object with a data objec
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /ai/video/detect/text/url:
+    post:
+      operationId: postAiVideoDetectTextUrl
+      summary: AI Video Text Detection API
+      description: Detects text in a video fetched from a URL. You send the video url and choose the OCR
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /ai/video/detect/text/file:
+    post:
+      operationId: postAiVideoDetectTextFile
+      summary: AI Video Text Detection API
+      description: Uploads a video file and runs text detection using either Azure or Google, depending o
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /ai/document/extract/document/file:
+    post:
+      operationId: postAiDocumentExtractDocumentFile
+      summary: AI Document Data Extraction API
+      description: Uploads a document file and runs document extraction using the requested service. The
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 550
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /ai/document/extract/document/url:
+    post:
+      operationId: postAiDocumentExtractDocumentUrl
+      summary: AI Document Data Extraction API
+      description: Submits a document URL for extraction and routes the request to the selected service.
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 550
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /ai/text/entity/sentiment/analysis:
+    post:
+      operationId: postAiTextEntitySentimentAnalysis
+      summary: AI Text Entity Sentiment Analysis API
+      description: Analyzes the sentiment of entities in the submitted text and returns a JSON object con
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /ai/video/detect/explicit/content/file:
+    post:
+      operationId: postAiVideoDetectExplicitContentFile
+      summary: AI Video Explicit Content Detection API
+      description: Uploads a file for explicit-content detection and routes the request to either the Azu
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /ai/video/detect/explicit/content/url:
+    post:
+      operationId: postAiVideoDetectExplicitContentUrl
+      summary: AI Video Explicit Content Detection API
+      description: Detects explicit content for a media file provided by URL. The request sends the media
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /extract/keywords/analyse:
+    post:
+      operationId: postExtractKeywordsAnalyse
+      summary: Analyse Keywords API
+      description: Extracts and groups keywords from one or more publicly accessible article URLs. The re
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 200
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /ai/document/extract/invoice/file:
+    post:
+      operationId: postAiDocumentExtractInvoiceFile
+      summary: AI Document Invoice Data Extraction API
+      description: Uploads an invoice file and returns parsed invoice data in a JSON object. The response
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /ai/document/extract/invoice/url:
+    post:
+      operationId: postAiDocumentExtractInvoiceUrl
+      summary: AI Document Invoice Data Extraction API
+      description: Extracts invoice data from a document available at a URL and returns parsed results in
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /ai/text/extract/keywords:
+    post:
+      operationId: postAiTextExtractKeywords
+      summary: AI Text Keyword Extraction API
+      description: Extract keywords from text Extracts keywords from the text you provide in the request body. You can
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /ai/document/extract/read/file:
+    post:
+      operationId: postAiDocumentExtractReadFile
+      summary: OCR Document Data Extraction API
+      description: Uploads a file and returns extracted read-data parsing output. You can choose whether
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /ai/document/extract/read/url:
+    post:
+      operationId: postAiDocumentExtractReadUrl
+      summary: OCR Document Data Extraction API
+      description: Extracts read data from a document at the provided URL and returns parsing output in a
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /ai/document/extract/table/file:
+    post:
+      operationId: postAiDocumentExtractTableFile
+      summary: AI Document Table Data Extraction API
+      description: Extracts table data from a document at the provided URL and returns parsed results in
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /ai/document/extract/table/url:
+    post:
+      operationId: postAiDocumentExtractTableUrl
+      summary: AI Document Table Data Extraction API
+      description: Extracts table data from a document or webpage referenced by a URL and returns parsed
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /ai/image/ocr/file:
+    post:
+      operationId: postAiImageOcrFile
+      summary: AI Image Optical Character Recognition (OCR) API
+      description: Uploads an image file and extracts text from it. The response returns a data object co
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /ai/image/ocr/url:
+    post:
+      operationId: postAiImageOcrUrl
+      summary: AI Image Optical Character Recognition (OCR) API
+      description: Extracts text from an image located at a URL and returns the OCR result in a data obje
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /ai/video/detect/face/file:
+    post:
+      operationId: postAiVideoDetectFaceFile
+      summary: AI Video Face Detection API
+      description: Detects faces from an uploaded file and routes the request to either Azure or Google b
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /ai/video/detect/face/url:
+    post:
+      operationId: postAiVideoDetectFaceUrl
+      summary: AI Video Face Detection API
+      description: Detects faces in a media file fetched from a URL. You send the media URL and choose wh
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /ai/text/entity/recognition:
+    post:
+      operationId: postAiTextEntityRecognition
+      summary: AI Text Entity Recognition API
+      description: Recognizes entities in a text string and returns a JSON object containing provider-spe
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /extract/text/readability-score:
+    post:
+      operationId: postExtractTextReadabilityScore
+      summary: Readability Scores API
+      description: Scores raw plain text for readability and returns text statistics plus a readability r
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 250
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /extract/document/readability-score/file:
+    post:
+      operationId: postExtractDocumentReadabilityScoreFile
+      summary: Readability Scores Documents API
+      description: Uploads a document file and returns readability metrics for the extracted text. The re
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 250
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /extract/document/readability-score/url:
+    post:
+      operationId: postExtractDocumentReadabilityScoreUrl
+      summary: Readability Scores Documents API
+      description: Scores the readability of a publicly accessible web page fetched from the provided fil
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 250
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /ai/video/detect/transcribe/file:
+    post:
+      operationId: postAiVideoDetectTranscribeFile
+      summary: AI Video Transcriber API
+      description: Uploads an audio file and returns transcription output for the requested speech servic
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /ai/video/detect/transcribe/url:
+    post:
+      operationId: postAiVideoDetectTranscribeUrl
+      summary: AI Video Transcriber API
+      description: Submits a media file URL for speech transcription and routes the request to either Azu
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /ai/summarize-documents/file:
+    post:
+      operationId: postAiSummarizeDocumentsFile
+      summary: AI Summarize Documents API
+      description: Uploads a document and returns a generated text summary for that file. The request bod
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 2600
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /ai/summarize-documents/url:
+    post:
+      operationId: postAiSummarizeDocumentsUrl
+      summary: AI Summarize Documents API
+      description: Summarizes a document fetched from a direct URL and returns the generated summary in t
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 2600
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /ai/text/syntax/analysis:
+    post:
+      operationId: postAiTextSyntaxAnalysis
+      summary: AI Text Syntax Analysis API
+      description: Analyzes submitted text using the requested syntax-analysis service and returns a JSON
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /ai/text/moderation:
+    post:
+      operationId: postAiTextModeration
+      summary: AI Text Moderation API
+      description: Submits a text string for moderation and returns a JSON object containing a data objec
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /namastesumalya/api/analyze:
+    get:
+      operationId: getNamastesumalyaApiAnalyze
+      summary: Extract and Analyze Content from Web Page API
+      description: Analyzes an article from a web page URL and returns structured metadata about the page
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 600
+    post:
+      operationId: postNamastesumalyaApiAnalyze
+      summary: Advanced Website Similarity Analysis API
+      description: Analyzes and compares the website URLs you submit in the request body, then returns a
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 2000
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /namastesumalya/api/career-gap:
+    post:
+      operationId: postNamastesumalyaApiCareerGap
+      summary: Career Trajectory and Loyalty API
+      description: Analyzes the provided resume content to identify career gaps, career pivots, an overal
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /namastesumalya/api/compare-contents:
+    post:
+      operationId: postNamastesumalyaApiCompareContents
+      summary: Extract and Compare Multiple Articles from Web Pages API
+      description: Compares multiple web articles from the URLs you submit and returns a JSON object with
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 1000
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /namastesumalya/api/compare:
+    post:
+      operationId: postNamastesumalyaApiCompare
+      summary: Candidate Comparison API
+      description: Compares two candidate resumes against a job title and returns a winner, a rationale,
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 1000
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /namastesumalya/api/salary-estimate:
+    post:
+      operationId: postNamastesumalyaApiSalaryEstimate
+      summary: Global Salary Benchmark API
+      description: Estimates a market salary range for a candidate from the provided job title, location,
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 750
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /namastesumalya/api/shortlist:
+    post:
+      operationId: postNamastesumalyaApiShortlist
+      summary: Advanced Shortlist API
+      description: Generates an executive-level shortlist from the submitted resumes and job title. The r
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /namastesumalya/api/extract-skills:
+    post:
+      operationId: postNamastesumalyaApiExtractSkills
+      summary: Skill Extraction API
+      description: Extracts structured skill information from a resume text payload and returns the detec
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 250
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /namastesumalya/api/market-trends:
+    post:
+      operationId: postNamastesumalyaApiMarketTrends
+      summary: Market Trends and Growth Forecasting API
+      description: Analyzes a website URL and returns a market forecast response with the analyzed URL, s
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 2000
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /namastesumalya/api/competitors:
+    post:
+      operationId: postNamastesumalyaApiCompetitors
+      summary: Intelligent Competitor Mapping API
+      description: Identifies competitors for a given website URL and returns an analysis object describi
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 2000
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /namastesumalya/api/screen:
+    post:
+      operationId: postNamastesumalyaApiScreen
+      summary: Resume Screening API
+      description: Screens a resume against a job title and returns a structured assessment of the candid
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 300
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /namastesumalya/api/screen-bulk:
+    post:
+      operationId: postNamastesumalyaApiScreenBulk
+      summary: Resume Screening API
+      description: Screens multiple resumes against a job title and returns a ranked list of candidate re
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /namastesumalya/api/bias-check:
+    post:
+      operationId: postNamastesumalyaApiBiasCheck
+      summary: Bias and Inclusion Scan API
+      description: Scans the submitted job description text and returns a structured assessment with a wi
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 1000
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /namastesumalya/api/summarize:
+    get:
+      operationId: getNamastesumalyaApiSummarize
+      summary: Summarize Multiple Article Insights API
+      description: Summarizes the article at the provided URL and returns article metadata along with the
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 1000
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /namastesumalya/api/batch-summarize:
+    post:
+      operationId: postNamastesumalyaApiBatchSummarize
+      summary: Summarize Multiple Article Insights API
+      description: Summarizes multiple articles in a single POST request. Send an array of article URLs i
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 1500
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /sharpapi/api/v1/content/detect_spam:
+    post:
+      operationId: postSharpapiApiV1ContentDetectSpam
+      summary: Detect Spam API
+      description: Submits content for asynchronous spam detection and returns identifiers for checking t
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /sharpapi/api/v1/content/detect_spam/job/status/{job_id}:
+    get:
+      operationId: getSharpapiApiV1ContentDetectSpamJobStatusJobId
+      summary: Detect Spam API
+      description: Retrieves the current status of a Detect Spam job by its jobid. The response returns a
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 1
+      parameters:
+      - name: job_id
+        in: path
+        required: true
+        schema:
+          type: string
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /sharpapi/api/v1/tth/hospitality_product_categories:
+    post:
+      operationId: postSharpapiApiV1TthHospitalityProductCategories
+      summary: Generate Hospitality Product Categories API
+      description: Submits a job to generate hospitality product categories from the provided content. Th
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /sharpapi/api/v1/tth/hospitality_product_categories/job/status/{job_id}:
+    get:
+      operationId: getSharpapiApiV1TthHospitalityProductCategoriesJobStatusJobId
+      summary: Generate Hospitality Product Categories API
+      description: Checks the status of a previously submitted hospitality product category generation jo
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 1
+      parameters:
+      - name: job_id
+        in: path
+        required: true
+        schema:
+          type: string
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /sharpapi/api/v1/content/keywords:
+    post:
+      operationId: postSharpapiApiV1ContentKeywords
+      summary: Generate Keywords/Tags API
+      description: Submits an asynchronous job to generate keywords/tags from provided content. The reque
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /sharpapi/api/v1/content/keywords/job/status/{job_id}:
+    get:
+      operationId: getSharpapiApiV1ContentKeywordsJobStatusJobId
+      summary: Generate Keywords/Tags API
+      description: Checks the status of a Generate Keywords Tags background job identified by its job ID
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 1
+      parameters:
+      - name: job_id
+        in: path
+        required: true
+        schema:
+          type: string
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /sharpapi/api/v1/ecommerce/product_categories:
+    post:
+      operationId: postSharpapiApiV1EcommerceProductCategories
+      summary: Generate Product Categories API
+      description: Submits a job to generate product categories from the provided product content and opt
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /sharpapi/api/v1/ecommerce/product_categories/job/status/{job_id}:
+    get:
+      operationId: getSharpapiApiV1EcommerceProductCategoriesJobStatusJobId
+      summary: Generate Product Categories API
+      description: Checks the status of an asynchronous product-category generation job using its job ID.
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 1
+      parameters:
+      - name: job_id
+        in: path
+        required: true
+        schema:
+          type: string
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /sharpapi/api/v1/ecommerce/product_intro:
+    post:
+      operationId: postSharpapiApiV1EcommerceProductIntro
+      summary: Generate Product Introduction API
+      description: Submits a job to generate a product introduction from the provided content. The endpoi
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /sharpapi/api/v1/ecommerce/product_intro/job/status/{job_id}:
+    get:
+      operationId: getSharpapiApiV1EcommerceProductIntroJobStatusJobId
+      summary: Generate Product Introduction API
+      description: Checks the status of a product-introduction generation job by job ID. The response ret
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 1
+      parameters:
+      - name: job_id
+        in: path
+        required: true
+        schema:
+          type: string
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /sharpapi/api/v1/ecommerce/review_sentiment:
+    post:
+      operationId: postSharpapiApiV1EcommerceReviewSentiment
+      summary: Generate Product Review Sentiment API
+      description: Submits an asynchronous job to analyze the sentiment of product review text provided i
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /sharpapi/api/v1/ecommerce/review_sentiment/job/status/{job_id}:
+    get:
+      operationId: getSharpapiApiV1EcommerceReviewSentimentJobStatusJobId
+      summary: Generate Product Review Sentiment API
+      description: Retrieves the current status of a Generate Product Review Sentiment job by its jobid.
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 1
+      parameters:
+      - name: job_id
+        in: path
+        required: true
+        schema:
+          type: string
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /sharpapi/api/v1/tth/review_sentiment:
+    post:
+      operationId: postSharpapiApiV1TthReviewSentiment
+      summary: Generate Travel Review Sentiment API
+      description: Submits review text for asynchronous travel-review sentiment analysis. The request bod
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /sharpapi/api/v1/tth/review_sentiment/job/status/{job_id}:
+    get:
+      operationId: getSharpapiApiV1TthReviewSentimentJobStatusJobId
+      summary: Generate Travel Review Sentiment API
+      description: Checks the status of a travel review sentiment analysis job by its jobid and returns t
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 1
+      parameters:
+      - name: job_id
+        in: path
+        required: true
+        schema:
+          type: string
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /sharpapi/api/v1/content/paraphrase:
+    post:
+      operationId: postSharpapiApiV1ContentParaphrase
+      summary: Paraphrase Text API
+      description: Submits a paraphrasing job for the provided text content. The request body includes th
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /sharpapi/api/v1/content/paraphrase/job/status/{job_id}:
+    get:
+      operationId: getSharpapiApiV1ContentParaphraseJobStatusJobId
+      summary: Paraphrase Text API
+      description: Checks the status of a previously submitted paraphrase job using its job ID. When the
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 1
+      parameters:
+      - name: job_id
+        in: path
+        required: true
+        schema:
+          type: string
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /sharpapi/api/v1/hr/parse_resume:
+    post:
+      operationId: postSharpapiApiV1HrParseResume
+      summary: Resume Parser API
+      description: Submits a resume/CV file for asynchronous AI parsing and returns identifiers you can u
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /sharpapi/api/v1/hr/parse_resume/job/status/{job_id}:
+    get:
+      operationId: getSharpapiApiV1HrParseResumeJobStatusJobId
+      summary: Resume Parser API
+      description: Retrieves the current status of an AI resume parsing job by job ID. The response retur
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 1
+      parameters:
+      - name: job_id
+        in: path
+        required: true
+        schema:
+          type: string
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /sharpapi/api/v1/content/proofread:
+    post:
+      operationId: postSharpapiApiV1ContentProofread
+      summary: Proofread Text + Grammar Check API
+      description: Submits text for proofreading and grammar checking as an asynchronous job. It accepts
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /sharpapi/api/v1/content/proofread/job/status/{job_id}:
+    get:
+      operationId: getSharpapiApiV1ContentProofreadJobStatusJobId
+      summary: Proofread Text + Grammar Check API
+      description: Checks the status of a previously submitted proofread/grammar-check job using its job
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 1
+      parameters:
+      - name: job_id
+        in: path
+        required: true
+        schema:
+          type: string
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /sharpapi/api/v1/hr/resume_job_match_score:
+    post:
+      operationId: postSharpapiApiV1HrResumeJobMatchScore
+      summary: Resume/CV Job Match Score API
+      description: Submits a resume/CV and a job description for an asynchronous match-score job. The end
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 1000
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /sharpapi/api/v1/hr/resume_job_match_score/job/status/{job_id}:
+    get:
+      operationId: getSharpapiApiV1HrResumeJobMatchScoreJobStatusJobId
+      summary: Resume/CV Job Match Score API
+      description: Checks the status of a resume/CV job match scoring job by its jobid and returns the jo
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 1
+      parameters:
+      - name: job_id
+        in: path
+        required: true
+        schema:
+          type: string
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /sharpapi/api/v1/content/summarize:
+    post:
+      operationId: postSharpapiApiV1ContentSummarize
+      summary: Summarize Text API
+      description: Starts an async text-summarization job. You submit the content and optional processing
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /sharpapi/api/v1/content/summarize/job/status/{job_id}:
+    get:
+      operationId: getSharpapiApiV1ContentSummarizeJobStatusJobId
+      summary: Summarize Text API
+      description: Checks the status of an existing text-summarization job identified by jobid and return
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 1
+      parameters:
+      - name: job_id
+        in: path
+        required: true
+        schema:
+          type: string
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /sharpapi/api/v1/content/translate:
+    post:
+      operationId: postSharpapiApiV1ContentTranslate
+      summary: Translate Text API
+      description: Submits a text translation job using the supplied content and optional translation gui
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /sharpapi/api/v1/content/translate/job/status/{job_id}:
+    get:
+      operationId: getSharpapiApiV1ContentTranslateJobStatusJobId
+      summary: Translate Text API
+      description: Checks the status of a previously submitted text-translation job identified by jobid.
+      tags:
+      - Artificial Intelligence
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 1
+      parameters:
+      - name: job_id
+        in: path
+        required: true
+        schema:
+          type: string
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token
+x-refined-from:
+- apyhub-apyhub-ai-detect-audio-language-openapi.yml
+- apyhub-apyhub-ai-detect-language-openapi.yml
+- apyhub-apyhub-ai-summarize-api-openapi.yml
+- apyhub-apyhub-ask-question-about-pdf-openapi.yml
+- apyhub-apyhub-content-classification-openapi.yml
+- apyhub-apyhub-detect-common-visual-objects-openapi.yml
+- apyhub-apyhub-detect-explicit-or-sensitive-content-openapi.yml
+- apyhub-apyhub-detect-landmarks-openapi.yml
+- apyhub-apyhub-detect-language-openapi.yml
+- apyhub-apyhub-detect-language-video-openapi.yml
+- apyhub-apyhub-detect-logos-and-brands-openapi.yml
+- apyhub-apyhub-detect-persons-openapi.yml
+- apyhub-apyhub-detect-shot-changes-openapi.yml
+- apyhub-apyhub-detect-video-brands-openapi.yml
+- apyhub-apyhub-detect-video-labels-openapi.yml
+- apyhub-apyhub-detect-video-objects-openapi.yml
+- apyhub-apyhub-detect-video-text-openapi.yml
+- apyhub-apyhub-document-extraction-openapi.yml
+- apyhub-apyhub-entity-sentiment-analysis-openapi.yml
+- apyhub-apyhub-explicit-content-detection-openapi.yml
+- apyhub-apyhub-extract-and-group-keywords-from-article-openapi.yml
+- apyhub-apyhub-extract-invoice-data-openapi.yml
+- apyhub-apyhub-extract-keywords-from-text-openapi.yml
+- apyhub-apyhub-extract-read-data-openapi.yml
+- apyhub-apyhub-extract-table-data-openapi.yml
+- apyhub-apyhub-extract-text-from-image-openapi.yml
+- apyhub-apyhub-face-detection-openapi.yml
+- apyhub-apyhub-recognize-entities-in-text-openapi.yml
+- apyhub-apyhub-score-readability-of-plain-text-openapi.yml
+- apyhub-apyhub-score-readability-openapi.yml
+- apyhub-apyhub-speech-transcription-openapi.yml
+- apyhub-apyhub-summarize-documents-openapi.yml
+- apyhub-apyhub-syntax-analysis-openapi.yml
+- apyhub-apyhub-text-moderation-openapi.yml
+- apyhub-namastesumalya-analyze-an-article-openapi.yml
+- apyhub-namastesumalya-analyze-candidate-career-trajectory-openapi.yml
+- apyhub-namastesumalya-analyze-website-similarity-openapi.yml
+- apyhub-namastesumalya-compare-multiple-articles-openapi.yml
+- apyhub-namastesumalya-compare-two-candidates-head-to-head-openapi.yml
+- apyhub-namastesumalya-estimate-market-salary-range-openapi.yml
+- apyhub-namastesumalya-executive-level-shortlist-openapi.yml
+- apyhub-namastesumalya-extract-skills-openapi.yml
+- apyhub-namastesumalya-forecast-market-trends-openapi.yml
+- apyhub-namastesumalya-identify-competitors-openapi.yml
+- apyhub-namastesumalya-resume-screening-api-openapi.yml
+- apyhub-namastesumalya-scan-bias-and-inclusion-openapi.yml
+- apyhub-namastesumalya-summarize-multiple-article-insights-api-openapi.yml
+- apyhub-sharpapi-detect-spam-openapi.yml
+- apyhub-sharpapi-generate-hospitality-product-categories-openapi.yml
+- apyhub-sharpapi-generate-keywords-tags-openapi.yml
+- apyhub-sharpapi-generate-product-categories-openapi.yml
+- apyhub-sharpapi-generate-product-introduction-openapi.yml
+- apyhub-sharpapi-generate-product-review-sentiment-openapi.yml
+- apyhub-sharpapi-generate-travel-review-sentiment-openapi.yml
+- apyhub-sharpapi-paraphrase-text-openapi.yml
+- apyhub-sharpapi-parse-resume-openapi.yml
+- apyhub-sharpapi-proofread-text-grammar-check-openapi.yml
+- apyhub-sharpapi-resume-cv-job-match-score-openapi.yml
+- apyhub-sharpapi-summarize-text-openapi.yml
+- apyhub-sharpapi-translate-text-openapi.yml

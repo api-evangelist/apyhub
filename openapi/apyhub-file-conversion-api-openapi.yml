@@ -1,0 +1,2414 @@
+openapi: 3.2.0
+info:
+  title: Apyhub File Conversion API
+  version: 1.0.0
+  description: 'Operations tagged File Conversion across 38 of this provider''s published API definitions: apyhub-apyhub-add-header-footer-to-docx-openapi.yml, apyhub-apyhub-capture-public-url-as-pdf-openapi.yml, apyhub-apyhub-compress-images-openapi.yml, apyhub-apyhub-compress-video-job-openapi.yml, apyhub-apyhub-compress-video-openapi.yml, apyhub-apyhub-convert-csv-to-xlsx-openapi.yml, apyhub-apyhub-convert-heic-heif-to-jpeg-or-png-openapi.yml, apyhub-apyhub-convert-html-content-to-pdf-openapi.yml, apyhub-apyhub-convert-html-to-docx-openapi.yml, apyhub-apyhub-convert-html-to-pdf-openapi.yml, apyhub-apyhub-convert-image-to-pdf-openapi.yml, apyhub-apyhub-convert-markdown-to-pdf-openapi.yml, apyhub-apyhub-convert-pdf-pages-to-images-openapi.yml, apyhub-apyhub-convert-pdf-to-docx-openapi.yml, apyhub-apyhub-convert-pdf-to-powerpoint-openapi.yml, apyhub-apyhub-convert-pes-to-zip-openapi.yml, apyhub-apyhub-convert-png-to-webp-openapi.yml, apyhub-apyhub-convert-presentation-to-pdf-openapi.yml, apyhub-apyhub-convert-spreadsheet-to-pdf-openapi.yml, apyhub-apyhub-convert-svg-to-webp-openapi.yml, apyhub-apyhub-convert-video-formats-job-openapi.yml, apyhub-apyhub-convert-video-formats-openapi.yml, apyhub-apyhub-convert-word-to-pdf-openapi.yml, apyhub-apyhub-create-zip-openapi.yml, apyhub-apyhub-generate-gif-from-video-openapi.yml, apyhub-apyhub-generate-gif-openapi.yml, apyhub-apyhub-generate-png-preview-openapi.yml, apyhub-apyhub-generate-thumbnail-from-video-openapi.yml, apyhub-apyhub-generate-video-thumbnail-job-api-openapi.yml, apyhub-apyhub-generate-video-thumbnail-job-openapi.yml, apyhub-apyhub-generate-video-thumbnail-openapi.yml, apyhub-apyhub-generate-video-watermark-openapi.yml, apyhub-apyhub-generate-watermark-for-videos-openapi.yml, apyhub-apyhub-merge-files-to-pdf-openapi.yml, apyhub-apyhub-translate-documents-openapi.yml, apyhub-apyhub-unarchive-files-openapi.yml, apyhub-chisleroff-pdf-from-html-openapi.yml, apyhub-chisleroff-pdf-from-url-openapi.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: File Conversion
+paths:
+  /stamp/docx/footers/file:
+    post:
+      operationId: postStampDocxFootersFile
+      summary: Apply Headers and Footers on DOCX API
+      description: Uploads a DOCX file, adds the requested header/footer content to it, and returns the m
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /stamp/docx/footers/file/url:
+    post:
+      operationId: postStampDocxFootersFileUrl
+      summary: Apply Headers and Footers on DOCX API
+      description: Uploads a DOCX file, adds header and/or footer content to it, and returns a URL to the
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /stamp/docx/footers/url/file:
+    post:
+      operationId: postStampDocxFootersUrlFile
+      summary: Apply Headers and Footers on DOCX API
+      description: Adds a header and/or footer to a DOCX file fetched from a public URL, then returns the
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /stamp/docx/footers/url:
+    post:
+      operationId: postStampDocxFootersUrl
+      summary: Apply Headers and Footers on DOCX API
+      description: Adds a header and/or footer to a DOCX file provided by URL, then returns a JSON object
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /generate/webpage/pdf-file:
+    post:
+      operationId: postGenerateWebpagePdfFile
+      summary: Convert Webpage to PDF API
+      description: Captures the public web page at the given URL and returns the result as a PDF download
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /generate/webpage/pdf-url:
+    post:
+      operationId: postGenerateWebpagePdfUrl
+      summary: Convert Webpage to PDF API
+      description: Captures the content from a public URL and returns a signed PDF link. The request body
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /processor/image/compress/url/file:
+    post:
+      operationId: postProcessorImageCompressUrlFile
+      summary: Compress Images API
+      description: Compresses an image fetched from a public URL and returns the compressed file as binar
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 30
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /processor/image/compress/file-urls:
+    post:
+      operationId: postProcessorImageCompressFileUrls
+      summary: Compress Images API
+      description: Compresses an image fetched from a publicly accessible URL and returns a time-limited
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 30
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /processor/image/compress/file:
+    post:
+      operationId: postProcessorImageCompressFile
+      summary: Compress Images API
+      description: Compresses an uploaded raster image and returns the compressed file as a binary downlo
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 30
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /processor/image/compress/file/url:
+    post:
+      operationId: postProcessorImageCompressFileUrl
+      summary: Compress Images API
+      description: Compresses a raster image uploaded as multipart form data and returns a time-limited s
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 30
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /job/compress/video/file:
+    post:
+      operationId: postJobCompressVideoFile
+      summary: Compress Video Job API
+      description: Submits a video file for compression as an asynchronous job and returns a job identifi
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 400
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /job/compress/video/status/{job_id}:
+    get:
+      operationId: getJobCompressVideoStatusJobId
+      summary: Compress Video Job API
+      description: Checks the status of a video compression job by job ID and returns the job record in a
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 5
+      parameters:
+      - name: job_id
+        in: path
+        required: true
+        schema:
+          type: string
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /job/compress/video/url:
+    post:
+      operationId: postJobCompressVideoUrl
+      summary: Compress Video Job API
+      description: Submits a video compression job using a source video URL and returns a job identifier
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 400
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /compress/video/file:
+    post:
+      operationId: postCompressVideoFile
+      summary: Compress Video File API
+      description: Uploads a video file and returns the compressed video as a binary file in the response
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 550
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /compress/video/file/url:
+    post:
+      operationId: postCompressVideoFileUrl
+      summary: Compress Video File API
+      description: Uploads a video file and returns a time-limited signed URL for downloading the compres
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 550
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /compress/video/url/file:
+    post:
+      operationId: postCompressVideoUrlFile
+      summary: Compress Video File API
+      description: Compresses a video from a provided URL and returns the compressed file as binary conte
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 550
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /compress/video/url:
+    post:
+      operationId: postCompressVideoUrl
+      summary: Compress Video File API
+      description: Compresses a video from a provided URL and returns a time-limited signed download URL
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 550
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/csv-file/excel-file:
+    post:
+      operationId: postConvertCsvFileExcelFile
+      summary: Convert CSV to Excel API
+      description: Converts an uploaded CSV file into an XLSX file and streams the resulting spreadsheet
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/csv-file/excel-url:
+    post:
+      operationId: postConvertCsvFileExcelUrl
+      summary: Convert CSV to Excel API
+      description: Converts an uploaded CSV file into an XLSX file and returns a signed link to the conve
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/csv-url/excel-file:
+    post:
+      operationId: postConvertCsvUrlExcelFile
+      summary: Convert CSV to Excel API
+      description: Converts a remote CSV file referenced by a URL into an XLSX file and returns the resul
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/csv-url/excel-url:
+    post:
+      operationId: postConvertCsvUrlExcelUrl
+      summary: Convert CSV to Excel API
+      description: Converts a CSV file available at a remote URL into an XLSX file, then returns a signed
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/image/heic/jpeg-png/file:
+    post:
+      operationId: postConvertImageHeicJpegPngFile
+      summary: Convert HEIC to JPEG/PNG API
+      description: Converts an uploaded HEIC/HEIF image to a downloadable JPEG or PNG file. The converted
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 300
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/image/heic/jpeg-png/file/url:
+    post:
+      operationId: postConvertImageHeicJpegPngFileUrl
+      summary: Convert HEIC to JPEG/PNG API
+      description: Uploads a HEIC/HEIF image as multipart form data and returns a signed URL pointing to
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 300
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/image/heic/jpeg-png/url/file:
+    post:
+      operationId: postConvertImageHeicJpegPngUrlFile
+      summary: Convert HEIC to JPEG/PNG API
+      description: Converts a HEIC/HEIF image fetched from a public URL into a downloadable JPEG or PNG f
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 300
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/image/heic/jpeg-png/url:
+    post:
+      operationId: postConvertImageHeicJpegPngUrl
+      summary: Convert HEIC to JPEG/PNG API
+      description: Converts a HEIC/HEIF image fetched from a public URL into a JPEG or PNG and returns a
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 300
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /generate/html-content/pdf-file:
+    post:
+      operationId: postGenerateHtmlContentPdfFile
+      summary: Convert HTML Content to PDF API
+      description: Converts the provided HTML content string into a PDF and returns the generated file as
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /generate/html-content/pdf-url:
+    post:
+      operationId: postGenerateHtmlContentPdfUrl
+      summary: Convert HTML Content to PDF API
+      description: Renders the provided HTML content string into a PDF and returns a signed link to the g
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/html-url/doc-url:
+    post:
+      operationId: postConvertHtmlUrlDocUrl
+      summary: Convert HTML to Word API
+      description: Converts a publicly accessible HTML page at the provided URL into a DOCX file and retu
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 120
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/html-file/doc-file:
+    post:
+      operationId: postConvertHtmlFileDocFile
+      summary: Convert HTML to Word API
+      description: Converts an uploaded HTML file into a DOCX file and returns the generated document as
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 120
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/html-file/doc-url:
+    post:
+      operationId: postConvertHtmlFileDocUrl
+      summary: Convert HTML to Word API
+      description: Converts an uploaded HTML file into a DOCX file and returns a JSON object containing t
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 120
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/html-url/doc-file:
+    post:
+      operationId: postConvertHtmlUrlDocFile
+      summary: Convert HTML to Word API
+      description: Downloads an HTML document from a publicly accessible URL and converts it to a DOCX fi
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 120
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/html-url/pdf-url:
+    post:
+      operationId: postConvertHtmlUrlPdfUrl
+      summary: Convert HTML to PDF API
+      description: Converts a remote HTML file at the given URL into a PDF and returns a signed PDF link.
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/html-base64/pdf-file:
+    post:
+      operationId: postConvertHtmlBase64PdfFile
+      summary: Convert HTML to PDF API
+      description: Converts a base64-encoded HTML file into a PDF and returns the PDF as a download. The
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/html-base64/pdf-url:
+    post:
+      operationId: postConvertHtmlBase64PdfUrl
+      summary: Convert HTML to PDF API
+      description: Converts a base64-encoded HTML file into a PDF and returns a signed link to the genera
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/html-file/pdf-file:
+    post:
+      operationId: postConvertHtmlFilePdfFile
+      summary: Convert HTML to PDF API
+      description: Uploads an HTML file and returns the generated PDF as a binary download. Query Paramet
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/html-file/pdf-url:
+    post:
+      operationId: postConvertHtmlFilePdfUrl
+      summary: Convert HTML to PDF API
+      description: Converts an uploaded HTML file into a PDF and returns a signed link to the generated P
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/html-url/pdf-file:
+    post:
+      operationId: postConvertHtmlUrlPdfFile
+      summary: Convert HTML to PDF API
+      description: Converts a remote HTML file accessible by URL into a PDF download. The request accepts
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/image-base64/pdf-url:
+    post:
+      operationId: postConvertImageBase64PdfUrl
+      summary: Convert Images to PDF API
+      description: Converts a base64-encoded image into a PDF and returns a signed link to the generated
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/image-file/pdf-file:
+    post:
+      operationId: postConvertImageFilePdfFile
+      summary: Convert Images to PDF API
+      description: Converts an uploaded image file into a PDF and returns the resulting PDF as a binary d
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/image-file/pdf-url:
+    post:
+      operationId: postConvertImageFilePdfUrl
+      summary: Convert Images to PDF API
+      description: Converts an uploaded image file into a PDF and returns a signed PDF link in the respon
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/image-url/pdf-file:
+    post:
+      operationId: postConvertImageUrlPdfFile
+      summary: Convert Images to PDF API
+      description: Converts a remote image referenced by a URL into a PDF and returns the PDF as a binary
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/image-url/pdf-url:
+    post:
+      operationId: postConvertImageUrlPdfUrl
+      summary: Convert Images to PDF API
+      description: Converts a remote image accessible by URL into a PDF and returns a signed PDF link. Yo
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/image-base64/pdf-file:
+    post:
+      operationId: postConvertImageBase64PdfFile
+      summary: Convert Images to PDF API
+      description: Converts a base64-encoded image into a PDF and returns the PDF as a binary download. T
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/md-url/pdf-url:
+    post:
+      operationId: postConvertMdUrlPdfUrl
+      summary: Convert Markdown to PDF API
+      description: Converts a Markdown file available at a URL into a PDF and returns a signed S3 URL for
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/md-file/pdf-file:
+    post:
+      operationId: postConvertMdFilePdfFile
+      summary: Convert Markdown to PDF API
+      description: Uploads a Markdown file and returns a downloadable PDF file rendered from that input.
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/md-file/pdf-url:
+    post:
+      operationId: postConvertMdFilePdfUrl
+      summary: Convert Markdown to PDF API
+      description: Converts an uploaded Markdown file into a PDF and returns a signed S3 URL to the gener
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/md-url/pdf-file:
+    post:
+      operationId: postConvertMdUrlPdfFile
+      summary: Convert Markdown to PDF API
+      description: Converts a Markdown file available at a URL into a PDF and returns the generated PDF a
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/pdf/image/sync/file/download:
+    post:
+      operationId: postConvertPdfImageSyncFileDownload
+      summary: Convert PDF to Image API
+      description: Converts an uploaded PDF file into page images and returns the result as a downloadabl
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 150
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/pdf/image/sync/file/url:
+    post:
+      operationId: postConvertPdfImageSyncFileUrl
+      summary: Convert PDF to Image API
+      description: Converts the pages of an uploaded PDF file into images and returns a download URL for
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 150
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/pdf/image/sync/url/download:
+    post:
+      operationId: postConvertPdfImageSyncUrlDownload
+      summary: Convert PDF to Image API
+      description: Converts the PDF at the given public URL into page images and returns the result as a
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 150
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/pdf/image/sync/url/url:
+    post:
+      operationId: postConvertPdfImageSyncUrlUrl
+      summary: Convert PDF to Image API
+      description: Converts a PDF available at a URL into page images and returns a JSON object containin
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 150
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/pdf/image/sync/base64/download:
+    post:
+      operationId: postConvertPdfImageSyncBase64Download
+      summary: Convert PDF to Image API
+      description: Converts a PDF provided as base64-encoded content into image files for its pages, and
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 150
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/pdf/image/sync/base64/url:
+    post:
+      operationId: postConvertPdfImageSyncBase64Url
+      summary: Convert PDF to Image API
+      description: Converts a PDF provided as a base64 string into page images and returns a download URL
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 150
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/pdf/docx/sync/base64/download:
+    post:
+      operationId: postConvertPdfDocxSyncBase64Download
+      summary: Convert PDF to Word API
+      description: Converts a PDF provided as base64-encoded content into a downloadable DOCX file. The r
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 150
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/pdf/docx/sync/base64/url:
+    post:
+      operationId: postConvertPdfDocxSyncBase64Url
+      summary: Convert PDF to Word API
+      description: Converts a PDF provided as Base64-encoded content into a DOCX file and returns a downl
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 150
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/pdf/docx/sync/file/download:
+    post:
+      operationId: postConvertPdfDocxSyncFileDownload
+      summary: Convert PDF to Word API
+      description: Converts an uploaded PDF file into a DOCX file and returns the generated file as a bin
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 150
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/pdf/docx/sync/file/url:
+    post:
+      operationId: postConvertPdfDocxSyncFileUrl
+      summary: Convert PDF to Word API
+      description: Converts an uploaded PDF file into a DOCX file and returns a download URL for the gene
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 150
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/pdf/docx/sync/url/download:
+    post:
+      operationId: postConvertPdfDocxSyncUrlDownload
+      summary: Convert PDF to Word API
+      description: Converts a publicly accessible PDF at the supplied URL into a DOCX file and returns th
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 150
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/pdf/docx/sync/url/url:
+    post:
+      operationId: postConvertPdfDocxSyncUrlUrl
+      summary: Convert PDF to Word API
+      description: Converts a PDF available at a public URL into a DOCX file. The request sends the PDF U
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 150
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/pdf/ppt/sync/base64/url:
+    post:
+      operationId: postConvertPdfPptSyncBase64Url
+      summary: Convert PDF to PowerPoint API
+      description: Converts a PDF provided as a base64-encoded string into a PowerPoint file and returns
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 150
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/pdf/ppt/sync/file/download:
+    post:
+      operationId: postConvertPdfPptSyncFileDownload
+      summary: Convert PDF to PowerPoint API
+      description: Uploads a PDF file and returns the converted PowerPoint file as a binary download. Req
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 150
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/pdf/ppt/sync/file/url:
+    post:
+      operationId: postConvertPdfPptSyncFileUrl
+      summary: Convert PDF to PowerPoint API
+      description: Converts an uploaded PDF file into a PowerPoint presentation and returns a download UR
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 150
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/pdf/ppt/sync/url/download:
+    post:
+      operationId: postConvertPdfPptSyncUrlDownload
+      summary: Convert PDF to PowerPoint API
+      description: Converts a PDF available at a public URL into a PowerPoint file and returns the result
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 150
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/pdf/ppt/sync/url/url:
+    post:
+      operationId: postConvertPdfPptSyncUrlUrl
+      summary: Convert PDF to PowerPoint API
+      description: Converts a PDF available at a URL into a PowerPoint file and returns a JSON object con
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 150
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/pdf/ppt/sync/base64/download:
+    post:
+      operationId: postConvertPdfPptSyncBase64Download
+      summary: Convert PDF to PowerPoint API
+      description: Converts a PDF provided as base64-encoded content into a downloadable PowerPoint file.
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 150
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/pes-file/zip-file:
+    post:
+      operationId: postConvertPesFileZipFile
+      summary: Convert PES to ZIP API
+      description: Converts an uploaded PES embroidery file into a ZIP archive and returns the archive as
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/image/png/webp/file:
+    post:
+      operationId: postConvertImagePngWebpFile
+      summary: Convert PNG to WebP API
+      description: Converts an uploaded PNG image to WebP and returns the converted file as a binary resp
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 30
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/image/png/webp/file/url:
+    post:
+      operationId: postConvertImagePngWebpFileUrl
+      summary: Convert PNG to WebP API
+      description: Converts an uploaded PNG image to WebP using a multipart request and returns a JSON ob
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 30
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/image/png/webp/url/file:
+    post:
+      operationId: postConvertImagePngWebpUrlFile
+      summary: Convert PNG to WebP API
+      description: Converts a PNG image from a publicly accessible URL into a WebP file and returns the c
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 30
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/image/png/webp/url:
+    post:
+      operationId: postConvertImagePngWebpUrl
+      summary: Convert PNG to WebP API
+      description: Converts a PNG image from a publicly accessible URL into WebP format. The response ret
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 30
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/presentation-base64/pdf-file:
+    post:
+      operationId: postConvertPresentationBase64PdfFile
+      summary: Convert Presentations to PDF API
+      description: Converts a base64-encoded presentation file into a PDF for download. You send the pres
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/presentation-base64/pdf-url:
+    post:
+      operationId: postConvertPresentationBase64PdfUrl
+      summary: Convert Presentations to PDF API
+      description: Converts a base64-encoded presentation file into a PDF and returns a signed link to th
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/presentation-file/pdf-file:
+    post:
+      operationId: postConvertPresentationFilePdfFile
+      summary: Convert Presentations to PDF API
+      description: Converts an uploaded presentation file into a PDF and returns the resulting PDF as a b
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/presentation-file/pdf-url:
+    post:
+      operationId: postConvertPresentationFilePdfUrl
+      summary: Convert Presentations to PDF API
+      description: Converts an uploaded presentation file into a PDF and returns a signed link to the gen
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/presentation-url/pdf-file:
+    post:
+      operationId: postConvertPresentationUrlPdfFile
+      summary: Convert Presentations to PDF API
+      description: Converts a remote presentation file from the URL you provide into a PDF and returns th
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/presentation-url/pdf-url:
+    post:
+      operationId: postConvertPresentationUrlPdfUrl
+      summary: Convert Presentations to PDF API
+      description: Converts a remote presentation file at a URL into a PDF and returns a signed link to t
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/spreadsheet-file/pdf-url:
+    post:
+      operationId: postConvertSpreadsheetFilePdfUrl
+      summary: Convert Spreadsheets to PDF API
+      description: Converts an uploaded spreadsheet file to PDF and returns a signed URL to the generated
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/spreadsheet-url/pdf-file:
+    post:
+      operationId: postConvertSpreadsheetUrlPdfFile
+      summary: Convert Spreadsheets to PDF API
+      description: Converts a spreadsheet available at a remote URL into a PDF and returns the generated
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/spreadsheet-url/pdf-url:
+    post:
+      operationId: postConvertSpreadsheetUrlPdfUrl
+      summary: Convert Spreadsheets to PDF API
+      description: Converts a remotely hosted spreadsheet file, provided as a URL, into a PDF and returns
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/spreadsheet-base64/pdf-file:
+    post:
+      operationId: postConvertSpreadsheetBase64PdfFile
+      summary: Convert Spreadsheets to PDF API
+      description: Converts a base64-encoded spreadsheet into a PDF file and returns the result as a bina
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/spreadsheet-base64/pdf-url:
+    post:
+      operationId: postConvertSpreadsheetBase64PdfUrl
+      summary: Convert Spreadsheets to PDF API
+      description: Converts a base64-encoded spreadsheet file into a PDF and returns a signed link to the
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/spreadsheet-file/pdf-file:
+    post:
+      operationId: postConvertSpreadsheetFilePdfFile
+      summary: Convert Spreadsheets to PDF API
+      description: Uploads a spreadsheet file and returns a PDF download generated from that file. The re
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/image/svg/webp/file:
+    post:
+      operationId: postConvertImageSvgWebpFile
+      summary: Convert SVG to WebP API
+      description: Converts an uploaded SVG image to WebP and returns the generated file as binary downlo
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 30
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/image/svg/webp/file/url:
+    post:
+      operationId: postConvertImageSvgWebpFileUrl
+      summary: Convert SVG to WebP API
+      description: Converts an uploaded SVG image to WebP and returns a JSON object containing a data URI
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 30
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/image/svg/webp/url/file:
+    post:
+      operationId: postConvertImageSvgWebpUrlFile
+      summary: Convert SVG to WebP API
+      description: Converts an SVG image fetched from a publicly accessible URL into WebP and returns the
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 30
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/image/svg/webp/url:
+    post:
+      operationId: postConvertImageSvgWebpUrl
+      summary: Convert SVG to WebP API
+      description: Converts an SVG image from a publicly accessible URL into a WebP image. The request se
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 30
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /job/convert/video/file:
+    post:
+      operationId: postJobConvertVideoFile
+      summary: Convert Video Formats Job API
+      description: Submits a video file for format conversion and starts an asynchronous job. The request
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 400
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /job/convert/video/url:
+    post:
+      operationId: postJobConvertVideoUrl
+      summary: Convert Video Formats Job API
+      description: Submits a video format conversion job using a source video URL and a target output for
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 400
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /job/convert/video/status/{job_id}:
+    get:
+      operationId: getJobConvertVideoStatusJobId
+      summary: Convert Video Formats Job API
+      description: Checks the status of a video format conversion job using its jobid. The response retur
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 5
+      parameters:
+      - name: job_id
+        in: path
+        required: true
+        schema:
+          type: string
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/video/url:
+    post:
+      operationId: postConvertVideoUrl
+      summary: Convert Video Formats API
+      description: Converts a video from the source URL you provide into the requested output format and
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 550
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/video/file:
+    post:
+      operationId: postConvertVideoFile
+      summary: Convert Video Formats API
+      description: Converts an uploaded video file to a different container format and returns the conver
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 550
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/video/file/url:
+    post:
+      operationId: postConvertVideoFileUrl
+      summary: Convert Video Formats API
+      description: Uploads a video file and returns a time-limited signed download URL for the converted
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 550
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/video/url/file:
+    post:
+      operationId: postConvertVideoUrlFile
+      summary: Convert Video Formats API
+      description: Converts a video from a source URL into the requested output format and returns the re
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 550
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/word-base64/pdf-url:
+    post:
+      operationId: postConvertWordBase64PdfUrl
+      summary: Convert Word to PDF API
+      description: Converts a base64-encoded Word document into a PDF and returns a signed link to the ge
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/word-file/pdf-file:
+    post:
+      operationId: postConvertWordFilePdfFile
+      summary: Convert Word to PDF API
+      description: Converts an uploaded Word document to a PDF and returns the generated PDF as a binary
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/word-file/pdf-url:
+    post:
+      operationId: postConvertWordFilePdfUrl
+      summary: Convert Word to PDF API
+      description: Converts an uploaded Word document to a PDF and returns a signed link to the generated
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/word-url/pdf-file:
+    post:
+      operationId: postConvertWordUrlPdfFile
+      summary: Convert Word to PDF API
+      description: Converts a remote Word document at the provided URL into a PDF and returns the PDF as
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/word-url/pdf-url:
+    post:
+      operationId: postConvertWordUrlPdfUrl
+      summary: Convert Word to PDF API
+      description: Converts a remote Word document available at a URL into a PDF and returns a signed PDF
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/word-base64/pdf-file:
+    post:
+      operationId: postConvertWordBase64PdfFile
+      summary: Convert Word to PDF API
+      description: Converts a base64-encoded Word document to a PDF and returns the PDF as a binary downl
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /generate/archive/files/archive-file:
+    post:
+      operationId: postGenerateArchiveFilesArchiveFile
+      summary: Generate Archives API
+      description: Creates a ZIP archive from the uploaded files and streams the resulting download back
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 150
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /generate/archive/files/archive-url:
+    post:
+      operationId: postGenerateArchiveFilesArchiveUrl
+      summary: Generate Archives API
+      description: Creates a ZIP archive from the uploaded files and returns a signed link to the generat
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 150
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /generate/archive/file-urls/archive-file:
+    post:
+      operationId: postGenerateArchiveFileUrlsArchiveFile
+      summary: Generate Archives API
+      description: Creates a ZIP archive from one or more remote file URLs and streams the archive back i
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 150
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /generate/archive/file-urls/archive-url:
+    post:
+      operationId: postGenerateArchiveFileUrlsArchiveUrl
+      summary: Generate Archives API
+      description: Creates a ZIP archive from one or more remote file URLs and returns a signed URL where
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 150
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /job/generate/gif/url:
+    post:
+      operationId: postJobGenerateGifUrl
+      summary: Generate GIF from Video Job API
+      description: Submits a video-to-GIF conversion job using a source video URL and returns a job ident
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 400
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /job/generate/gif/file:
+    post:
+      operationId: postJobGenerateGifFile
+      summary: Generate GIF from Video Job API
+      description: Submits a video file to start an async job that generates a GIF from the uploaded vide
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 400
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /job/generate/gif/status/{job_id}:
+    get:
+      operationId: getJobGenerateGifStatusJobId
+      summary: Generate GIF from Video Job API
+      description: Checks the status of a GIF conversion job by job ID and returns the job’s current stat
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 5
+      parameters:
+      - name: job_id
+        in: path
+        required: true
+        schema:
+          type: string
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /generate/gif/file:
+    post:
+      operationId: postGenerateGifFile
+      summary: Generate GIF from Video API
+      description: Generates a GIF from an uploaded video file and returns the result as a streamed binar
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 550
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /generate/gif/file/url:
+    post:
+      operationId: postGenerateGifFileUrl
+      summary: Generate GIF from Video API
+      description: Creates a GIF from an uploaded video file and returns a time-limited signed URL to dow
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 550
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /generate/gif/url/file:
+    post:
+      operationId: postGenerateGifUrlFile
+      summary: Generate GIF from Video API
+      description: Generates a GIF from a remotely hosted video file and returns it as a streamed binary
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 550
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /generate/gif/url:
+    post:
+      operationId: postGenerateGifUrl
+      summary: Generate GIF from Video API
+      description: Generates a GIF from a publicly accessible remote video URL and returns a signed downl
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 550
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /generate/preview/file:
+    post:
+      operationId: postGeneratePreviewFile
+      summary: Generate File Preview API
+      description: Generates a PNG preview from an uploaded file and returns the resulting image as a bin
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 300
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /generate/preview/file/url:
+    post:
+      operationId: postGeneratePreviewFileUrl
+      summary: Generate File Preview API
+      description: Generates a PNG preview from an uploaded file and returns a signed link to the generat
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 300
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /generate/preview/url/file:
+    post:
+      operationId: postGeneratePreviewUrlFile
+      summary: Generate File Preview API
+      description: Generates a PNG preview from a remote file URL and returns the result as a streamed bi
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 300
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /generate/preview/url:
+    post:
+      operationId: postGeneratePreviewUrl
+      summary: Generate File Preview API
+      description: Generates a PNG preview from a remote file URL and returns a signed link to the result
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 300
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /generate/image-thumbnail/file:
+    post:
+      operationId: postGenerateImageThumbnailFile
+      summary: Generate Thumbnail from Video API
+      description: Extracts a single PNG frame from an uploaded video and streams the generated file back
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 550
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /generate/image-thumbnail/file/url:
+    post:
+      operationId: postGenerateImageThumbnailFileUrl
+      summary: Generate Thumbnail from Video API
+      description: Uploads a video file and returns a signed link to a generated PNG frame extracted from
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 550
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /generate/image-thumbnail/url/file:
+    post:
+      operationId: postGenerateImageThumbnailUrlFile
+      summary: Generate Thumbnail from Video API
+      description: Extracts a PNG frame from a remote video URL and returns it as a streamed binary respo
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 550
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /generate/image-thumbnail/url:
+    post:
+      operationId: postGenerateImageThumbnailUrl
+      summary: Generate Thumbnail from Video API
+      description: Extracts a PNG frame from a remote video URL and returns a signed link to the generate
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 550
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /job/generate/image-thumbnail/file:
+    post:
+      operationId: postJobGenerateImageThumbnailFile
+      summary: Generate Thumbnail from Video Job API
+      description: Submits a video file as a multipart upload to start an asynchronous video thumbnail jo
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 400
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /job/generate/image-thumbnail/status/{job_id}:
+    get:
+      operationId: getJobGenerateImageThumbnailStatusJobId
+      summary: Generate Thumbnail from Video Job API
+      description: Checks the status of a video thumbnail generation job identified by jobid and returns
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 5
+      parameters:
+      - name: job_id
+        in: path
+        required: true
+        schema:
+          type: string
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /job/generate/image-thumbnail/url:
+    post:
+      operationId: postJobGenerateImageThumbnailUrl
+      summary: Generate Thumbnail from Video Job API
+      description: Submits a video thumbnail generation job using a source video URL and returns a job id
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 400
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /job/generate/video-thumbnail/file:
+    post:
+      operationId: postJobGenerateVideoThumbnailFile
+      summary: Generate Video Thumbnail Job API
+      description: Submits a video file to start an asynchronous video thumbnail generation job. The endp
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 400
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /job/generate/video-thumbnail/status/{job_id}:
+    get:
+      operationId: getJobGenerateVideoThumbnailStatusJobId
+      summary: Generate Video Thumbnail Job API
+      description: Checks the status of a submitted video thumbnail generation job by job ID. It returns
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 5
+      parameters:
+      - name: job_id
+        in: path
+        required: true
+        schema:
+          type: string
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /job/generate/video-thumbnail/url:
+    post:
+      operationId: postJobGenerateVideoThumbnailUrl
+      summary: Generate Video Thumbnail Job API
+      description: Submits an async job to generate a thumbnail from a source video URL. The request body
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 400
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /generate/video-thumbnail/file:
+    post:
+      operationId: postGenerateVideoThumbnailFile
+      summary: Generate Video Thumbnail API
+      description: Trims a segment from an uploaded video file and streams the resulting download back as
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 550
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /generate/video-thumbnail/file/url:
+    post:
+      operationId: postGenerateVideoThumbnailFileUrl
+      summary: Generate Video Thumbnail API
+      description: Trims a short clip from an uploaded video and returns a signed URL to the generated fi
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 550
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /generate/video-thumbnail/url/file:
+    post:
+      operationId: postGenerateVideoThumbnailUrlFile
+      summary: Generate Video Thumbnail API
+      description: Trims a video clip from a remote URL and streams the resulting file as a binary downlo
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 550
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /generate/video-thumbnail/url:
+    post:
+      operationId: postGenerateVideoThumbnailUrl
+      summary: Generate Video Thumbnail API
+      description: Creates a trimmed video clip from a remote video URL and returns a signed URI for the
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 550
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /job/generate/video/watermark/url:
+    post:
+      operationId: postJobGenerateVideoWatermarkUrl
+      summary: Generate Watermark For Videos Job API
+      description: Submits an async video watermarking job using a source video URL and watermark setting
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 400
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /job/generate/video/watermark/file:
+    post:
+      operationId: postJobGenerateVideoWatermarkFile
+      summary: Generate Watermark For Videos Job API
+      description: Submits a multipart video file job to generate a video watermark. The request sends th
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 400
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /job/generate/video/watermark/status/{job_id}:
+    get:
+      operationId: getJobGenerateVideoWatermarkStatusJobId
+      summary: Generate Watermark For Videos Job API
+      description: Checks the status of a generate video watermark job by job ID. When the job is success
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 400
+      parameters:
+      - name: job_id
+        in: path
+        required: true
+        schema:
+          type: string
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /generate/video/watermark/url/file:
+    post:
+      operationId: postGenerateVideoWatermarkUrlFile
+      summary: Generate Watermark For Videos API
+      description: Applies a watermark to a video fetched from a remote URL, then streams the processed v
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 550
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /generate/video/watermark/url:
+    post:
+      operationId: postGenerateVideoWatermarkUrl
+      summary: Generate Watermark For Videos API
+      description: Applies a watermark to a remote video URL and returns a signed URL for the processed v
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 550
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /generate/video/watermark/file:
+    post:
+      operationId: postGenerateVideoWatermarkFile
+      summary: Generate Watermark For Videos API
+      description: Applies a watermark to an uploaded video and returns the resulting video as a streamed
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 550
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /generate/video/watermark/file/url:
+    post:
+      operationId: postGenerateVideoWatermarkFileUrl
+      summary: Generate Watermark For Videos API
+      description: Applies a watermark to an uploaded video and returns a signed URI for the processed vi
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 550
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/files/pdf/url/download:
+    post:
+      operationId: postConvertFilesPdfUrlDownload
+      summary: Merge Files to PDF API
+      description: Converts the files referenced by the provided URLs into PDF format and merges them int
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 150
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/files/pdf/url/url:
+    post:
+      operationId: postConvertFilesPdfUrlUrl
+      summary: Merge Files to PDF API
+      description: Converts the files referenced by the provided URLs into PDF and merges them into a sin
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 150
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/files/pdf/file/download:
+    post:
+      operationId: postConvertFilesPdfFileDownload
+      summary: Merge Files to PDF API
+      description: Converts one or more uploaded files to PDF and merges them into a single downloadable
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 150
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/files/pdf/file/url:
+    post:
+      operationId: postConvertFilesPdfFileUrl
+      summary: Merge Files to PDF API
+      description: Converts uploaded files into a single PDF and returns a URL to the generated file. The
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 150
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /translate/file:
+    post:
+      operationId: postTranslateFile
+      summary: Translate Documents API
+      description: Uploads a document file and translates its text into the requested target language. Yo
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 150
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /translate/url:
+    post:
+      operationId: postTranslateUrl
+      summary: Translate Documents API
+      description: Translates a document fetched from a URL into the target language you provide, and ret
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 150
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /extract/archive/file/file-urls:
+    post:
+      operationId: postExtractArchiveFileFileUrls
+      summary: Unarchive Files API
+      description: Uploads a local archive file and returns signed URLs for each file extracted from that
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 250
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /extract/archive/url/file-urls:
+    post:
+      operationId: postExtractArchiveUrlFileUrls
+      summary: Unarchive Files API
+      description: Extracts a remote archive from a URL and returns signed URLs for each file found insid
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 250
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /chisleroff/pdf/from-html:
+    post:
+      operationId: postChisleroffPdfFromHtml
+      summary: Convert and Format raw HTML to PDF API
+      description: Converts raw HTML into a PDF document. You send HTML plus optional page and margin set
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /chisleroff/pdf/from-url:
+    post:
+      operationId: postChisleroffPdfFromUrl
+      summary: Advanced Webpage to PDF API
+      description: Converts a web page at a given URL into a PDF file. The request body lets you control
+      tags:
+      - File Conversion
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token
+x-refined-from:
+- apyhub-apyhub-add-header-footer-to-docx-openapi.yml
+- apyhub-apyhub-capture-public-url-as-pdf-openapi.yml
+- apyhub-apyhub-compress-images-openapi.yml
+- apyhub-apyhub-compress-video-job-openapi.yml
+- apyhub-apyhub-compress-video-openapi.yml
+- apyhub-apyhub-convert-csv-to-xlsx-openapi.yml
+- apyhub-apyhub-convert-heic-heif-to-jpeg-or-png-openapi.yml
+- apyhub-apyhub-convert-html-content-to-pdf-openapi.yml
+- apyhub-apyhub-convert-html-to-docx-openapi.yml
+- apyhub-apyhub-convert-html-to-pdf-openapi.yml
+- apyhub-apyhub-convert-image-to-pdf-openapi.yml
+- apyhub-apyhub-convert-markdown-to-pdf-openapi.yml
+- apyhub-apyhub-convert-pdf-pages-to-images-openapi.yml
+- apyhub-apyhub-convert-pdf-to-docx-openapi.yml
+- apyhub-apyhub-convert-pdf-to-powerpoint-openapi.yml
+- apyhub-apyhub-convert-pes-to-zip-openapi.yml
+- apyhub-apyhub-convert-png-to-webp-openapi.yml
+- apyhub-apyhub-convert-presentation-to-pdf-openapi.yml
+- apyhub-apyhub-convert-spreadsheet-to-pdf-openapi.yml
+- apyhub-apyhub-convert-svg-to-webp-openapi.yml
+- apyhub-apyhub-convert-video-formats-job-openapi.yml
+- apyhub-apyhub-convert-video-formats-openapi.yml
+- apyhub-apyhub-convert-word-to-pdf-openapi.yml
+- apyhub-apyhub-create-zip-openapi.yml
+- apyhub-apyhub-generate-gif-from-video-openapi.yml
+- apyhub-apyhub-generate-gif-openapi.yml
+- apyhub-apyhub-generate-png-preview-openapi.yml
+- apyhub-apyhub-generate-thumbnail-from-video-openapi.yml
+- apyhub-apyhub-generate-video-thumbnail-job-api-openapi.yml
+- apyhub-apyhub-generate-video-thumbnail-job-openapi.yml
+- apyhub-apyhub-generate-video-thumbnail-openapi.yml
+- apyhub-apyhub-generate-video-watermark-openapi.yml
+- apyhub-apyhub-generate-watermark-for-videos-openapi.yml
+- apyhub-apyhub-merge-files-to-pdf-openapi.yml
+- apyhub-apyhub-translate-documents-openapi.yml
+- apyhub-apyhub-unarchive-files-openapi.yml
+- apyhub-chisleroff-pdf-from-html-openapi.yml
+- apyhub-chisleroff-pdf-from-url-openapi.yml

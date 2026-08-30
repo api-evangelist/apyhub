@@ -1,0 +1,35 @@
+openapi: 3.2.0
+info:
+  title: Global Pricing Recommendations E-commerce Quick Tools API
+  description: Generate country-specific subscription price recommendations from a base price, currency, and home country. Returns local prices and justification.
+  version: 1.0.0
+  contact:
+    name: Sumalya APIs
+    url: https://apyhub.com/namastesumalya/service/generate-global-pricing-recommendations
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: E-commerce Quick Tools
+paths:
+  /namastesumalya/api/generate-pricing:
+    post:
+      operationId: postNamastesumalyaApiGeneratePricing
+      summary: Global Pricing Recommendations API
+      description: Generates pricing recommendations for multiple international markets based on a base s
+      tags:
+      - E-commerce Quick Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token

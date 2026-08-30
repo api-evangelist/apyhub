@@ -1,0 +1,54 @@
+openapi: 3.2.0
+info:
+  title: Apyhub Finance API
+  version: 1.0.0
+  description: 'Operations tagged Finance across 2 of this provider''s published API definitions: apyhub-apyhub-convert-currency-pair-for-date-openapi.yml, apyhub-apyhub-convert-currency-to-multiple-currencies-openapi.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Finance
+paths:
+  /data/convert/currency:
+    post:
+      operationId: postDataConvertCurrency
+      summary: Convert Currency API
+      description: Converts a currency pair for a given date by taking a source currency, a target curren
+      tags:
+      - Finance
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 5
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /data/convert/currency/multiple:
+    post:
+      operationId: postDataConvertCurrencyMultiple
+      summary: Convert Currency to Multiple Currencies API
+      description: Converts one source currency into multiple target currencies for a given date and retu
+      tags:
+      - Finance
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 5
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token
+x-refined-from:
+- apyhub-apyhub-convert-currency-pair-for-date-openapi.yml
+- apyhub-apyhub-convert-currency-to-multiple-currencies-openapi.yml

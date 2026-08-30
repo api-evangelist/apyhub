@@ -1,0 +1,71 @@
+openapi: 3.2.0
+info:
+  title: Apyhub Security & Privacy API
+  version: 1.0.0
+  description: 'Operations tagged Security & Privacy across 3 of this provider''s published API definitions: apyhub-apyhub-anonymize-text-openapi.yml, apyhub-chisleroff-security-headers-audit-openapi.yml, apyhub-namastesumalya-audit-website-security-headers-openapi.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Security & Privacy
+paths:
+  /ai/text/anonymize:
+    post:
+      operationId: postAiTextAnonymize
+      summary: AI Text Anonymization API
+      description: Anonymizes text content by sending a text string in the request body and returning a J
+      tags:
+      - Security & Privacy
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /chisleroff/intel/headers:
+    post:
+      operationId: postChisleroffIntelHeaders
+      summary: Security Headers Audit API
+      description: Audits the security headers present on the webpage at the given URL and returns a JSON
+      tags:
+      - Security & Privacy
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /namastesumalya/api/security:
+    post:
+      operationId: postNamastesumalyaApiSecurity
+      summary: Security Header Full Audit API
+      description: Audits the security headers for a website URL and returns the URL, an overall score, r
+      tags:
+      - Security & Privacy
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token
+x-refined-from:
+- apyhub-apyhub-anonymize-text-openapi.yml
+- apyhub-chisleroff-security-headers-audit-openapi.yml
+- apyhub-namastesumalya-audit-website-security-headers-openapi.yml

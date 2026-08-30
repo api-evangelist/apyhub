@@ -1,0 +1,199 @@
+openapi: 3.2.0
+info:
+  title: Apyhub Marketing API
+  version: 1.0.0
+  description: 'Operations tagged Marketing across 7 of this provider''s published API definitions: apyhub-apyhub-generate-qr-code-openapi.yml, apyhub-chisleroff-dynamic-og-image-generation-openapi.yml, apyhub-chisleroff-evaluate-seo-health-openapi.yml, apyhub-namastesumalya-generate-keyword-clusters-openapi.yml, apyhub-namastesumalya-generate-newsletter-digest-openapi.yml, apyhub-sharpapi-generate-seo-tags-openapi.yml, apyhub-sharpapi-generate-tours-activities-product-catego-openapi.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Marketing
+paths:
+  /generate/qr-code/file:
+    post:
+      operationId: postGenerateQrCodeFile
+      summary: Generate QR Code API
+      description: Generates a QR code and returns it as a downloadable binary file. The request body can
+      tags:
+      - Marketing
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 30
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /generate/qr-code/url:
+    post:
+      operationId: postGenerateQrCodeUrl
+      summary: Generate QR Code API
+      description: Generates a QR code and returns a JSON object containing a pre-signed cloud storage UR
+      tags:
+      - Marketing
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 30
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /chisleroff/tools/og-image:
+    post:
+      operationId: postChisleroffToolsOgImage
+      summary: Dynamic OG Image API
+      description: Generates a dynamic Open Graph image from the provided body fields and returns the ima
+      tags:
+      - Marketing
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /chisleroff/seo/health-score:
+    post:
+      operationId: postChisleroffSeoHealthScore
+      summary: Evaluate SEO Health API
+      description: Evaluates the SEO health of a webpage given its url and returns an SEO report for that
+      tags:
+      - Marketing
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /namastesumalya/api/related-keywords:
+    get:
+      operationId: getNamastesumalyaApiRelatedKeywords
+      summary: Generate Keyword Clusters API
+      description: Generates keyword clusters for an article identified by its URL. The response returns
+      tags:
+      - Marketing
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 600
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /namastesumalya/api/digest:
+    post:
+      operationId: postNamastesumalyaApiDigest
+      summary: Extract and Generate Editorial Digest from Multiple Web Pages API
+      description: Generates a newsletter digest from multiple web pages you provide as URLs. The respons
+      tags:
+      - Marketing
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 1000
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /sharpapi/api/v1/seo/generate_tags:
+    post:
+      operationId: postSharpapiApiV1SeoGenerateTags
+      summary: SEO Tags Generator API
+      description: Submits content to generate SEO tags asynchronously. The request body includes the sou
+      tags:
+      - Marketing
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /sharpapi/api/v1/seo/generate_tags/job/status/{job_id}:
+    get:
+      operationId: getSharpapiApiV1SeoGenerateTagsJobStatusJobId
+      summary: SEO Tags Generator API
+      description: Checks the status of an asynchronous SEO tag generation job identified by jobid. When
+      tags:
+      - Marketing
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 1
+      parameters:
+      - name: job_id
+        in: path
+        required: true
+        schema:
+          type: string
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /sharpapi/api/v1/tth/ta_product_categories:
+    post:
+      operationId: postSharpapiApiV1TthTaProductCategories
+      summary: Generate Tours & Activities Product Categories API
+      description: Submits an async job to generate tours and activities product categories from the prov
+      tags:
+      - Marketing
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /sharpapi/api/v1/tth/ta_product_categories/job/status/{job_id}:
+    get:
+      operationId: getSharpapiApiV1TthTaProductCategoriesJobStatusJobId
+      summary: Generate Tours & Activities Product Categories API
+      description: Checks the status of a previously submitted job for generating tours and activities pr
+      tags:
+      - Marketing
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 1
+      parameters:
+      - name: job_id
+        in: path
+        required: true
+        schema:
+          type: string
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token
+x-refined-from:
+- apyhub-apyhub-generate-qr-code-openapi.yml
+- apyhub-chisleroff-dynamic-og-image-generation-openapi.yml
+- apyhub-chisleroff-evaluate-seo-health-openapi.yml
+- apyhub-namastesumalya-generate-keyword-clusters-openapi.yml
+- apyhub-namastesumalya-generate-newsletter-digest-openapi.yml
+- apyhub-sharpapi-generate-seo-tags-openapi.yml
+- apyhub-sharpapi-generate-tours-activities-product-catego-openapi.yml

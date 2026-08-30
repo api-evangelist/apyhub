@@ -1,0 +1,139 @@
+openapi: 3.2.0
+info:
+  title: Apyhub SEO API
+  version: 1.0.0
+  description: 'Operations tagged SEO across 7 of this provider''s published API definitions: apyhub-apyhub-serp-rankings-for-keyword-openapi.yml, apyhub-chisleroff-check-rich-results-openapi.yml, apyhub-chisleroff-full-site-audit-openapi.yml, apyhub-namastesumalya-analyze-content-keywords-openapi.yml, apyhub-namastesumalya-perform-technical-performance-audit-openapi.yml, apyhub-namastesumalya-technical-comparison-openapi.yml, apyhub-namastesumalya-translate-article-content-openapi.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: SEO
+paths:
+  /extract/serp/rank:
+    post:
+      operationId: postExtractSerpRank
+      summary: SERP Rank Checker API
+      description: Retrieves SERP rankings for a keyword and returns the matching results in the response
+      tags:
+      - SEO
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 250
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /chisleroff/seo/rich-results:
+    post:
+      operationId: postChisleroffSeoRichResults
+      summary: Check Rich Results API
+      description: Checks a webpage URL for rich-results eligibility and returns a structured report of t
+      tags:
+      - SEO
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /chisleroff/intel/audit:
+    post:
+      operationId: postChisleroffIntelAudit
+      summary: Full Site Audit API
+      description: Audits a webpage from the provided URL and returns a structured report with metadata,
+      tags:
+      - SEO
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /namastesumalya/api/content:
+    post:
+      operationId: postNamastesumalyaApiContent
+      summary: Content and Keyword Analysis API
+      description: Analyzes the content at a given URL and returns keyword, sentiment, readability, and t
+      tags:
+      - SEO
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 2000
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /namastesumalya/api/audit:
+    post:
+      operationId: postNamastesumalyaApiAudit
+      summary: Webpage Technical Performance Audit API
+      description: Performs a technical performance audit for a webpage URL and returns the audited URL,
+      tags:
+      - SEO
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /namastesumalya/api/compares:
+    post:
+      operationId: postNamastesumalyaApiCompares
+      summary: Technical Comparison of Webpages API
+      description: Compares the technical and SEO characteristics of multiple websites from a list of URL
+      tags:
+      - SEO
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /namastesumalya/api/translate:
+    post:
+      operationId: postNamastesumalyaApiTranslate
+      summary: Extract and Translate Article Content from Web Page API
+      description: Translates the content of an article from a web page into a target language. The reque
+      tags:
+      - SEO
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 1000
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token
+x-refined-from:
+- apyhub-apyhub-serp-rankings-for-keyword-openapi.yml
+- apyhub-chisleroff-check-rich-results-openapi.yml
+- apyhub-chisleroff-full-site-audit-openapi.yml
+- apyhub-namastesumalya-analyze-content-keywords-openapi.yml
+- apyhub-namastesumalya-perform-technical-performance-audit-openapi.yml
+- apyhub-namastesumalya-technical-comparison-openapi.yml
+- apyhub-namastesumalya-translate-article-content-openapi.yml

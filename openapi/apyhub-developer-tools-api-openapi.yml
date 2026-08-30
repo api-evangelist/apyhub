@@ -1,0 +1,1959 @@
+openapi: 3.2.0
+info:
+  title: Apyhub Developer Tools API
+  version: 1.0.0
+  description: 'Operations tagged Developer Tools across 19 of this provider''s published API definitions: apyhub-apyhub-convert-csv-to-xml-openapi.yml, apyhub-apyhub-convert-json-to-graphql-sdl-openapi.yml, apyhub-apyhub-convert-json-to-markdown-openapi.yml, apyhub-apyhub-convert-json-to-mongoose-schema-openapi.yml, apyhub-apyhub-convert-json-to-prisma-schema-openapi.yml, apyhub-apyhub-convert-json-to-xml-openapi.yml, apyhub-apyhub-convert-json-to-yaml-openapi.yml, apyhub-apyhub-convert-json-to-zod-schema-openapi.yml, apyhub-apyhub-convert-markdown-to-html-files-openapi.yml, apyhub-apyhub-convert-markdown-to-html-openapi.yml, apyhub-apyhub-convert-xml-to-json-openapi.yml, apyhub-apyhub-convert-yaml-to-json-openapi.yml, apyhub-apyhub-csv-to-json-openapi.yml, apyhub-apyhub-fuzzy-search-openapi.yml, apyhub-apyhub-generate-ical-event-openapi.yml, apyhub-apyhub-json-to-csv-openapi.yml, apyhub-apyhub-parse-user-agent-string-openapi.yml, apyhub-chisleroff-validate-html-openapi.yml, apyhub-sharpapi-skills-database-openapi.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Developer Tools
+paths:
+  /convert/csv-file/xml-file:
+    post:
+      operationId: postConvertCsvFileXmlFile
+      summary: Convert CSV to XML API
+      description: Converts an uploaded CSV file into an XML file and returns the result as a downloadabl
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/csv-raw/xml-url:
+    post:
+      operationId: postConvertCsvRawXmlUrl
+      summary: Convert CSV to XML API
+      description: Converts raw CSV content sent in the request body into a file and returns a pre-signed
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/csv-url/xml-file:
+    post:
+      operationId: postConvertCsvUrlXmlFile
+      summary: Convert CSV to XML API
+      description: Converts a CSV file from a public URL into a downloadable XML file. The request provid
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/csv-url/xml-raw:
+    post:
+      operationId: postConvertCsvUrlXmlRaw
+      summary: Convert CSV to XML API
+      description: Converts a CSV file available at a public URL into an inline XML string. The request s
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/csv-file/xml-raw:
+    post:
+      operationId: postConvertCsvFileXmlRaw
+      summary: Convert CSV to XML API
+      description: Converts an uploaded CSV file into an inline XML string. The request uploads a single
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/csv-file/xml-url:
+    post:
+      operationId: postConvertCsvFileXmlUrl
+      summary: Convert CSV to XML API
+      description: Converts an uploaded CSV file into XML and returns a JSON object containing a pre-sign
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/csv-raw/xml-file:
+    post:
+      operationId: postConvertCsvRawXmlFile
+      summary: Convert CSV to XML API
+      description: Converts raw CSV content submitted in the request body into a downloadable XML file. T
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/csv-raw/xml-raw:
+    post:
+      operationId: postConvertCsvRawXmlRaw
+      summary: Convert CSV to XML API
+      description: Converts a raw CSV payload in the request body into an XML string. The response is ret
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/csv-url/xml-url:
+    post:
+      operationId: postConvertCsvUrlXmlUrl
+      summary: Convert CSV to XML API
+      description: Converts a CSV file from a publicly accessible URL into XML and returns a pre-signed S
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/json-file/graphql-url:
+    post:
+      operationId: postConvertJsonFileGraphqlUrl
+      summary: Convert JSON to GraphQL Schema API
+      description: Converts an uploaded JSON file into GraphQL SDL and returns a pre-signed S3 URL for th
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/json-raw/graphql-raw:
+    post:
+      operationId: postConvertJsonRawGraphqlRaw
+      summary: Convert JSON to GraphQL Schema API
+      description: Converts a raw JSON object in the request body into GraphQL SDL and returns the SDL as
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/json-raw/graphql-url:
+    post:
+      operationId: postConvertJsonRawGraphqlUrl
+      summary: Convert JSON to GraphQL Schema API
+      description: Converts a raw JSON object sent in the request body into GraphQL SDL, then returns a p
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/json-url/graphql-file:
+    post:
+      operationId: postConvertJsonUrlGraphqlFile
+      summary: Convert JSON to GraphQL Schema API
+      description: Converts the JSON document available at a public URL into a GraphQL SDL file for downl
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/json-raw/graphql-file:
+    post:
+      operationId: postConvertJsonRawGraphqlFile
+      summary: Convert JSON to GraphQL Schema API
+      description: Converts a raw JSON object in the request body into a downloadable GraphQL SDL file. T
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/json-url/graphql-raw:
+    post:
+      operationId: postConvertJsonUrlGraphqlRaw
+      summary: Convert JSON to GraphQL Schema API
+      description: Converts the JSON document available at a public URL into GraphQL SDL and returns the
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/json-url/graphql-url:
+    post:
+      operationId: postConvertJsonUrlGraphqlUrl
+      summary: Convert JSON to GraphQL Schema API
+      description: Converts the JSON file available at the provided URL into GraphQL SDL, then returns a
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/json-file/graphql-raw:
+    post:
+      operationId: postConvertJsonFileGraphqlRaw
+      summary: Convert JSON to GraphQL Schema API
+      description: Uploads a JSON file and returns GraphQL SDL as the response. The input must be a JSON
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/json-file/graphql-file:
+    post:
+      operationId: postConvertJsonFileGraphqlFile
+      summary: Convert JSON to GraphQL Schema API
+      description: Converts an uploaded JSON file into a downloadable GraphQL SDL file. The request uploa
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/json-raw/md-raw:
+    post:
+      operationId: postConvertJsonRawMdRaw
+      summary: Convert JSON to Markdown API
+      description: Converts the raw JSON request body into a Markdown string. The endpoint accepts a non-
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/json-raw/md-url:
+    post:
+      operationId: postConvertJsonRawMdUrl
+      summary: Convert JSON to Markdown API
+      description: Converts a raw JSON object in the request body into Markdown and returns a pre-signed
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/json-url/md-raw:
+    post:
+      operationId: postConvertJsonUrlMdRaw
+      summary: Convert JSON to Markdown API
+      description: Fetches a JSON resource from a public URL and converts that JSON into raw Markdown tex
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/json-file/md-url:
+    post:
+      operationId: postConvertJsonFileMdUrl
+      summary: Convert JSON to Markdown API
+      description: Converts an uploaded JSON file into Markdown and returns a pre-signed S3 URL where the
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/json-url/md-file:
+    post:
+      operationId: postConvertJsonUrlMdFile
+      summary: Convert JSON to Markdown API
+      description: Converts the JSON available at a public URL into a downloadable Markdown file. You sen
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/json-url/md-url:
+    post:
+      operationId: postConvertJsonUrlMdUrl
+      summary: Convert JSON to Markdown API
+      description: Converts the JSON resource at a publicly accessible URL into a Markdown file and retur
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/json-file/md-file:
+    post:
+      operationId: postConvertJsonFileMdFile
+      summary: Convert JSON to Markdown API
+      description: Converts an uploaded JSON file into a Markdown file and returns the generated .md cont
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/json-file/md-raw:
+    post:
+      operationId: postConvertJsonFileMdRaw
+      summary: Convert JSON to Markdown API
+      description: Uploads a JSON file and converts its contents into Markdown, returning the result as r
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/json-raw/md-file:
+    post:
+      operationId: postConvertJsonRawMdFile
+      summary: Convert JSON to Markdown API
+      description: Converts the raw JSON request body into a Markdown .md file and returns the file conte
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/json-url/mongoose-url:
+    post:
+      operationId: postConvertJsonUrlMongooseUrl
+      summary: Convert JSON to Mongoose Schema API
+      description: Converts JSON fetched from a publicly accessible URL into a Mongoose schema file and r
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/json-file/mongoose-raw:
+    post:
+      operationId: postConvertJsonFileMongooseRaw
+      summary: Convert JSON to Mongoose Schema API
+      description: Converts an uploaded JSON file into a generated Mongoose schema and returns the result
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/json-file/mongoose-url:
+    post:
+      operationId: postConvertJsonFileMongooseUrl
+      summary: Convert JSON to Mongoose Schema API
+      description: Uploads a JSON file and converts its contents into a Mongoose schema, then returns a p
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/json-raw/mongoose-raw:
+    post:
+      operationId: postConvertJsonRawMongooseRaw
+      summary: Convert JSON to Mongoose Schema API
+      description: Converts the provided JSON input into a generated Mongoose schema source string. It re
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/json-raw/mongoose-url:
+    post:
+      operationId: postConvertJsonRawMongooseUrl
+      summary: Convert JSON to Mongoose Schema API
+      description: Converts the provided raw JSON data into a Mongoose schema and returns a pre-signed S3
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/json-url/mongoose-raw:
+    post:
+      operationId: postConvertJsonUrlMongooseRaw
+      summary: Convert JSON to Mongoose Schema API
+      description: Converts the JSON document found at a public URL into a generated Mongoose schema. It
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/json-file/mongoose-file:
+    post:
+      operationId: postConvertJsonFileMongooseFile
+      summary: Convert JSON to Mongoose Schema API
+      description: Uploads a JSON file and converts it into a downloadable Mongoose schema file. The resp
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/json-raw/mongoose-file:
+    post:
+      operationId: postConvertJsonRawMongooseFile
+      summary: Convert JSON to Mongoose Schema API
+      description: Converts the provided JSON input into a Mongoose schema file and returns it as a downl
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/json-url/mongoose-file:
+    post:
+      operationId: postConvertJsonUrlMongooseFile
+      summary: Convert JSON to Mongoose Schema API
+      description: Converts a JSON document fetched from a publicly accessible URL into a downloadable Mo
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/json-url/prisma-url:
+    post:
+      operationId: postConvertJsonUrlPrismaUrl
+      summary: Convert JSON to Prisma Schema API
+      description: Converts the JSON resource available at the provided URL into a Prisma schema file and
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/json-file/prisma-raw:
+    post:
+      operationId: postConvertJsonFilePrismaRaw
+      summary: Convert JSON to Prisma Schema API
+      description: Converts an uploaded JSON file into a Prisma schema and returns the result as a JSON o
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/json-file/prisma-url:
+    post:
+      operationId: postConvertJsonFilePrismaUrl
+      summary: Convert JSON to Prisma Schema API
+      description: Converts an uploaded JSON file into a Prisma schema and returns a pre-signed S3 URL fo
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/json-raw/prisma-file:
+    post:
+      operationId: postConvertJsonRawPrismaFile
+      summary: Convert JSON to Prisma Schema API
+      description: Converts the supplied JSON content into a downloadable Prisma schema (.prisma) file. T
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/json-raw/prisma-raw:
+    post:
+      operationId: postConvertJsonRawPrismaRaw
+      summary: Convert JSON to Prisma Schema API
+      description: Converts the supplied JSON data into a Prisma schema and returns the generated result
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/json-raw/prisma-url:
+    post:
+      operationId: postConvertJsonRawPrismaUrl
+      summary: Convert JSON to Prisma Schema API
+      description: Converts the provided JSON payload into a Prisma schema and returns a pre-signed S3 UR
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/json-file/prisma-file:
+    post:
+      operationId: postConvertJsonFilePrismaFile
+      summary: Convert JSON to Prisma Schema API
+      description: Converts an uploaded JSON file into a downloadable Prisma schema file (.prisma). The r
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/json-url/prisma-file:
+    post:
+      operationId: postConvertJsonUrlPrismaFile
+      summary: Convert JSON to Prisma Schema API
+      description: Converts the JSON file available at the provided URL into a downloadable Prisma schema
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/json-url/prisma-raw:
+    post:
+      operationId: postConvertJsonUrlPrismaRaw
+      summary: Convert JSON to Prisma Schema API
+      description: Converts the JSON document at the provided URL into a Prisma schema and returns the ge
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/json-file/xml-raw:
+    post:
+      operationId: postConvertJsonFileXmlRaw
+      summary: Convert JSON to XML API
+      description: Converts an uploaded JSON file into a raw XML string. The request uploads a JSON file,
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/json-file/xml-url:
+    post:
+      operationId: postConvertJsonFileXmlUrl
+      summary: Convert JSON to XML API
+      description: Converts an uploaded JSON file into an XML file and returns a pre-signed S3 URL for th
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/json-raw/xml-raw:
+    post:
+      operationId: postConvertJsonRawXmlRaw
+      summary: Convert JSON to XML API
+      description: Converts the raw JSON request body into a raw XML string. The endpoint accepts any non
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/json-file/xml-file:
+    post:
+      operationId: postConvertJsonFileXmlFile
+      summary: Convert JSON to XML API
+      description: Converts an uploaded JSON file into a downloadable XML file. The request uploads the J
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/json-raw/xml-file:
+    post:
+      operationId: postConvertJsonRawXmlFile
+      summary: Convert JSON to XML API
+      description: Converts the raw JSON object sent in the request body into an XML file and returns the
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/json-raw/xml-url:
+    post:
+      operationId: postConvertJsonRawXmlUrl
+      summary: Convert JSON to XML API
+      description: Converts the raw JSON request body into an XML file and returns a pre-signed S3 URL wh
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/json-url/xml-file:
+    post:
+      operationId: postConvertJsonUrlXmlFile
+      summary: Convert JSON to XML API
+      description: Converts a JSON resource available at a public URL into a downloadable .xml file. The
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/json-url/xml-raw:
+    post:
+      operationId: postConvertJsonUrlXmlRaw
+      summary: Convert JSON to XML API
+      description: Converts the JSON resource located at the provided URL into a raw XML string. The requ
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/json-url/xml-url:
+    post:
+      operationId: postConvertJsonUrlXmlUrl
+      summary: Convert JSON to XML API
+      description: Converts the JSON document available at a publicly accessible URL into an XML file and
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/json-url/yaml-file:
+    post:
+      operationId: postConvertJsonUrlYamlFile
+      summary: Convert JSON to YAML API
+      description: Converts a JSON resource fetched from a public URL into a downloadable YAML file. The
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/json-file/yaml-file:
+    post:
+      operationId: postConvertJsonFileYamlFile
+      summary: Convert JSON to YAML API
+      description: Converts an uploaded JSON file into a downloadable YAML file. The request sends a bina
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/json-file/yaml-url:
+    post:
+      operationId: postConvertJsonFileYamlUrl
+      summary: Convert JSON to YAML API
+      description: Converts an uploaded JSON file into YAML and returns a pre-signed S3 URL for the conve
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/json-raw/yaml-file:
+    post:
+      operationId: postConvertJsonRawYamlFile
+      summary: Convert JSON to YAML API
+      description: Converts a raw JSON request body into a downloadable YAML file. The endpoint accepts a
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/json-url/yaml-raw:
+    post:
+      operationId: postConvertJsonUrlYamlRaw
+      summary: Convert JSON to YAML API
+      description: Fetches JSON from a publicly accessible URL and converts it to YAML, returning the res
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/json-url/yaml-url:
+    post:
+      operationId: postConvertJsonUrlYamlUrl
+      summary: Convert JSON to YAML API
+      description: Converts JSON fetched from a publicly accessible URL into YAML and returns a pre-signe
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/json-file/yaml-raw:
+    post:
+      operationId: postConvertJsonFileYamlRaw
+      summary: Convert JSON to YAML API
+      description: Converts an uploaded JSON file into YAML and returns the result as raw text. The reque
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/json-raw/yaml-raw:
+    post:
+      operationId: postConvertJsonRawYamlRaw
+      summary: Convert JSON to YAML API
+      description: Converts a non-empty JSON object sent as the request body into YAML and returns the co
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/json-raw/yaml-url:
+    post:
+      operationId: postConvertJsonRawYamlUrl
+      summary: Convert JSON to YAML API
+      description: Converts a raw JSON request body into YAML and returns a pre-signed S3 URL for the con
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/json-url/zod-raw:
+    post:
+      operationId: postConvertJsonUrlZodRaw
+      summary: Convert JSON to Zod Schema API
+      description: Converts the JSON document available at a public URL into a Zod schema. The request ta
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/json-file/zod-raw:
+    post:
+      operationId: postConvertJsonFileZodRaw
+      summary: Convert JSON to Zod Schema API
+      description: Converts an uploaded JSON file into a Zod schema. The request uploads a JSON file and
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/json-raw/zod-url:
+    post:
+      operationId: postConvertJsonRawZodUrl
+      summary: Convert JSON to Zod Schema API
+      description: Converts a non-empty raw JSON request body into a Zod schema and returns a pre-signed
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/json-url/zod-file:
+    post:
+      operationId: postConvertJsonUrlZodFile
+      summary: Convert JSON to Zod Schema API
+      description: Converts JSON fetched from a publicly accessible URL into a Zod schema and returns it
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/json-url/zod-url:
+    post:
+      operationId: postConvertJsonUrlZodUrl
+      summary: Convert JSON to Zod Schema API
+      description: Converts JSON fetched from a publicly accessible URL into a Zod schema file and return
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/json-file/zod-file:
+    post:
+      operationId: postConvertJsonFileZodFile
+      summary: Convert JSON to Zod Schema API
+      description: Converts an uploaded JSON file into a downloadable Zod schema file. Depending on the m
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/json-file/zod-url:
+    post:
+      operationId: postConvertJsonFileZodUrl
+      summary: Convert JSON to Zod Schema API
+      description: Converts an uploaded JSON file into a Zod schema and returns a pre-signed S3 URL for d
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/json-raw/zod-raw:
+    post:
+      operationId: postConvertJsonRawZodRaw
+      summary: Convert JSON to Zod Schema API
+      description: Converts a raw JSON request body into a Zod schema representation. The request accepts
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/json-raw/zod-file:
+    post:
+      operationId: postConvertJsonRawZodFile
+      summary: Convert JSON to Zod Schema API
+      description: Converts a non-empty raw JSON request body into a Zod schema. Depending on the mode qu
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/md-file/html-file:
+    post:
+      operationId: postConvertMdFileHtmlFile
+      summary: Convert Markdown to HTML files API
+      description: Converts an uploaded Markdown file to HTML and returns the generated file as a binary
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/md-file/html-url:
+    post:
+      operationId: postConvertMdFileHtmlUrl
+      summary: Convert Markdown to HTML files API
+      description: Converts an uploaded Markdown file into an HTML file and returns a signed URL to the g
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/md-url/html-file:
+    post:
+      operationId: postConvertMdUrlHtmlFile
+      summary: Convert Markdown to HTML files API
+      description: Converts a remote Markdown file fetched from a URL into an HTML file for download. You
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/md-url/html-url:
+    post:
+      operationId: postConvertMdUrlHtmlUrl
+      summary: Convert Markdown to HTML files API
+      description: Converts a remote Markdown file, identified by its URL, into a signed HTML file URL. T
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/md/html/json:
+    post:
+      operationId: postConvertMdHtmlJson
+      summary: Convert Markdown to HTML content API
+      description: Converts the Markdown string you send in the request body into a raw HTML stream. The
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/md/html/raw:
+    post:
+      operationId: postConvertMdHtmlRaw
+      summary: Convert Markdown to HTML content API
+      description: Converts a raw Markdown string sent in the request body into HTML and returns the conv
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/xml-raw/json-raw:
+    post:
+      operationId: postConvertXmlRawJsonRaw
+      summary: Convert XML to JSON API
+      description: Converts a raw XML request body into JSON. The endpoint accepts the XML as a string in
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/xml-raw/json-url:
+    post:
+      operationId: postConvertXmlRawJsonUrl
+      summary: Convert XML to JSON API
+      description: Converts a raw XML request body into JSON and returns a pre-signed S3 URL where the co
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/xml-url/json-file:
+    post:
+      operationId: postConvertXmlUrlJsonFile
+      summary: Convert XML to JSON API
+      description: Converts the XML file available at the provided URL into a downloadable JSON file. The
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/xml-file/json-file:
+    post:
+      operationId: postConvertXmlFileJsonFile
+      summary: Convert XML to JSON API
+      description: Converts an uploaded XML file into a downloadable JSON file. The request uploads a bin
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/xml-file/json-url:
+    post:
+      operationId: postConvertXmlFileJsonUrl
+      summary: Convert XML to JSON API
+      description: Converts an uploaded XML file into JSON and returns a pre-signed S3 URL where the conv
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/xml-raw/json-file:
+    post:
+      operationId: postConvertXmlRawJsonFile
+      summary: Convert XML to JSON API
+      description: Converts a raw XML request body into a downloadable JSON file. The XML is sent in the
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/xml-url/json-raw:
+    post:
+      operationId: postConvertXmlUrlJsonRaw
+      summary: Convert XML to JSON API
+      description: Converts the XML file available at the supplied URL into JSON and returns the converte
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/xml-url/json-url:
+    post:
+      operationId: postConvertXmlUrlJsonUrl
+      summary: Convert XML to JSON API
+      description: Converts the XML file available at a public URL into JSON and returns a pre-signed S3
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/xml-file/json-raw:
+    post:
+      operationId: postConvertXmlFileJsonRaw
+      summary: Convert XML to JSON API
+      description: Converts an uploaded XML file into JSON and returns the converted result inline in the
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/yaml-url/json-url:
+    post:
+      operationId: postConvertYamlUrlJsonUrl
+      summary: Convert YAML to JSON API
+      description: Converts a YAML file fetched from a publicly accessible URL into JSON and returns a pr
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/yaml-raw/json-file:
+    post:
+      operationId: postConvertYamlRawJsonFile
+      summary: Convert YAML to JSON API
+      description: Converts a raw YAML string into a downloadable JSON file. The request sends the YAML c
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/yaml-raw/json-raw:
+    post:
+      operationId: postConvertYamlRawJsonRaw
+      summary: Convert YAML to JSON API
+      description: Converts a raw YAML string in the request body into JSON. The response is either a JSO
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/yaml-raw/json-url:
+    post:
+      operationId: postConvertYamlRawJsonUrl
+      summary: Convert YAML to JSON API
+      description: Converts a raw YAML string in the request body into JSON and returns a pre-signed S3 U
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/yaml-file/json-file:
+    post:
+      operationId: postConvertYamlFileJsonFile
+      summary: Convert YAML to JSON API
+      description: Converts an uploaded YAML file into a downloadable JSON file. The request uploads the
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/yaml-file/json-raw:
+    post:
+      operationId: postConvertYamlFileJsonRaw
+      summary: Convert YAML to JSON API
+      description: Converts an uploaded YAML file into JSON and returns the converted content inline in t
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/yaml-file/json-url:
+    post:
+      operationId: postConvertYamlFileJsonUrl
+      summary: Convert YAML to JSON API
+      description: Converts an uploaded YAML file into JSON and returns a pre-signed S3 URL for the gener
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/yaml-url/json-file:
+    post:
+      operationId: postConvertYamlUrlJsonFile
+      summary: Convert YAML to JSON API
+      description: Converts a YAML file fetched from a public URL into a downloadable JSON file. You send
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/yaml-url/json-raw:
+    post:
+      operationId: postConvertYamlUrlJsonRaw
+      summary: Convert YAML to JSON API
+      description: Converts a YAML file fetched from a publicly accessible URL into inline JSON. The resp
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/csv-url/json-raw:
+    post:
+      operationId: postConvertCsvUrlJsonRaw
+      summary: Convert CSV to JSON API
+      description: Converts a CSV file accessible at a public URL into a JSON array. The endpoint fetches
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/csv-url/json-url:
+    post:
+      operationId: postConvertCsvUrlJsonUrl
+      summary: Convert CSV to JSON API
+      description: Converts a CSV file from a public URL into JSON and returns a pre-signed S3 URL where
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/csv-file/json-file:
+    post:
+      operationId: postConvertCsvFileJsonFile
+      summary: Convert CSV to JSON API
+      description: Converts an uploaded CSV file into a downloadable JSON file. The request sends a binar
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/csv-raw/json-url:
+    post:
+      operationId: postConvertCsvRawJsonUrl
+      summary: Convert CSV to JSON API
+      description: Converts raw CSV content in the request body into a JSON file and returns a pre-signed
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/csv-url/json-file:
+    post:
+      operationId: postConvertCsvUrlJsonFile
+      summary: Convert CSV to JSON API
+      description: Converts the CSV file located at the provided URL into a downloadable JSON file. The r
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/csv-file/json-raw:
+    post:
+      operationId: postConvertCsvFileJsonRaw
+      summary: Convert CSV to JSON API
+      description: Converts an uploaded CSV file into an inline JSON array. The request sends a binary fi
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/csv-file/json-url:
+    post:
+      operationId: postConvertCsvFileJsonUrl
+      summary: Convert CSV to JSON API
+      description: Converts an uploaded CSV file into a JSON file and returns a pre-signed S3 URL for the
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/csv-raw/json-raw:
+    post:
+      operationId: postConvertCsvRawJsonRaw
+      summary: Convert CSV to JSON API
+      description: Converts a raw CSV string in the request body into a JSON array. The response is an ar
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/csv-raw/json-file:
+    post:
+      operationId: postConvertCsvRawJsonFile
+      summary: Convert CSV to JSON API
+      description: Converts raw CSV content sent in the request body into a downloadable JSON file. The r
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /search/text/fuzzy:
+    post:
+      operationId: postSearchTextFuzzy
+      summary: Fuzzy Text Search API
+      description: Performs a fuzzy search by comparing a source term against a space-separated target st
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 25
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /generate/ical/file:
+    post:
+      operationId: postGenerateIcalFile
+      summary: Generate iCal API
+      description: Generates an iCal event file for the provided event details and returns it as a binary
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /generate/ical/url:
+    post:
+      operationId: postGenerateIcalUrl
+      summary: Generate iCal API
+      description: Generates an iCal event file and returns a signed cloud URL to download the resulting
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/json-url/csv-raw:
+    post:
+      operationId: postConvertJsonUrlCsvRaw
+      summary: Convert JSON to CSV API
+      description: Converts the JSON document available at the supplied URL into CSV and returns the conv
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/json-url/csv-file:
+    post:
+      operationId: postConvertJsonUrlCsvFile
+      summary: Convert JSON to CSV API
+      description: Converts JSON fetched from a public URL into a downloadable CSV file. Query Parameter(
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/json-url/csv-url:
+    post:
+      operationId: postConvertJsonUrlCsvUrl
+      summary: Convert JSON to CSV API
+      description: Converts JSON content from a publicly accessible URL into a CSV file and returns a pre
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/json-file/csv-file:
+    post:
+      operationId: postConvertJsonFileCsvFile
+      summary: Convert JSON to CSV API
+      description: Converts an uploaded JSON file into a downloadable CSV file. You send the JSON file in
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/json-raw/csv-raw:
+    post:
+      operationId: postConvertJsonRawCsvRaw
+      summary: Convert JSON to CSV API
+      description: Converts a raw JSON object or a non-empty array of JSON objects in the request body in
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/json-file/csv-raw:
+    post:
+      operationId: postConvertJsonFileCsvRaw
+      summary: Convert JSON to CSV API
+      description: Converts an uploaded JSON file into CSV and returns the converted content inline in th
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/json-file/csv-url:
+    post:
+      operationId: postConvertJsonFileCsvUrl
+      summary: Convert JSON to CSV API
+      description: Converts an uploaded JSON file into a CSV file and returns a pre-signed S3 URL for the
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/json-raw/csv-file:
+    post:
+      operationId: postConvertJsonRawCsvFile
+      summary: Convert JSON to CSV API
+      description: Converts a raw JSON payload into a downloadable CSV file. The request body must be eit
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/json-raw/csv-url:
+    post:
+      operationId: postConvertJsonRawCsvUrl
+      summary: Convert JSON to CSV API
+      description: Converts a raw JSON payload into a CSV file and returns a pre-signed S3 URL where the
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /extract/user-agent:
+    post:
+      operationId: postExtractUserAgent
+      summary: Extract User Agent API
+      description: Parses a raw HTTP User-Agent string from the request body and returns a structured bre
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 20
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /chisleroff/seo/validate-html:
+    post:
+      operationId: postChisleroffSeoValidateHtml
+      summary: Validate HTML API
+      description: Validates the structured data found in raw HTML content. It accepts an HTML string in
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /sharpapi/api/v1/utilities/skills_list:
+    get:
+      operationId: getSharpapiApiV1UtilitiesSkillsList
+      summary: Skills Database API
+      description: Retrieves a paginated skills database result set, optionally filtered by skill name an
+      tags:
+      - Developer Tools
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 1000
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token
+x-refined-from:
+- apyhub-apyhub-convert-csv-to-xml-openapi.yml
+- apyhub-apyhub-convert-json-to-graphql-sdl-openapi.yml
+- apyhub-apyhub-convert-json-to-markdown-openapi.yml
+- apyhub-apyhub-convert-json-to-mongoose-schema-openapi.yml
+- apyhub-apyhub-convert-json-to-prisma-schema-openapi.yml
+- apyhub-apyhub-convert-json-to-xml-openapi.yml
+- apyhub-apyhub-convert-json-to-yaml-openapi.yml
+- apyhub-apyhub-convert-json-to-zod-schema-openapi.yml
+- apyhub-apyhub-convert-markdown-to-html-files-openapi.yml
+- apyhub-apyhub-convert-markdown-to-html-openapi.yml
+- apyhub-apyhub-convert-xml-to-json-openapi.yml
+- apyhub-apyhub-convert-yaml-to-json-openapi.yml
+- apyhub-apyhub-csv-to-json-openapi.yml
+- apyhub-apyhub-fuzzy-search-openapi.yml
+- apyhub-apyhub-generate-ical-event-openapi.yml
+- apyhub-apyhub-json-to-csv-openapi.yml
+- apyhub-apyhub-parse-user-agent-string-openapi.yml
+- apyhub-chisleroff-validate-html-openapi.yml
+- apyhub-sharpapi-skills-database-openapi.yml

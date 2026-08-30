@@ -1,0 +1,205 @@
+openapi: 3.2.0
+info:
+  title: Apyhub HR API
+  version: 1.0.0
+  description: 'Operations tagged HR across 7 of this provider''s published API definitions: apyhub-namastesumalya-generate-a-tailored-interview-prep-pack-openapi.yml, apyhub-namastesumalya-generate-job-description-openapi.yml, apyhub-namastesumalya-optimize-resume-ats-openapi.yml, apyhub-sharpapi-job-description-generator-openapi.yml, apyhub-sharpapi-list-job-positions-openapi.yml, apyhub-sharpapi-related-job-positions-generator-openapi.yml, apyhub-sharpapi-related-skills-generator-openapi.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: HR
+paths:
+  /namastesumalya/api/interview-questions:
+    post:
+      operationId: postNamastesumalyaApiInterviewQuestions
+      summary: Interview Prep Pack API
+      description: Generates a tailored interview prep pack from the provided resume content and job titl
+      tags:
+      - HR
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 750
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /namastesumalya/api/generate-jd:
+    post:
+      operationId: postNamastesumalyaApiGenerateJd
+      summary: Job Description Generator API
+      description: Generates a complete job-description package from the supplied role details. The reque
+      tags:
+      - HR
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 300
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /namastesumalya/api/improve-resume:
+    post:
+      operationId: postNamastesumalyaApiImproveResume
+      summary: Resume Optimizer (ATS) API
+      description: Optimizes the submitted resume content for ATS based on the provided job title, and re
+      tags:
+      - HR
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 250
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /sharpapi/api/v1/hr/job_description:
+    post:
+      operationId: postSharpapiApiV1HrJobDescription
+      summary: Job Description Generator API
+      description: Submits a job-description generation request and starts an async job. The request body
+      tags:
+      - HR
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /sharpapi/api/v1/hr/job_description/job/status/{job_id}:
+    get:
+      operationId: getSharpapiApiV1HrJobDescriptionJobStatusJobId
+      summary: Job Description Generator API
+      description: Checks the status of a previously submitted job description generation job by job ID a
+      tags:
+      - HR
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 1
+      parameters:
+      - name: job_id
+        in: path
+        required: true
+        schema:
+          type: string
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /sharpapi/api/v1/utilities/job_positions_list:
+    get:
+      operationId: getSharpapiApiV1UtilitiesJobPositionsList
+      summary: Job Positions API
+      description: Returns a paginated list of job positions. You can filter the results by name, and opt
+      tags:
+      - HR
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 1000
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /sharpapi/api/v1/hr/related_job_positions:
+    post:
+      operationId: postSharpapiApiV1HrRelatedJobPositions
+      summary: Related Job Positions Generator API
+      description: Submits an asynchronous job to generate related job positions from a provided job role
+      tags:
+      - HR
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /sharpapi/api/v1/hr/related_job_positions/job/status/{job_id}:
+    get:
+      operationId: getSharpapiApiV1HrRelatedJobPositionsJobStatusJobId
+      summary: Related Job Positions Generator API
+      description: Checks the status of a previously submitted related job positions generation job using
+      tags:
+      - HR
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 1
+      parameters:
+      - name: job_id
+        in: path
+        required: true
+        schema:
+          type: string
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /sharpapi/api/v1/hr/related_skills:
+    post:
+      operationId: postSharpapiApiV1HrRelatedSkills
+      summary: Related Skills Generator API
+      description: Submits an async job to generate related job positions from a provided role or job tit
+      tags:
+      - HR
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /sharpapi/api/v1/hr/related_skills/job/status/{job_id}:
+    get:
+      operationId: getSharpapiApiV1HrRelatedSkillsJobStatusJobId
+      summary: Related Skills Generator API
+      description: Checks the status of a previously submitted related-skills generation job using its jo
+      tags:
+      - HR
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 1
+      parameters:
+      - name: job_id
+        in: path
+        required: true
+        schema:
+          type: string
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token
+x-refined-from:
+- apyhub-namastesumalya-generate-a-tailored-interview-prep-pack-openapi.yml
+- apyhub-namastesumalya-generate-job-description-openapi.yml
+- apyhub-namastesumalya-optimize-resume-ats-openapi.yml
+- apyhub-sharpapi-job-description-generator-openapi.yml
+- apyhub-sharpapi-list-job-positions-openapi.yml
+- apyhub-sharpapi-related-job-positions-generator-openapi.yml
+- apyhub-sharpapi-related-skills-generator-openapi.yml

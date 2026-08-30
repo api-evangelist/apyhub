@@ -1,0 +1,194 @@
+openapi: 3.2.0
+info:
+  title: Apyhub Data Validation API
+  version: 1.0.0
+  description: 'Operations tagged Data Validation across 8 of this provider''s published API definitions: apyhub-apyhub-validate-aadhaar-number-openapi.yml, apyhub-apyhub-validate-file-type-openapi.yml, apyhub-apyhub-validate-iban-openapi.yml, apyhub-apyhub-validate-ifsc-bank-code-openapi.yml, apyhub-apyhub-validate-swift-bic-code-openapi.yml, apyhub-apyhub-validate-uk-postcode-openapi.yml, apyhub-apyhub-validate-vat-number-openapi.yml, apyhub-sharpapi-detect-phone-numbers-openapi.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Data Validation
+paths:
+  /validate/aadhaar:
+    post:
+      operationId: postValidateAadhaar
+      summary: Validate Aadhaar API
+      description: Validates an Aadhaar number sent in the request body. The response returns a JSON obje
+      tags:
+      - Data Validation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 5
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /validate/file:
+    post:
+      operationId: postValidateFile
+      summary: Validate File Type API
+      description: Validates an uploaded file by comparing the detected file type against the file extens
+      tags:
+      - Data Validation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 25
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /validate/file/url:
+    post:
+      operationId: postValidateFileUrl
+      summary: Validate File Type API
+      description: Validates a file accessible from a URL by inspecting the downloaded file and comparing
+      tags:
+      - Data Validation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 25
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /validate/iban:
+    post:
+      operationId: postValidateIban
+      summary: Validate IBAN API
+      description: Validates an IBAN submitted in the request body and returns a JSON object under data.
+      tags:
+      - Data Validation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 5
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /validate/ifsc:
+    post:
+      operationId: postValidateIfsc
+      summary: Validate IFSC API
+      description: Validates an IFSC bank code by accepting an ifsc value in the request body and returni
+      tags:
+      - Data Validation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 10
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /validate/bic:
+    post:
+      operationId: postValidateBic
+      summary: Validate SWIFT/BIC API
+      description: Validates a BIC/SWIFT code submitted in the request body. The response returns a data
+      tags:
+      - Data Validation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 5
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /validate/postcodes/uk:
+    post:
+      operationId: postValidatePostcodesUk
+      summary: Validate UK Postcodes API
+      description: Validates a UK postcode by accepting a postcode string in the request body and returni
+      tags:
+      - Data Validation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 10
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /validate/vat:
+    post:
+      operationId: postValidateVat
+      summary: Validate EU VAT API
+      description: Validates a VAT number submitted in the request body and returns a boolean result indi
+      tags:
+      - Data Validation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /sharpapi/api/v1/content/detect_phones:
+    post:
+      operationId: postSharpapiApiV1ContentDetectPhones
+      summary: Detect Phones Numbers API
+      description: Submits an asynchronous job to detect phone numbers from the provided content. The res
+      tags:
+      - Data Validation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /sharpapi/api/v1/content/detect_phones/job/status/{job_id}:
+    get:
+      operationId: getSharpapiApiV1ContentDetectPhonesJobStatusJobId
+      summary: Detect Phones Numbers API
+      description: Returns the current status of a Detect Phone Numbers job identified by jobid. The resp
+      tags:
+      - Data Validation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 1
+      parameters:
+      - name: job_id
+        in: path
+        required: true
+        schema:
+          type: string
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token
+x-refined-from:
+- apyhub-apyhub-validate-aadhaar-number-openapi.yml
+- apyhub-apyhub-validate-file-type-openapi.yml
+- apyhub-apyhub-validate-iban-openapi.yml
+- apyhub-apyhub-validate-ifsc-bank-code-openapi.yml
+- apyhub-apyhub-validate-swift-bic-code-openapi.yml
+- apyhub-apyhub-validate-uk-postcode-openapi.yml
+- apyhub-apyhub-validate-vat-number-openapi.yml
+- apyhub-sharpapi-detect-phone-numbers-openapi.yml

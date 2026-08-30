@@ -1,0 +1,886 @@
+openapi: 3.2.0
+info:
+  title: Apyhub Data Extraction API
+  version: 1.0.0
+  description: 'Operations tagged Data Extraction across 24 of this provider''s published API definitions: apyhub-apyhub-capture-webpage-screenshot-openapi.yml, apyhub-apyhub-convert-markdown-to-json-openapi.yml, apyhub-apyhub-convert-rss-to-json-openapi.yml, apyhub-apyhub-convert-xml-to-csv-openapi.yml, apyhub-apyhub-extract-image-metadata-openapi.yml, apyhub-apyhub-extract-links-from-webpage-openapi.yml, apyhub-apyhub-extract-receipt-data-openapi.yml, apyhub-apyhub-extract-text-from-pdf-openapi.yml, apyhub-apyhub-extract-text-from-word-openapi.yml, apyhub-apyhub-extract-video-metadata-openapi.yml, apyhub-apyhub-extract-visible-text-from-awebpage-openapi.yml, apyhub-chisleroff-convert-html-to-markdown-openapi.yml, apyhub-chisleroff-detect-tech-stack-openapi.yml, apyhub-chisleroff-extract-article-openapi.yml, apyhub-chisleroff-extract-contact-information-openapi.yml, apyhub-chisleroff-extract-product-information-openapi.yml, apyhub-chisleroff-validate-schema-openapi.yml, apyhub-namastesumalya-extract-article-content-openapi.yml, apyhub-namastesumalya-extract-metadata-from-url-api-openapi.yml, apyhub-namastesumalya-extract-structured-data-openapi.yml, apyhub-sharpapi-detect-email-addresses-openapi.yml, apyhub-sharpapi-detect-urls-openapi.yml, apyhub-sharpapi-parse-invoice-openapi.yml, apyhub-sharpapi-scrape-url-openapi.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Data Extraction
+paths:
+  /generate/screenshot/webpage/image-file:
+    get:
+      operationId: getGenerateScreenshotWebpageImageFile
+      summary: Generate Webpage Screenshot API
+      description: Captures a screenshot of the webpage at the provided URL and returns it as a streamed
+      tags:
+      - Data Extraction
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 75
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /generate/screenshot/webpage/image-url:
+    get:
+      operationId: getGenerateScreenshotWebpageImageUrl
+      summary: Generate Webpage Screenshot API
+      description: Generates a screenshot of the webpage at the given URL and returns a signed upload lin
+      tags:
+      - Data Extraction
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 75
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/md-file/json-raw:
+    post:
+      operationId: postConvertMdFileJsonRaw
+      summary: Convert Markdown to JSON API
+      description: Uploads a Markdown file and converts it to JSON, returning the result inline as an arr
+      tags:
+      - Data Extraction
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/md-raw/json-url:
+    post:
+      operationId: postConvertMdRawJsonUrl
+      summary: Convert Markdown to JSON API
+      description: Converts raw Markdown content into JSON and returns a signed S3 URL where the generate
+      tags:
+      - Data Extraction
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/md-url/json-file:
+    post:
+      operationId: postConvertMdUrlJsonFile
+      summary: Convert Markdown to JSON API
+      description: Converts a Markdown document fetched from a URL into a JSON file and returns it as a d
+      tags:
+      - Data Extraction
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/md-url/json-url:
+    post:
+      operationId: postConvertMdUrlJsonUrl
+      summary: Convert Markdown to JSON API
+      description: Converts a Markdown file fetched from a remote URL into JSON and returns a signed S3 U
+      tags:
+      - Data Extraction
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/md-file/json-url:
+    post:
+      operationId: postConvertMdFileJsonUrl
+      summary: Convert Markdown to JSON API
+      description: Converts an uploaded Markdown file into JSON and returns a signed S3 URL where the gen
+      tags:
+      - Data Extraction
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/md-raw/json-file:
+    post:
+      operationId: postConvertMdRawJsonFile
+      summary: Convert Markdown to JSON API
+      description: Converts raw Markdown content into a JSON file download. You send the Markdown text in
+      tags:
+      - Data Extraction
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/md-raw/json-raw:
+    post:
+      operationId: postConvertMdRawJsonRaw
+      summary: Convert Markdown to JSON API
+      description: Converts raw Markdown text into JSON. The request body is a Markdown string, and the r
+      tags:
+      - Data Extraction
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/md-url/json-raw:
+    post:
+      operationId: postConvertMdUrlJsonRaw
+      summary: Convert Markdown to JSON API
+      description: Converts a Markdown file accessible at a URL into a JSON response. The request sends t
+      tags:
+      - Data Extraction
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/md-file/json-file:
+    post:
+      operationId: postConvertMdFileJsonFile
+      summary: Convert Markdown to JSON API
+      description: Converts an uploaded Markdown file into a downloadable JSON file containing the parsed
+      tags:
+      - Data Extraction
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/rss-file/json:
+    post:
+      operationId: postConvertRssFileJson
+      summary: Convert RSS to JSON API
+      description: Parses an uploaded RSS or Atom XML file and converts it to JSON. The request sends a b
+      tags:
+      - Data Extraction
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 150
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/rss-url/json:
+    post:
+      operationId: postConvertRssUrlJson
+      summary: Convert RSS to JSON API
+      description: Parses a remote RSS or Atom feed from a URL and returns the feed data as JSON. The req
+      tags:
+      - Data Extraction
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 150
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/xml-url/csv-raw:
+    post:
+      operationId: postConvertXmlUrlCsvRaw
+      summary: Convert XML to CSV API
+      description: Converts the XML file available at the provided URL into CSV and returns the result as
+      tags:
+      - Data Extraction
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/xml-url/csv-file:
+    post:
+      operationId: postConvertXmlUrlCsvFile
+      summary: Convert XML to CSV API
+      description: Converts an XML file available at a public URL into a downloadable CSV file. The reque
+      tags:
+      - Data Extraction
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/xml-file/csv-file:
+    post:
+      operationId: postConvertXmlFileCsvFile
+      summary: Convert XML to CSV API
+      description: Converts an uploaded XML file into a downloadable CSV file. The request sends the XML
+      tags:
+      - Data Extraction
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/xml-raw/csv-raw:
+    post:
+      operationId: postConvertXmlRawCsvRaw
+      summary: Convert XML to CSV API
+      description: Converts a raw XML request body into CSV text. The endpoint accepts XML as a string in
+      tags:
+      - Data Extraction
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/xml-url/csv-url:
+    post:
+      operationId: postConvertXmlUrlCsvUrl
+      summary: Convert XML to CSV API
+      description: Converts an XML file available at a public URL into a CSV file and returns a pre-signe
+      tags:
+      - Data Extraction
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/xml-file/csv-raw:
+    post:
+      operationId: postConvertXmlFileCsvRaw
+      summary: Convert XML to CSV API
+      description: Converts an uploaded XML file into CSV text. The request body must include a binary fi
+      tags:
+      - Data Extraction
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/xml-file/csv-url:
+    post:
+      operationId: postConvertXmlFileCsvUrl
+      summary: Convert XML to CSV API
+      description: Converts an uploaded XML file into a CSV file and returns a pre-signed S3 URL for the
+      tags:
+      - Data Extraction
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/xml-raw/csv-file:
+    post:
+      operationId: postConvertXmlRawCsvFile
+      summary: Convert XML to CSV API
+      description: Converts a raw XML request body into a downloadable CSV file. The XML is sent in the r
+      tags:
+      - Data Extraction
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /convert/xml-raw/csv-url:
+    post:
+      operationId: postConvertXmlRawCsvUrl
+      summary: Convert XML to CSV API
+      description: Converts a raw XML request body into a CSV file and returns a pre-signed S3 URL for do
+      tags:
+      - Data Extraction
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /processor/image/metadata/file:
+    post:
+      operationId: postProcessorImageMetadataFile
+      summary: Extract Image Metadata API
+      description: Uploads an image file and returns extracted ExifTool metadata as JSON. The request bod
+      tags:
+      - Data Extraction
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 30
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /processor/image/metadata/file-urls:
+    post:
+      operationId: postProcessorImageMetadataFileUrls
+      summary: Extract Image Metadata API
+      description: Downloads the image at the provided public URL and returns extracted ExifTool metadata
+      tags:
+      - Data Extraction
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 30
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /extract/links/url:
+    post:
+      operationId: postExtractLinksUrl
+      summary: Extract Links from Webpage API
+      description: Extracts all hyperlinks from the web page at the given URL and returns them as absolut
+      tags:
+      - Data Extraction
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /ai/document/extract/receipt/file:
+    post:
+      operationId: postAiDocumentExtractReceiptFile
+      summary: AI Document Receipt Data Extraction API
+      description: Uploads a receipt file for data extraction and returns parsed receipt data. You can re
+      tags:
+      - Data Extraction
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /ai/document/extract/receipt/url:
+    post:
+      operationId: postAiDocumentExtractReceiptUrl
+      summary: AI Document Receipt Data Extraction API
+      description: Extracts receipt data from a document URL and returns a JSON object with parsing resul
+      tags:
+      - Data Extraction
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /extract/text/pdf-url:
+    post:
+      operationId: postExtractTextPdfUrl
+      summary: Extract Text from PDF API
+      description: Extracts text from a PDF located at a remote URL and returns the extracted content as
+      tags:
+      - Data Extraction
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /extract/text/pdf-file:
+    post:
+      operationId: postExtractTextPdfFile
+      summary: Extract Text from PDF API
+      description: Uploads a PDF file and extracts text from it. You can optionally limit extraction to a
+      tags:
+      - Data Extraction
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /extract/text/word-url:
+    post:
+      operationId: postExtractTextWordUrl
+      summary: Extract Text from Word API
+      description: Extracts text from a Word document located at a remote URL and returns the extracted t
+      tags:
+      - Data Extraction
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 60
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /extract/text/word-file:
+    post:
+      operationId: postExtractTextWordFile
+      summary: Extract Text from Word API
+      description: Uploads a Word document and extracts its text content. The response returns the extrac
+      tags:
+      - Data Extraction
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 60
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /video/metadata/file:
+    post:
+      operationId: postVideoMetadataFile
+      summary: Extract Video Metadata API
+      description: Uploads a video file and returns a JSON response containing extracted metadata in a au
+      tags:
+      - Data Extraction
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 250
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /video/metadata/url:
+    post:
+      operationId: postVideoMetadataUrl
+      summary: Extract Video Metadata API
+      description: Extracts metadata from a video available at a URL and returns it in a JSON response. T
+      tags:
+      - Data Extraction
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 250
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /extract/text/webpage:
+    get:
+      operationId: getExtractTextWebpage
+      summary: Extract Text from Webpage API
+      description: Extracts the visible text from a webpage given its URL and returns it as a single stri
+      tags:
+      - Data Extraction
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 30
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /chisleroff/tools/html-to-markdown:
+    post:
+      operationId: postChisleroffToolsHtmlToMarkdown
+      summary: Convert HTML to Markdown API
+      description: Converts the HTML content of a webpage into Markdown. You provide the webpage URL, and
+      tags:
+      - Data Extraction
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /chisleroff/intel/techstack:
+    post:
+      operationId: postChisleroffIntelTechstack
+      summary: Detect Tech Stack API
+      description: Detects the technology stack used by a webpage from the URL you provide. The response
+      tags:
+      - Data Extraction
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /chisleroff/extract/article:
+    post:
+      operationId: postChisleroffExtractArticle
+      summary: Extract Article From Web API
+      description: Extracts article content and metadata from a webpage URL. The request sends a webpage
+      tags:
+      - Data Extraction
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /chisleroff/extract/contact:
+    post:
+      operationId: postChisleroffExtractContact
+      summary: Extract Contact Information API
+      description: Extracts contact details from a webpage identified by URL and returns the discovered c
+      tags:
+      - Data Extraction
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /chisleroff/extract/product:
+    post:
+      operationId: postChisleroffExtractProduct
+      summary: Extract Product Information API
+      description: Extracts product details from a product page URL and returns the parsed product inform
+      tags:
+      - Data Extraction
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /chisleroff/seo/structured-data:
+    post:
+      operationId: postChisleroffSeoStructuredData
+      summary: Validate Schema API
+      description: Validates structured data found on a webpage URL and returns the extracted metadata an
+      tags:
+      - Data Extraction
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /namastesumalya/api/parse:
+    get:
+      operationId: getNamastesumalyaApiParse
+      summary: Extract Article Content from Web Page API
+      description: Extracts article content from the web page at the given url and returns structured art
+      tags:
+      - Data Extraction
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 300
+    post:
+      operationId: postNamastesumalyaApiParse
+      summary: Extract Article Content from Web Page API
+      description: Extracts article content from multiple web page URLs sent in the request body and retu
+      tags:
+      - Data Extraction
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /namastesumalya/api/extract/metadata-only:
+    get:
+      operationId: getNamastesumalyaApiExtractMetadataOnly
+      summary: Extract Metadata From URL API
+      description: Extracts metadata from the URL you provide and returns the discovered page/article fie
+      tags:
+      - Data Extraction
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 300
+    post:
+      operationId: postNamastesumalyaApiExtractMetadataOnly
+      summary: Extract Metadata From URL API
+      description: Extracts metadata for multiple URLs in a single request and returns an array of metada
+      tags:
+      - Data Extraction
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 500
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /namastesumalya/api/schema:
+    post:
+      operationId: postNamastesumalyaApiSchema
+      summary: Extract Structured Data API
+      description: Extracts structured data from the website at the given URL and returns a JSON object s
+      tags:
+      - Data Extraction
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 100
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /sharpapi/api/v1/content/detect_emails:
+    post:
+      operationId: postSharpapiApiV1ContentDetectEmails
+      summary: Detect Email Address API
+      description: Submits an asynchronous job to detect email addresses from the provided content. The r
+      tags:
+      - Data Extraction
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /sharpapi/api/v1/content/detect_emails/job/status/{job_id}:
+    get:
+      operationId: getSharpapiApiV1ContentDetectEmailsJobStatusJobId
+      summary: Detect Email Address API
+      description: Retrieves the current status of a Detect Emails job by its job ID. The response return
+      tags:
+      - Data Extraction
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 1
+      parameters:
+      - name: job_id
+        in: path
+        required: true
+        schema:
+          type: string
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /sharpapi/api/v1/content/detect_urls:
+    post:
+      operationId: postSharpapiApiV1ContentDetectUrls
+      summary: URls Detector API
+      description: Submits content for asynchronous URL detection and returns identifiers you can use to
+      tags:
+      - Data Extraction
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 1000
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /sharpapi/api/v1/detect_urls/job/status/{job_id}:
+    get:
+      operationId: getSharpapiApiV1DetectUrlsJobStatusJobId
+      summary: URls Detector API
+      description: Checks the status of an asynchronous URL-detection job by job ID and returns the job r
+      tags:
+      - Data Extraction
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 1
+      parameters:
+      - name: job_id
+        in: path
+        required: true
+        schema:
+          type: string
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /sharpapi/api/v1/finance/parse_invoice:
+    post:
+      operationId: postSharpapiApiV1FinanceParseInvoice
+      summary: Invoice Parsing API
+      description: Submits an invoice file for asynchronous parsing and returns identifiers for tracking
+      tags:
+      - Data Extraction
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /sharpapi/api/v1/finance/parse_invoice/job/status/{job_id}:
+    get:
+      operationId: getSharpapiApiV1FinanceParseInvoiceJobStatusJobId
+      summary: Invoice Parsing API
+      description: Checks the processing status of an asynchronous invoice parsing job by job ID. When th
+      tags:
+      - Data Extraction
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 1
+      parameters:
+      - name: job_id
+        in: path
+        required: true
+        schema:
+          type: string
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /sharpapi/api/v1/utilities/scrape_url/:
+    get:
+      operationId: getSharpapiApiV1UtilitiesScrapeUrl
+      summary: Web Scraping API
+      description: Fetches and scrapes the URL provided in the url query parameter, then returns the orig
+      tags:
+      - Data Extraction
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 1000
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token
+x-refined-from:
+- apyhub-apyhub-capture-webpage-screenshot-openapi.yml
+- apyhub-apyhub-convert-markdown-to-json-openapi.yml
+- apyhub-apyhub-convert-rss-to-json-openapi.yml
+- apyhub-apyhub-convert-xml-to-csv-openapi.yml
+- apyhub-apyhub-extract-image-metadata-openapi.yml
+- apyhub-apyhub-extract-links-from-webpage-openapi.yml
+- apyhub-apyhub-extract-receipt-data-openapi.yml
+- apyhub-apyhub-extract-text-from-pdf-openapi.yml
+- apyhub-apyhub-extract-text-from-word-openapi.yml
+- apyhub-apyhub-extract-video-metadata-openapi.yml
+- apyhub-apyhub-extract-visible-text-from-awebpage-openapi.yml
+- apyhub-chisleroff-convert-html-to-markdown-openapi.yml
+- apyhub-chisleroff-detect-tech-stack-openapi.yml
+- apyhub-chisleroff-extract-article-openapi.yml
+- apyhub-chisleroff-extract-contact-information-openapi.yml
+- apyhub-chisleroff-extract-product-information-openapi.yml
+- apyhub-chisleroff-validate-schema-openapi.yml
+- apyhub-namastesumalya-extract-article-content-openapi.yml
+- apyhub-namastesumalya-extract-metadata-from-url-api-openapi.yml
+- apyhub-namastesumalya-extract-structured-data-openapi.yml
+- apyhub-sharpapi-detect-email-addresses-openapi.yml
+- apyhub-sharpapi-detect-urls-openapi.yml
+- apyhub-sharpapi-parse-invoice-openapi.yml
+- apyhub-sharpapi-scrape-url-openapi.yml

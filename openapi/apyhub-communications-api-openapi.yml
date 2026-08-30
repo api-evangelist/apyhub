@@ -1,0 +1,76 @@
+openapi: 3.2.0
+info:
+  title: Apyhub Communications API
+  version: 1.0.0
+  description: 'Operations tagged Communications across 2 of this provider''s published API definitions: apyhub-apyhub-verify-email-validity-and-deliverability-openapi.yml, apyhub-sharpapi-generate-thank-you-email-openapi.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Communications
+paths:
+  /validate/email/dns:
+    post:
+      operationId: postValidateEmailDns
+      summary: Validate Email DNS API (Including Disposable Emails)
+      description: Verifies whether an email address is valid and deliverable. The request sends an email
+      tags:
+      - Communications
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 25
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /sharpapi/api/v1/ecommerce/thank_you_email:
+    post:
+      operationId: postSharpapiApiV1EcommerceThankYouEmail
+      summary: Generate Thank You E-mail API
+      description: Submits an asynchronous job to generate a thank-you email from the supplied content an
+      tags:
+      - Communications
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 50
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /sharpapi/api/v1/ecommerce/thank_you_email/job/status/{job_id}:
+    get:
+      operationId: getSharpapiApiV1EcommerceThankYouEmailJobStatusJobId
+      summary: Generate Thank You E-mail API
+      description: Retrieves the current status of a Generate Thankyou Email job identified by its jobid.
+      tags:
+      - Communications
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 1
+      parameters:
+      - name: job_id
+        in: path
+        required: true
+        schema:
+          type: string
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token
+x-refined-from:
+- apyhub-apyhub-verify-email-validity-and-deliverability-openapi.yml
+- apyhub-sharpapi-generate-thank-you-email-openapi.yml

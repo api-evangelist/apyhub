@@ -1,0 +1,54 @@
+openapi: 3.2.0
+info:
+  title: Apyhub Geolocation API
+  version: 1.0.0
+  description: 'Operations tagged Geolocation across 2 of this provider''s published API definitions: apyhub-apyhub-list-all-countries-openapi.yml, apyhub-apyhub-list-timezones-openapi.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://api.apyhub.com
+  description: ApyHub API
+security:
+- apyToken: []
+tags:
+- name: Geolocation
+paths:
+  /data/dictionary/country:
+    get:
+      operationId: getDataDictionaryCountry
+      summary: Countries Dictionary API
+      description: Returns a JSON object containing a data array of country records. Response Returns a J
+      tags:
+      - Geolocation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 5
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+  /data/dictionary/timezone:
+    get:
+      operationId: getDataDictionaryTimezone
+      summary: Timezones Dictionary API
+      description: Returns a JSON object containing a data array of timezone records with each record’s c
+      tags:
+      - Geolocation
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Missing or invalid API key
+      x-apyhub-atoms: 5
+    servers:
+    - url: https://api.apyhub.com
+      description: ApyHub API
+components:
+  securitySchemes:
+    apyToken:
+      type: apiKey
+      in: header
+      name: apy-token
+x-refined-from:
+- apyhub-apyhub-list-all-countries-openapi.yml
+- apyhub-apyhub-list-timezones-openapi.yml
