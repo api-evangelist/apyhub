@@ -175,6 +175,9 @@ apis:
     and working_days for scheduling and payroll logic.
   humanURL: https://apyhub.com/apyhub/service/count-working-days
   tags:
+  - Human Resources
+  - Standard Data
+  tags_raw:
   - HR
   - Standard Data
   properties:
@@ -308,6 +311,10 @@ apis:
     logic, scheduling, and holiday calendars.
   humanURL: https://apyhub.com/apyhub/service/mono-go-public-holidays
   tags:
+  - Human Resources
+  - Standard Data
+  - Travel
+  tags_raw:
   - HR
   - Standard Data
   - Travel
@@ -1952,6 +1959,9 @@ apis:
     tailoring a CV to a specific role or job description.
   humanURL: https://apyhub.com/dosvak/service/optimize-resume
   tags:
+  - Human Resources
+  - Smart Generation
+  tags_raw:
   - HR
   - Smart Generation
   properties:
@@ -1978,6 +1988,10 @@ apis:
     workflows.
   humanURL: https://apyhub.com/dosvak/service/parse-resume-analyze
   tags:
+  - Data Extraction
+  - Developer Tools
+  - Human Resources
+  tags_raw:
   - Data Extraction
   - Developer Tools
   - HR
@@ -2283,6 +2297,9 @@ apis:
     Use it to automate first-pass candidate review.
   humanURL: https://apyhub.com/dosvak/service/screen-resume
   tags:
+  - Artificial Intelligence
+  - Human Resources
+  tags_raw:
   - Artificial Intelligence
   - HR
   properties:
@@ -3020,6 +3037,10 @@ apis:
     and result limit filters. Returns a success flag and code.
   humanURL: https://apyhub.com/quadlem/service/sanctions-screening
   tags:
+  - Data Validation
+  - Human Resources
+  - Security & Privacy
+  tags_raw:
   - Data Validation
   - HR
   - Security & Privacy
@@ -8300,6 +8321,8 @@ apis:
   description: The HR API from ApyHub — 10 operation(s) for hr.
   humanURL: https://apyhub.com/anyimagedetector/service/detect-ai-generated-image
   tags:
+  - Human Resources
+  tags_raw:
   - HR
   properties:
   - type: OpenAPI
