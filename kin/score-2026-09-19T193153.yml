@@ -1,34 +1,33 @@
-# Kin Score artifact — apyhub — 2026-08-19T082702
+# Kin Score artifact — apyhub — 2026-09-19T193153
 # The API Evangelist rating (https://github.com/api-evangelist/kin-score). Generated; do not edit.
 ---
 kin_score:
   slug: apyhub
-  schema_version: 0.12.0
-  scored_at: '2026-08-19'
-  run_ts: 2026-08-19T082702
-  composite: 41.3
-  band: developing
+  schema_version: 0.22.0
+  scored_at: '2026-09-19'
+  run_ts: 2026-09-19T193153
+  composite: 27.1
+  band: thin
   facets:
-    discoverability: 63.0
-    contract_quality: 69.9
-    governance: 39.4
-    operational_transparency: 13.2
-    developer_ergonomics: 23.8
-    commercial_clarity: 28.9
-    contract_governance: 39.4
-    access_clarity: 28.9
+    discoverability: 57.4
+    contract_quality: 60.2
+    contract_governance: 13.6
+    operational_transparency: 7.9
+    developer_ergonomics: 9.5
+    access_clarity: 15.8
   agent_readiness:
-    score: 35.0
+    score: 44.6
     band: agent-ready
+    band_gated_from: agent-native
     dimensions:
       spec_presence: true
       agentic_access: derived
       reversibility_documented: false
-      mcp_server: false
-      auth_clarity: true
+      mcp_server: verified
+      auth_clarity: served
       idempotency: false
       error_semantics: false
-      openapi_examples: verified
+      openapi_examples: false
       rate_limit_signal: documented
       event_surface_described: false
       agent_skills: false
@@ -36,16 +35,21 @@ kin_score:
       consent_identity: false
       agent_card: false
       dry_run_mode: false
+      delegated_identity: served
+      protected_resource_metadata: verified
+      dynamic_client_registration: true
+      agentic_commerce: false
   regulatory:
     applies: true
     regime: Energy & Utilities
     regime_id: energy_utilities
-    score: 23.0
+    score: 14.9
     matched_via: tags
   provenance:
+    mcp: first-party
     agentic_access: derived
     contracts:
-      total: 4
+      total: 19
       derived: 0
       coverage: 0.0
       callable: 100.0
