@@ -2,7 +2,7 @@ openapi: 3.2.0
 info:
   title: Apyhub Uncategorized API
   version: 1.0.0
-  description: 'Operations tagged Uncategorized across 9 of this provider''s published API definitions: apyhub-apyhub-analyze-text-sentiment-openapi.yml, apyhub-apyhub-check-whether-an-email-belongs-to-an-aca-openapi.yml, apyhub-apyhub-convert-jpeg-to-webp-openapi.yml, apyhub-apyhub-detect-human-faces-openapi.yml, apyhub-apyhub-extract-id-data-openapi.yml, apyhub-apyhub-generate-link-preview-openapi.yml, apyhub-apyhub-list-all-currencies-openapi.yml, apyhub-apyhub-validate-indian-postcode-openapi.yml, apyhub-boomlify-temporary-and-disposable-emails-api-openapi.yml. Each path carries the servers of the definition it was published in.'
+  description: 'Operations tagged Uncategorized across 9 of this provider''s published API definitions: apyhub-apyhub-analyze-text-sentiment-openapi.yml, apyhub-apyhub-check-whether-an-email-belongs-to-an-aca-openapi.yml, apyhub-apyhub-convert-jpeg-to-webp-openapi.yml, apyhub-apyhub-detect-human-faces-openapi.yml, apyhub-apyhub-extract-id-data-openapi.yml, apyhub-apyhub-generate-link-preview-openapi.yml, apyhub-apyhub-list-all-currencies-openapi.yml, apyhub-apyhub-validate-indian-postcode-openapi.yml…'
 servers:
 - url: https://api.apyhub.com
   description: ApyHub API

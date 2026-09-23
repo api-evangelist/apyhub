@@ -2,7 +2,7 @@ openapi: 3.2.0
 info:
   title: Apyhub File Manipulation API
   version: 1.0.0
-  description: 'Operations tagged File Manipulation across 10 of this provider''s published API definitions: apyhub-apyhub-add-header-footer-to-pdf-openapi.yml, apyhub-apyhub-apply-watermark-on-pdf-openapi.yml, apyhub-apyhub-apply-watermark-openapi.yml, apyhub-apyhub-change-image-background-openapi.yml, apyhub-apyhub-create-password-protected-zip-openapi.yml, apyhub-apyhub-crop-image-openapi.yml, apyhub-apyhub-extract-password-protected-archive-openapi.yml, apyhub-apyhub-generate-thumbnail-openapi.yml, apyhub-apyhub-resize-image-openapi.yml, apyhub-apyhub-stamp-header-footer-on-pdf-openapi.yml. Each path carries the servers of the definition it was published in.'
+  description: 'Operations tagged File Manipulation across 10 of this provider''s published API definitions: apyhub-apyhub-add-header-footer-to-pdf-openapi.yml, apyhub-apyhub-apply-watermark-on-pdf-openapi.yml, apyhub-apyhub-apply-watermark-openapi.yml, apyhub-apyhub-change-image-background-openapi.yml, apyhub-apyhub-create-password-protected-zip-openapi.yml, apyhub-apyhub-crop-image-openapi.yml, apyhub-apyhub-extract-password-protected-archive-openapi.yml, apyhub-apyhub-generate-thumbnail-openapi.yml…'
 servers:
 - url: https://api.apyhub.com
   description: ApyHub API

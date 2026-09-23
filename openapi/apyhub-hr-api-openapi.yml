@@ -2,7 +2,7 @@ openapi: 3.2.0
 info:
   title: Apyhub HR API
   version: 1.0.0
-  description: 'Operations tagged HR across 7 of this provider''s published API definitions: apyhub-namastesumalya-generate-a-tailored-interview-prep-pack-openapi.yml, apyhub-namastesumalya-generate-job-description-openapi.yml, apyhub-namastesumalya-optimize-resume-ats-openapi.yml, apyhub-sharpapi-job-description-generator-openapi.yml, apyhub-sharpapi-list-job-positions-openapi.yml, apyhub-sharpapi-related-job-positions-generator-openapi.yml, apyhub-sharpapi-related-skills-generator-openapi.yml. Each path carries the servers of the definition it was published in.'
+  description: 'Operations tagged HR across 7 of this provider''s published API definitions: apyhub-namastesumalya-generate-a-tailored-interview-prep-pack-openapi.yml, apyhub-namastesumalya-generate-job-description-openapi.yml, apyhub-namastesumalya-optimize-resume-ats-openapi.yml, apyhub-sharpapi-job-description-generator-openapi.yml, apyhub-sharpapi-list-job-positions-openapi.yml, apyhub-sharpapi-related-job-positions-generator-openapi.yml, apyhub-sharpapi-related-skills-generator-openapi.yml.'
 servers:
 - url: https://api.apyhub.com
   description: ApyHub API

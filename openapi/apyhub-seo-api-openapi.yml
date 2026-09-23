@@ -2,7 +2,7 @@ openapi: 3.2.0
 info:
   title: Apyhub SEO API
   version: 1.0.0
-  description: 'Operations tagged SEO across 7 of this provider''s published API definitions: apyhub-apyhub-serp-rankings-for-keyword-openapi.yml, apyhub-chisleroff-check-rich-results-openapi.yml, apyhub-chisleroff-full-site-audit-openapi.yml, apyhub-namastesumalya-analyze-content-keywords-openapi.yml, apyhub-namastesumalya-perform-technical-performance-audit-openapi.yml, apyhub-namastesumalya-technical-comparison-openapi.yml, apyhub-namastesumalya-translate-article-content-openapi.yml. Each path carries the servers of the definition it was published in.'
+  description: 'Operations tagged SEO across 7 of this provider''s published API definitions: apyhub-apyhub-serp-rankings-for-keyword-openapi.yml, apyhub-chisleroff-check-rich-results-openapi.yml, apyhub-chisleroff-full-site-audit-openapi.yml, apyhub-namastesumalya-analyze-content-keywords-openapi.yml, apyhub-namastesumalya-perform-technical-performance-audit-openapi.yml, apyhub-namastesumalya-technical-comparison-openapi.yml, apyhub-namastesumalya-translate-article-content-openapi.yml.'
 servers:
 - url: https://api.apyhub.com
   description: ApyHub API

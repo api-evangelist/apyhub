@@ -2,7 +2,7 @@ openapi: 3.2.0
 info:
   title: Apyhub Developer Tools API
   version: 1.0.0
-  description: 'Operations tagged Developer Tools across 19 of this provider''s published API definitions: apyhub-apyhub-convert-csv-to-xml-openapi.yml, apyhub-apyhub-convert-json-to-graphql-sdl-openapi.yml, apyhub-apyhub-convert-json-to-markdown-openapi.yml, apyhub-apyhub-convert-json-to-mongoose-schema-openapi.yml, apyhub-apyhub-convert-json-to-prisma-schema-openapi.yml, apyhub-apyhub-convert-json-to-xml-openapi.yml, apyhub-apyhub-convert-json-to-yaml-openapi.yml, apyhub-apyhub-convert-json-to-zod-schema-openapi.yml, apyhub-apyhub-convert-markdown-to-html-files-openapi.yml, apyhub-apyhub-convert-markdown-to-html-openapi.yml, apyhub-apyhub-convert-xml-to-json-openapi.yml, apyhub-apyhub-convert-yaml-to-json-openapi.yml, apyhub-apyhub-csv-to-json-openapi.yml, apyhub-apyhub-fuzzy-search-openapi.yml, apyhub-apyhub-generate-ical-event-openapi.yml, apyhub-apyhub-json-to-csv-openapi.yml, apyhub-apyhub-parse-user-agent-string-openapi.yml, apyhub-chisleroff-validate-html-openapi.yml, apyhub-sharpapi-skills-database-openapi.yml. Each path carries the servers of the definition it was published in.'
+  description: 'Operations tagged Developer Tools across 19 of this provider''s published API definitions: apyhub-apyhub-convert-csv-to-xml-openapi.yml, apyhub-apyhub-convert-json-to-graphql-sdl-openapi.yml, apyhub-apyhub-convert-json-to-markdown-openapi.yml, apyhub-apyhub-convert-json-to-mongoose-schema-openapi.yml, apyhub-apyhub-convert-json-to-prisma-schema-openapi.yml, apyhub-apyhub-convert-json-to-xml-openapi.yml, apyhub-apyhub-convert-json-to-yaml-openapi.yml…'
 servers:
 - url: https://api.apyhub.com
   description: ApyHub API

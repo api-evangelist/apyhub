@@ -2,7 +2,7 @@ openapi: 3.2.0
 info:
   title: Apyhub Data Validation API
   version: 1.0.0
-  description: 'Operations tagged Data Validation across 8 of this provider''s published API definitions: apyhub-apyhub-validate-aadhaar-number-openapi.yml, apyhub-apyhub-validate-file-type-openapi.yml, apyhub-apyhub-validate-iban-openapi.yml, apyhub-apyhub-validate-ifsc-bank-code-openapi.yml, apyhub-apyhub-validate-swift-bic-code-openapi.yml, apyhub-apyhub-validate-uk-postcode-openapi.yml, apyhub-apyhub-validate-vat-number-openapi.yml, apyhub-sharpapi-detect-phone-numbers-openapi.yml. Each path carries the servers of the definition it was published in.'
+  description: 'Operations tagged Data Validation across 8 of this provider''s published API definitions: apyhub-apyhub-validate-aadhaar-number-openapi.yml, apyhub-apyhub-validate-file-type-openapi.yml, apyhub-apyhub-validate-iban-openapi.yml, apyhub-apyhub-validate-ifsc-bank-code-openapi.yml, apyhub-apyhub-validate-swift-bic-code-openapi.yml, apyhub-apyhub-validate-uk-postcode-openapi.yml, apyhub-apyhub-validate-vat-number-openapi.yml, apyhub-sharpapi-detect-phone-numbers-openapi.yml.'
 servers:
 - url: https://api.apyhub.com
   description: ApyHub API

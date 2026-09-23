@@ -2,7 +2,7 @@ openapi: 3.2.0
 info:
   title: Apyhub Marketing API
   version: 1.0.0
-  description: 'Operations tagged Marketing across 7 of this provider''s published API definitions: apyhub-apyhub-generate-qr-code-openapi.yml, apyhub-chisleroff-dynamic-og-image-generation-openapi.yml, apyhub-chisleroff-evaluate-seo-health-openapi.yml, apyhub-namastesumalya-generate-keyword-clusters-openapi.yml, apyhub-namastesumalya-generate-newsletter-digest-openapi.yml, apyhub-sharpapi-generate-seo-tags-openapi.yml, apyhub-sharpapi-generate-tours-activities-product-catego-openapi.yml. Each path carries the servers of the definition it was published in.'
+  description: 'Operations tagged Marketing across 7 of this provider''s published API definitions: apyhub-apyhub-generate-qr-code-openapi.yml, apyhub-chisleroff-dynamic-og-image-generation-openapi.yml, apyhub-chisleroff-evaluate-seo-health-openapi.yml, apyhub-namastesumalya-generate-keyword-clusters-openapi.yml, apyhub-namastesumalya-generate-newsletter-digest-openapi.yml, apyhub-sharpapi-generate-seo-tags-openapi.yml, apyhub-sharpapi-generate-tours-activities-product-catego-openapi.yml.'
 servers:
 - url: https://api.apyhub.com
   description: ApyHub API

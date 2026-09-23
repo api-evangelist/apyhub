@@ -1,0 +1,1 @@
+{"authorization_servers":["https://apyhub.com"],"bearer_methods_supported":["header"],"resource":"https://mcp.eu.apyhub.com","scopes_supported":["mcp"]}
