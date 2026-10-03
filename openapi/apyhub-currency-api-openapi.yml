@@ -1,13 +1,13 @@
 openapi: 3.2.0
 info:
-  title: Apyhub Currency API
+  title: ApyHub Currency API
+  description: The ApyHub API provides a collection of utility APIs for common development tasks including PDF generation, document conversion (HTML to PDF, Word to PDF), data extraction, image processing, currency exchange rates, and more. Developers can integrate these pre-built utilities into their applications quickly.
   version: 1.0.0
   contact:
     name: ApyHub
     url: https://apyhub.com/docs
   license:
     name: Proprietary
-  description: 'Operations tagged Currency across 2 of this provider''s published API definitions: apyhub-openapi.yaml, apyhub-currency-api-openapi.yml. Each path carries the servers of the definition it was published in.'
 servers:
 - url: https://api.apyhub.com
   description: ApyHub API
@@ -69,9 +69,6 @@ paths:
           description: Invalid currency codes or amount
         '401':
           description: Unauthorized - invalid or missing API key
-    servers:
-    - url: https://api.apyhub.com
-      description: ApyHub API
 components:
   schemas:
     CurrencyConversionResult:
@@ -99,6 +96,3 @@ components:
       type: apiKey
       in: header
       name: apy-token
-x-refined-from:
-- apyhub-openapi.yaml
-- apyhub-currency-api-openapi.yml
