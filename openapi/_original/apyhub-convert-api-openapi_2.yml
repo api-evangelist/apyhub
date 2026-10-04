@@ -1,13 +1,15 @@
-openapi: 3.2.0
+# x-archived-from: ../_quarantine/apyhub-convert-api-openapi.yml
+# x-archived-on: 2026-10-04
+openapi: 3.0.3
 info:
-  title: Apyhub Convert API
+  title: ApyHub Convert API
+  description: The ApyHub API provides a collection of utility APIs for common development tasks including PDF generation, document conversion (HTML to PDF, Word to PDF), data extraction, image processing, currency exchange rates, and more. Developers can integrate these pre-built utilities into their applications quickly.
   version: 1.0.0
   contact:
     name: ApyHub
     url: https://apyhub.com/docs
   license:
     name: Proprietary
-  description: 'Operations tagged Convert across 3 of this provider''s published API definitions: apyhub-openapi.yaml, apyhub-openapi.yaml, apyhub-convert-api-openapi.yml. Each path carries the servers of the definition it was published in.'
 servers:
 - url: https://api.apyhub.com
   description: ApyHub API
@@ -63,9 +65,6 @@ paths:
           description: Invalid request body
         '401':
           description: Unauthorized - invalid or missing API key
-    servers:
-    - url: https://api.apyhub.com
-      description: ApyHub API
   /convert/word/pdf:
     post:
       operationId: convertWordToPdf
@@ -104,9 +103,6 @@ paths:
           description: Invalid file or request
         '401':
           description: Unauthorized - invalid or missing API key
-    servers:
-    - url: https://api.apyhub.com
-      description: ApyHub API
 components:
   schemas:
     ConversionResult:
@@ -136,7 +132,3 @@ components:
       type: apiKey
       in: header
       name: apy-token
-x-refined-from:
-- apyhub-openapi.yaml
-- apyhub-openapi.yaml
-- apyhub-convert-api-openapi.yml
