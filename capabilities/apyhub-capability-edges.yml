@@ -1,0 +1,47 @@
+slug: apyhub
+provider: ApyHub
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 3
+edges:
+- tag: SEO
+  spec_file: apyhub-seo-api-openapi.yml
+  capability_id: BC-400.60
+  capability_id_l1: BC-400
+  capability_name: Digital Marketing Management
+  confidence: 0.85
+  evidence: POST /extract/serp/rank 'SERP Rank Checker API'; POST /chisleroff/intel/audit 'Full Site Audit
+    API'; POST /namastesumalya/api/content 'Content and Keyword Analysis API'
+  reason: SERP rank checking, rich-results checks, site audits and keyword/content analysis are squarely
+    search-engine-optimisation activities, i.e. Digital Marketing Management (web, SEO).
+- tag: HR
+  spec_file: apyhub-hr-api-openapi.yml
+  capability_id: BC-300.10
+  capability_id_l1: BC-300
+  capability_name: Talent Acquisition Management
+  confidence: 0.78
+  evidence: POST /sharpapi/api/v1/hr/job_description 'Job Description Generator API'; POST /namastesumalya/api/improve-resume
+    'Resume Optimizer (ATS) API'; POST /namastesumalya/api/interview-questions 'Interview Prep Pack API'
+  reason: Operations generate job descriptions, interview question packs, ATS-optimised resumes, job-position
+    and related-skill lists — all recruiting/hiring artefacts, which sits under Talent Acquisition within
+    Human Capital Management. Some ops (related skills) edge toward broader HR, hence not maximal confidence.
+- tag: E-commerce Quick Tools
+  spec_file: apyhub-e-commerce-quick-tools-api-openapi.yml
+  capability_id: BC-440.10
+  capability_id_l1: BC-440
+  capability_name: Pricing Strategy Management
+  confidence: 0.7
+  evidence: Generate country-specific subscription price recommendations from a base price, currency,
+    and home country. Returns local prices and justification.
+  reason: The single operation produces segment/geography-specific price recommendations with justification,
+    which is price setting support — Pricing Management. Sub-capability is ambiguous between pricing strategy
+    (recommendation logic) and price list maintenance (regional prices), hence moderate confidence.

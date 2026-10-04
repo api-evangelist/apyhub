@@ -11598,5 +11598,8 @@ apis:
   - type: OpenAPI
     url: openapi/apyhub-generate-api-openapi.yml
 common:
+- type: CapabilityMap
+  url: capabilities/apyhub-capability-edges.yml
+  name: ApyHub Business Capability Map
 - type: Website
   url: https://apyhub.com
