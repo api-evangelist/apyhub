@@ -14,7 +14,7 @@ edges:
     registered_name: com.apyhub/mcp-server-eu
     register_id: com.apyhub/mcp-server-eu
     detected_by: sweep-agent-tools.py
-    detected: '2026-10-14'
+    detected: '2026-10-15'
   mcp_registry:
     servers:
     - com.apyhub/mcp-server-eu
