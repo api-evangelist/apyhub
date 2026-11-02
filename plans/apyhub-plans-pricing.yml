@@ -1,0 +1,78 @@
+# Pricing transcribed from the provider's own page — see provenance. Numbers are quoted, not derived.
+generated: '2026-10-07'
+method: searched
+source: https://apyhub.com/pricing
+sources:
+- https://apyhub.com/pricing
+provenance:
+  tool: all/0-working/economics/harvest_pricing.py
+  run: 20261007T104522
+  grounding: every price_text was found verbatim in the fetched page text
+audience: developer-api
+pricing_basis: tiered-subscription
+delivery:
+  delivery: managed
+  method: page
+  read: '2026-10-07'
+published: true
+note: Medium Traffic / Heavy Traffic toggle; shown tiers are Medium Traffic.
+plan_count: 3
+currency: USD
+plans:
+- name: Starter
+  price_text: Free
+  price: 0
+  period: month
+  unit: atoms
+  included_quota: 3,000 atoms / month, 1 API key, 5 req/sec, 1 team member, MCP access (Claude / Cursor)
+- name: Pro
+  price_text: $16 / mo
+  price: 16
+  currency: USD
+  period: month
+  unit: atoms
+  included_quota: 100,000 atoms / month, 10 API keys, 5 req/sec, 5 team members, MCP access
+  overage: Top up atoms anytime
+- name: Pro+
+  price_text: $42 / mo
+  price: 42
+  currency: USD
+  period: month
+  unit: atoms
+  included_quota: 500,000 atoms / month, 10 API keys, 10 req/sec, 5 team members, MCP access
+  overage: Top up atoms anytime
+rate_limit_statements:
+- 5 req/sec
+- 10 req/sec
+x-canonical:
+  generated: '2026-11-01'
+  vocabulary: engine/economics/plans-canonical.yml
+  models:
+  - free
+  - hybrid
+  units: []
+  plans:
+  - name: Starter
+    access: other
+    model: free
+    model_how: derived
+    units:
+    - other
+    periods:
+    - month
+  - name: Pro
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - other
+    periods:
+    - month
+  - name: Pro+
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - other
+    periods:
+    - month
